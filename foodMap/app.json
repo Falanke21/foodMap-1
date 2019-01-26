@@ -1,12 +1,40 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/calendar/calendar",
+    "pages/self/self"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+  "list": [
+    {
+      "pagePath": "pages/index/index",
+      "iconPath": "image/map.png",
+      "selectedIconPath": "image/map.png",
+      "text": "地图"
+    },
+    {
+      "pagePath": "pages/calendar/calendar",
+      "iconPath": "image/calendar.png",
+      "selectedIconPath": "image/calendar.png",
+      "text": "活动"
+    },
+    {
+      "pagePath": "pages/self/self",
+      "iconPath": "",
+      "selectedIconPath": "",
+      "text": "个人"
+    }
+  ]
   }
 }
