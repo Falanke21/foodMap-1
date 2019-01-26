@@ -1,54 +1,47 @@
 //index.js
 //获取应用实例
 const app = getApp()
+var QQMapWX = require('../qqmap-wx.js');
+
+// 实例化API核心类
+var qqmapsdk = new QQMapWX({
+  key: '开发密钥（key）' // 必填
+});
 
 Page({
-  data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
-  },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
+  // 引入SDK核心类
+
+ 
+// 事件触发，调用接口
+nearby_search:function(){
+   var _this = this;
+   // 调用接口
+   qqmapsdk.search({
+      keyword: 'kfc',  //搜索关键词
+      location: '39.980014,116.313972',  //设置周边搜索中心点
+      success: function (res) { //搜索成功后的回调
+        var mks = []
+        for (var i = 0; i < res.data.length; i++) {
+          mks.push({ // 获取返回结果，放到mks数组中
+            title: res.data[i].title,
+            id: res.data[i].id,
+            latitude: res.data[i].location.lat,
+            longitude: res.data[i].location.lng,
+            iconPath: "/resources/my_marker.png", //图标路径
+            width: 20,
+            height: 20
           })
         }
-      })
-    }
-  },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-  }
+        _this.setData({ //设置markers属性，将搜索结果显示在地图中
+          markers: mks
+        })
+      },
+      fail: function (res) {
+        console.log(res);
+      },
+      complete: function (res){
+        console.log(res);
+      }
+  });
+}
 })
