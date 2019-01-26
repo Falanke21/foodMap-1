@@ -11,7 +11,7 @@
           <input bindinput="bindBarcodeInput" bindconfirm="query" bindfocus="bindBarcodeFocus" bindblur="bindBarcodeBlur" class="search-input" placeholder="搜索美食" value="{{barcode}}" confirm-type="search" />
         </view>
         <view class="search-button-wrapper">
-          <image class="search-button" src="/image/search.png" bindtap="scan"></image>
+          <image class="search-button" src="/image/search.png" bindtap="nearby_search"></image>
         </view>
       </view>
     </view>
