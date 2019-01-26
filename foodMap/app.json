@@ -19,14 +19,14 @@
   "list": [
     {
       "pagePath": "pages/index/index",
-      "iconPath": "image/map.png",
-      "selectedIconPath": "image/map.png",
+      "iconPath": "",
+      "selectedIconPath": "",
       "text": "地图"
     },
     {
       "pagePath": "pages/calendar/calendar",
-      "iconPath": "image/calendar.png",
-      "selectedIconPath": "image/calendar.png",
+      "iconPath": "",
+      "selectedIconPath": "",
       "text": "活动"
     },
     {
