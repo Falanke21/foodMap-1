@@ -1,7 +1,25 @@
 <!--index.wxml-->
 <view class="container">
   <!--绑定点击事件-->
-<button bindtap="nearby_search">搜索周边</button>
+<!-- 搜索框 -->
+ <view class="search-wrapper">
+    <view class="search-panel">
+      <view class="search-section">
+      <view class="search-button-wrapper">
+        </view>
+        <view class="search-input-wrapper ">
+          <input bindinput="bindBarcodeInput" bindconfirm="query" bindfocus="bindBarcodeFocus" bindblur="bindBarcodeBlur" class="search-input" placeholder="搜索美食" value="{{barcode}}" confirm-type="search" />
+        </view>
+        <view class="search-button-wrapper">
+          <image class="search-button" src="/image/search.png" bindtap="scan"></image>
+        </view>
+      </view>
+    </view>
+    <view class="search-demo" hidden="{{hiddenDropdown}}">
+      <button size="mini" bindtap="setDemoData">示例</button>
+      <button size="mini" bindtap="clear" style="margin-left:10px;">清空</button>
+    </view>
+  </view>
 <!--地图容器-->
 <map id="myMap"
    markers="{{markers}}"
