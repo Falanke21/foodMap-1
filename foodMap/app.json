@@ -3,13 +3,19 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/calendar/calendar",
-    "pages/self/self"
+    "pages/self/self",
+    "pages/dialog/dialog"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
+  },
+  "permission": {
+    "scope.userLocation":{
+      "desc": "你的位置信息将用于定位系统 by: g-force"
+    }
   },
   "tabBar": {
     "color": "#7A7E83",
@@ -34,6 +40,12 @@
       "iconPath": "",
       "selectedIconPath": "",
       "text": "个人"
+    },
+    {
+      "pagePath": "pages/dialog/dialog",
+      "iconPath": "image/ic_position.png",
+      "selectedIconPath": "",
+      "text": "弹窗"
     }
   ]
   }

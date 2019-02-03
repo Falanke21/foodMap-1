@@ -30,7 +30,7 @@ Page({
         , markers: [
           {
             id: 0
-            , iconPath: "../../imgs/ic_position.png"
+            , iconPath: '../../image/ic_location.png'
             , longitude: locationInfo.longitude
             , latitude: locationInfo.latitude
             , width: 30
@@ -48,7 +48,7 @@ Page({
           , map_height: res.windowWidth
           , controls: [{
             id: 1,
-            iconPath: '../../imgs/ic_location.png',
+            iconPath: '../../image/ic_location.png',
             position: {
               left: res.windowWidth / 2 - 8,
               top: res.windowWidth / 2 - 16,
@@ -112,7 +112,7 @@ Page({
     });
   },
   query: function (e) {
-    var url = "https://www.xxx.com/query";//查询数据的URL
+    var url = "https://www.google.com/query";//查询数据的URL
     var that = this;
     if (that.data.barcode == undefined
       || that.data.barcode == null
@@ -209,7 +209,7 @@ nearby_search:function(){
           , markers: [
             {
               id: 0
-              , iconPath: "../../imgs/ic_position.png"
+              , iconPath: "../../image/ic_position.png"
               , longitude: res.longitude
               , latitude: res.latitude
               , width: 30

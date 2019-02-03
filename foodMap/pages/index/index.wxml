@@ -21,10 +21,13 @@
     </view>
   </view>
 <!--地图容器-->
+
 <map id="myMap"
    markers="{{markers}}"
    style="width:100%;height:380px;"
-   longitude="116.313972"
-   latitude="39.980014" scale='16'>
+   longitude="113.324520" latitude="23.099994" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height: 300px;">>
 </map>
+<!--
+<map id="myMap" longitude="113.324520" latitude="23.099994" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height: 300px;"></map>
+-->
 </view>
