@@ -33,6 +33,7 @@ Component({
    */
   data: {
     flag: true,
+    likes: 0,
     imageUrl: "https://pbs.twimg.com/profile_images/558329813782376448/H2cb-84q_400x400.jpeg"
   },
 
@@ -50,6 +51,12 @@ Component({
     showPopup() {
       this.setData({
         flag: !this.data.flag
+      })
+    },
+    //赞一哈
+    addLike() {
+      this.setData({
+        likes: ++this.data.likes
       })
     }
   }
