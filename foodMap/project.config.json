@@ -13,8 +13,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.5.1",
-	"appid": "wx768745b1975694d0",
-	"projectname": "foodMap",
+	"appid": "wx43585bb6bb885ac3",
+	"projectname": "food_map",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

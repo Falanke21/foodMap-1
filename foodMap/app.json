@@ -19,8 +19,8 @@
   "list": [
     {
       "pagePath": "pages/index/index",
-      "iconPath": "",
-      "selectedIconPath": "",
+      "iconPath": "image/map.png",
+      "selectedIconPath": "image/map.png",
       "text": "地图"
     },
     {
