@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/calendar/calendar",
-    "pages/self/self"
+    "pages/self/self",
+    "pages/dialog/dialog"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -34,6 +35,12 @@
       "iconPath": "",
       "selectedIconPath": "",
       "text": "个人"
+    },
+    {
+      "pagePath": "pages/dialog/dialog",
+      "iconPath": "",
+      "selectedIconPath": "",
+      "text": "弹窗"
     }
   ]
   }
