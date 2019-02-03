@@ -2,9 +2,12 @@
 <view class="wx-popup" hidden="{{flag}}">
   <view class='popup-container'>
     <view class="wx-popup-title">{{title}}</view>
-    <view class="wx-popup-con">{{content}}</view>
-  
+    <view class="wx-popup-text">{{content}}</view>
+    <view class="wx-popup-likes">{{likes}}</view>
       <image src="{{imageUrl}}"></image>
-    <button bindtap='hidePopup'>你是我爸</button>
+      
+    <button bindtap='addLike'>赞爆</button>
+    <button bindtap='hidePopup'>大喊“你是我爸”可退出</button>
+    
   </view>
 </view>
