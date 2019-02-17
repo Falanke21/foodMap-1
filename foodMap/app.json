@@ -31,20 +31,20 @@
     },
     {
       "pagePath": "pages/calendar/calendar",
-      "iconPath": "",
-      "selectedIconPath": "",
+      "iconPath": "image/ic_position.png",
+      "selectedIconPath": "image/ic_position.png",
       "text": "活动"
     },
     {
       "pagePath": "pages/self/self",
-      "iconPath": "",
-      "selectedIconPath": "",
+      "iconPath": "image/ic_position.png",
+      "selectedIconPath": "image/ic_position.png",
       "text": "个人"
     },
     {
       "pagePath": "pages/dialog/dialog",
       "iconPath": "image/ic_position.png",
-      "selectedIconPath": "",
+      "selectedIconPath": "image/ic_position.png",
       "text": "弹窗"
     }
   ]

@@ -85,6 +85,7 @@ Page({
 
     })
 
+
     wx.getSystemInfo({
 
       success: function (res) {
@@ -130,8 +131,6 @@ Page({
 
 
   },
-
-
 
   bindBarcodeInput: function (e) {
 
@@ -450,9 +449,13 @@ Page({
 
     })
 
-  }
+  },
 
-  , regionchange(e) {
+  moveToLocation: function () {
+    this.mapCtx.moveToLocation()
+  },
+
+  regionchange(e) {
 
     // 地图发生变化的时候，获取中间点，也就是用户选择的位置
 
