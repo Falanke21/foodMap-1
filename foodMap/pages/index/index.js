@@ -34,9 +34,13 @@ Page({
 
     hiddenClear: true,
 
-    longitude: 43,
+    longitude: -79.3849,
 
-    latitude: 79,
+    init_long: -79.3849,
+
+    init_lat: 43.6529,
+
+    latitude: 43.6529,
 
     demoData: 'XXXX',
 
@@ -85,7 +89,6 @@ Page({
 
     })
 
-
     wx.getSystemInfo({
 
       success: function (res) {
@@ -100,36 +103,44 @@ Page({
 
           , map_height: res.windowWidth
 
-          , controls: [{
+          // , controls: [{
 
-            id: 1,
+          //   id: 1,
 
-            iconPath: '../../image/ic_location.png',
+          //   iconPath: '../../image/ic_location.png',
 
-            position: {
+          //   position: {
 
-              left: res.windowWidth / 2 - 8,
+          //     left: res.windowWidth / 2 - 8,
 
-              top: res.windowWidth / 2 - 16,
+          //     top: res.windowWidth / 2 - 16,
 
-              width: 30,
+          //     width: 30,
 
-              height: 30
+          //     height: 30
 
-            },
+          //   },
 
-            clickable: true
+          //  clickable: true
 
-          }]
+          //}]
 
         })
 
       }
 
     })
-
-
-
+    wx.getLocation({
+      type: 'gcj02',
+      success: function (res) {
+        that.setData({
+          latitude: res.latitude,
+          longitude: res.longitude,
+        })
+        that.moveTolocation();
+      },
+    }),
+    that.setData({ init_lat: latitude, init_long: longitude })
   },
 
   bindBarcodeInput: function (e) {
@@ -449,6 +460,16 @@ Page({
 
     })
 
+  },
+
+
+  /**
+ * 移动到中心点
+ */
+  moveTolocation: function () {
+    //mapId 就是你在 map 标签中定义的 id
+    var mapCtx = wx.createMapContext("myMap");
+    mapCtx.moveToLocation();
   },
 
   moveToLocation: function () {
