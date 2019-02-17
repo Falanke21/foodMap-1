@@ -4,7 +4,18 @@
     <view class="wx-popup-title">{{title}}</view>
     <view class="wx-popup-text">{{content}}</view>
     <view class="wx-popup-likes">{{likes}}</view>
-      <image src="{{imageUrl}}"></image>
+      
+      <view class='swiper-container'>
+        <swiper
+        indicator-dots="true" autoplay="true" circular="true"
+        interval="2000">
+           <block wx:for="{{images}}" wx:key="*this">
+          <swiper-item>
+            <image class='swiper-image' src='{{item}}'></image>
+          </swiper-item>
+        </block>
+        </swiper>
+      </view>
       
     <button bindtap='addLike'>赞爆</button>
     <button bindtap='hidePopup'>大喊“你是我爸”可退出</button>

@@ -61,3 +61,7 @@
   transition: 0.5s;
   color: #fff;
 }
+
+.swiper-container {
+  padding: 40px;
+}
