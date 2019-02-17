@@ -50,6 +50,17 @@ Page({
 
   },
 
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+    this.popup = this.selectComponent("#popup");
+  },
+
+  showPopup() {
+    this.popup.showPopup();
+  },
+
   onLoad: function () {
 
     var that = this;
@@ -491,7 +502,7 @@ Page({
   , markertap(e) {
 
     console.log(e)
-
+    this.popup.showPopup();
   }
 
 })
