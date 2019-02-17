@@ -34,9 +34,9 @@ Page({
 
     hiddenClear: true,
 
-    longitude:0,
+    longitude: 43,
 
-   latitude: 0,
+    latitude: 79,
 
     demoData: 'XXXX',
 
