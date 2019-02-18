@@ -92,7 +92,7 @@ Page({
         that.moveTolocation();
       },
     }),
-      that.setData({ init_lat: latitude, init_long: longitude })
+      that.setData({ init_lat: this.data.latitude, init_long: this.data.longitude })
   },
 
   bindBarcodeInput: function (e) {
