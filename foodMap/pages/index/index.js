@@ -44,7 +44,7 @@ Page({
     app.getLocationInfo(function (locationInfo) {
       console.log('map', locationInfo);
       that.setData({
-        longitude: locationInfo.longitude, 
+        longitude: locationInfo.longitude,
         latitude: locationInfo.latitude,
         markers: [
           {
@@ -66,18 +66,30 @@ Page({
         console.log(res.windowWidth);
         that.setData({
           map_width: res.windowWidth,
-          map_height: res.windowWidth, 
-          controls: [{
-            id: 1,
-            iconPath: '/image/locate.png',
-            position: {
-              left: 290,
-              top: 400,
-              width: 60,
-              height: 60
+          map_height: res.windowWidth,
+          controls: [
+            {
+              id: 1,
+              iconPath: '/image/locate.png',
+              position: {
+                left: 290,
+                top: 400,
+                width: 60,
+                height: 60
+              },
+              clickable: true
             },
-            clickable: true
-          }]
+            {
+              id: 2,
+              iconPath: '/image/search.png',
+              position: {
+                left: 290,
+                top: 330,
+                width: 60,
+                height: 60
+              },
+              clickable: true
+            }]
         })
       }
     })
@@ -260,31 +272,31 @@ Page({
 
       success: function (res) {
         that.setData({
-          longitude: res.longitude, 
-          latitude: res.latitude, 
-          map: true, 
+          longitude: res.longitude,
+          latitude: res.latitude,
+          map: true,
           markers: [
             {
-              id: 0, 
-              iconPath: "../../image/peiqi.png", 
-              longitude: -79.3832, 
-              latitude: 43.6532, 
-              width: 40, 
+              id: 0,
+              iconPath: "../../image/peiqi.png",
+              longitude: -79.3832,
+              latitude: 43.6532,
+              width: 40,
               height: 30
             },
             {
-              id: 2, 
-              iconPath: "../../image/search.png", 
-              longitude: -79.4142, 
-              latitude: 43.6532, 
-              width: 40, 
+              id: 2,
+              iconPath: "../../image/search.png",
+              longitude: -79.4142,
+              latitude: 43.6532,
+              width: 40,
               height: 30
             }, {
-              id: 3, 
-              iconPath: "../../image/map.png", 
-              longitude: -79.3832, 
-              latitude: 43.6839, 
-              width: 30, 
+              id: 3,
+              iconPath: "../../image/map.png",
+              longitude: -79.3832,
+              latitude: 43.6839,
+              width: 30,
               height: 30
             }
           ]
@@ -311,6 +323,12 @@ Page({
     if (e.type == 'end') {
       this.getLngLat()
     }
+  },
+  
+  bindSearchBtn: function (e) {
+    wx.navigateTo({
+      url: '/components/searchBox/searchBox'
+    })
   }
 
   , markertap(e) {
@@ -318,8 +336,17 @@ Page({
     console.log(e)
     this.popup.showPopup();
   }
-  , controltap(e) {
-    this.moveTolocation()
+  , controltap: function (e) {
+    console.log(e.controlId)
+    var id = e.controlId
+    // 定位
+    if (id == 1) {
+      this.moveTolocation()
+    // 搜索
+    } else if (id == 2) {
+      this.bindSearchBtn()
+    }
+    
   }
 
 })
