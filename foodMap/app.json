@@ -5,7 +5,8 @@
     "pages/calendar/calendar",
     "pages/self/self",
     "pages/dialog/dialog",
-    "pages/popupPage/popupPage"
+    "pages/popupPage/popupPage",
+    "pages/data/data"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -47,6 +48,12 @@
         "iconPath": "image/ic_position.png",
         "selectedIconPath": "image/ic_position.png",
         "text": "弹窗"
+      },
+      {
+        "pagePath": "pages/data/data",
+        "iconPath": "image/ic_position.png",
+        "selectedIconPath": "image/ic_position.png",
+        "text": "data"
       }
     ]
   }
