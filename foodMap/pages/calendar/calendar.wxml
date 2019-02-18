@@ -1,2 +1,14 @@
 <!--pages/calendar/calendar.wxml-->
-<text>pages/calendar/calendar.wxml</text>
+<view class="container-fluid">
+    <view class="calendar-box">
+        <view class="left">
+            <view class="today">
+                <text>{{day}}</text>
+                <text class="monthStr">{{str}}</text>
+            </view>            
+        </view>
+        <view class="right">
+            <calendar header="{{false}}" cell-size="20" days-color="{{demo1_days_style}}" active-type="square" />
+        </view>
+    </view>
+</view>

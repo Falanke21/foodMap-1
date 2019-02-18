@@ -1,2 +1,18 @@
 <!--pages/self/self.wxml-->
-<text>pages/self/self.wxml</text>
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+</view>
+<view class="section">
+  <view class="level">
+    <text class="user-level"> Level {{level}}</text>
+  </view>
+  <view class="experience">
+    <!-- Needs 100 more experiences on every level -->
+    <progress percent="{{exp / levelUpNeed * 100}}" stroke-width="12" activeColor="pink" active />
+    <button bindtap="gainExp"> 经验+20 </button>
+  </view>
+</view>
