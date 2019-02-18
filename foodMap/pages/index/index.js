@@ -63,8 +63,8 @@ Page({
     wx.getSystemInfo({
       success: function (res) {
         console.log('getSystemInfo');
-        console.log(res.windowWidth);
-        console.log(res.windowHeight);
+        console.log('windowWidth is ' + res.windowWidth);
+        console.log('windowHeight is ' + res.windowHeight);
         that.setData({
           map_width: res.windowWidth,
           map_height: res.windowHeight,
@@ -332,8 +332,9 @@ Page({
       url: '/components/searchBox/searchBox'
     })
   }
+
   , controltap: function (e) {
-    console.log(e.controlId)
+    console.log('map control id: ' + e.controlId)
     var id = e.controlId
     // 定位
     if (id == 1) {
