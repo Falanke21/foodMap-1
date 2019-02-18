@@ -10,6 +10,41 @@ public abstract class JDBC {
     public Connection connection;
 
     /**
+     * The return class for method Restaurant.
+     */
+    public static class Restaurant {
+        public int id;
+        public String name;
+        public float longitude;
+        public float latitude;
+
+        public Restaurant(int id, String name, float longitude, float latitude) {
+            this.id = id;
+            this.name = name;
+            this.longitude = longitude;
+            this.latitude = latitude;
+        }
+    }
+
+    /**
+     * The return class for method Customer.
+     */
+    public static class Customer {
+        public String id;
+        public int level;
+        public String experience;
+        public String name;
+
+        public Customer(String id, int level, String experience, String name) {
+            this.id = id;
+            this.level = level;
+            this.experience = experience;
+            this.name = name;
+        }
+    }
+
+
+    /**
      * Connects and sets the search path.
      *
      * Establishes a connection to be used for this session, assigning it to
@@ -31,14 +66,31 @@ public abstract class JDBC {
     public abstract boolean disconnectDB();
 
     /**
-     * Returns the name of the store with id storeId.
+     * Returns the information of the restaurant with id storeId.
      *
-     * Does so by finding the store's name with this id in the database.
+     * Does so by finding the restaurant with this id in the database.
      *
-     * @param  storeId   id of the store
-     * @return           the name of the store
+     * @param  storeId   id of the restaurant
+     * @return           the Restaurant object
      *
      */
-    public abstract String findStoreNAme(int storeId);
+    public abstract Restaurant findStoreNAme(int storeId);
+
+    /**
+     * Returns a list of Restaurant objects.
+     *
+     * @return           the list of Restaurant object
+     */
+    public abstract List<Restaurant> findAllRestaurant();
+
+    /**
+     * Returns the information of the customer with id wechatId.
+     *
+     * Does so by finding the customer with this id in the database.
+     *
+     * @param wechatId  id of the customer
+     * @return           the Customer object
+     */
+    public abstract Customer findCustomer(String wechatId);
 
 }

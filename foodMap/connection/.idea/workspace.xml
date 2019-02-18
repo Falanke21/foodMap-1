@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f7235553-2030-4774-9411-9816ce5b53c1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/connect.js" beforeDir="false" afterPath="$PROJECT_DIR$/connect.js" afterDir="false" />
-    </list>
+    <list default="true" id="f7235553-2030-4774-9411-9816ce5b53c1" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -16,20 +13,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/connect.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret lean-forward="true" />
+            <state relative-caret-position="120">
+              <caret line="8" column="38" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../pages/index/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4733">
-              <caret line="322" column="3" lean-forward="true" selection-start-line="322" selection-start-column="3" selection-end-line="322" selection-end-column="3" />
+            <state relative-caret-position="4830">
+              <caret line="323" column="3" lean-forward="true" selection-start-line="323" selection-start-column="3" selection-end-line="323" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -117,12 +114,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1550517856669</updated>
-      <workItem from="1550517858660" duration="1284000" />
+      <workItem from="1550517858660" duration="1746000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1284000" />
+    <option name="totallyTimeSpent" value="1746000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="956" extended-state="0" />
@@ -161,17 +158,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/connect.js">
+    <entry file="file://$PROJECT_DIR$/../pages/index/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
+        <state relative-caret-position="4830">
+          <caret line="323" column="3" lean-forward="true" selection-start-line="323" selection-start-column="3" selection-end-line="323" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../pages/index/index.js">
+    <entry file="file://$PROJECT_DIR$/../../../University of Toronto/2018-2019 Fall Winter/CSC343/Assignment/A2/data/Assignment2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4733">
-          <caret line="322" column="3" lean-forward="true" selection-start-line="322" selection-start-column="3" selection-end-line="322" selection-end-column="3" />
+        <state relative-caret-position="105">
+          <caret line="7" column="23" lean-forward="true" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/connect.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="38" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
         </state>
       </provider>
     </entry>
