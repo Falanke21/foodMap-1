@@ -58,17 +58,15 @@ Page({
 
   gainExp() {
     var expIncr = 20
-    if (this.data.exp + expIncr > this.data.levelUpNeed) {
-      setData({
-        level: ++level,
-        levelUpNeed: levelUpNeed + 100,
-        exp: exp + expIncr
-      })
-    } else {
+    if (this.data.exp + expIncr >= this.data.levelUpNeed) {
       this.setData({
-        exp: exp + expIncr
+        level: ++this.data.level,
+        levelUpNeed: this.data.levelUpNeed + 100,
       })
     }
+    this.setData({
+      exp: this.data.exp + expIncr
+    })
   },
 
   /**

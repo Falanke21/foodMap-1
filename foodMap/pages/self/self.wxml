@@ -12,7 +12,7 @@
   </view>
   <view class="experience">
     <!-- Needs 100 more experiences on every level -->
-    <progress percent="{{exp / levelUpNeed * 100}}" stroke-width="12" activeColor="pink" active />
+    <progress percent="{{exp / levelUpNeed * 100}}" stroke-width="12" activeColor="pink" active active-mode="forwards" />
     <button bindtap="gainExp"> 经验+20 </button>
   </view>
 </view>
