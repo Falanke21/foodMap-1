@@ -2,8 +2,6 @@
 
 <view class="wx-popup">
   <view class='popup-container'>
-    <view class="wx-popup-title">{{title}}</view>
-    <view class="wx-popup-text">{{content}}</view>
     <view class="wx-popup-likes">{{likes}}</view>
       
       <view class='swiper-container'>
