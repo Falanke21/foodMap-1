@@ -4,7 +4,8 @@
     "pages/logs/logs",
     "pages/calendar/calendar",
     "pages/self/self",
-    "pages/dialog/dialog"
+    "pages/dialog/dialog",
+    "pages/data/data"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -13,7 +14,7 @@
     "navigationBarTextStyle": "black"
   },
   "permission": {
-    "scope.userLocation":{
+    "scope.userLocation": {
       "desc": "你的位置信息将用于定位系统 by: g-force"
     }
   },
@@ -22,31 +23,37 @@
     "selectedColor": "#3cc51f",
     "borderStyle": "black",
     "backgroundColor": "#ffffff",
-  "list": [
-    {
-      "pagePath": "pages/index/index",
-      "iconPath": "image/map.png",
-      "selectedIconPath": "image/map.png",
-      "text": "地图"
-    },
-    {
-      "pagePath": "pages/calendar/calendar",
-      "iconPath": "image/event.png",
-      "selectedIconPath": "image/event.png",
-      "text": "活动"
-    },
-    {
-      "pagePath": "pages/self/self",
-      "iconPath": "image/personal.png",
-      "selectedIconPath": "image/personal.png",
-      "text": "个人"
-    },
-    {
-      "pagePath": "pages/dialog/dialog",
-      "iconPath": "image/ic_position.png",
-      "selectedIconPath": "image/ic_position.png",
-      "text": "弹窗"
-    }
-  ]
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "image/map.png",
+        "selectedIconPath": "image/map.png",
+        "text": "地图"
+      },
+      {
+        "pagePath": "pages/calendar/calendar",
+        "iconPath": "image/event.png",
+        "selectedIconPath": "image/event.png",
+        "text": "活动"
+      },
+      {
+        "pagePath": "pages/self/self",
+        "iconPath": "image/personal.png",
+        "selectedIconPath": "image/personal.png",
+        "text": "个人"
+      },
+      {
+        "pagePath": "pages/dialog/dialog",
+        "iconPath": "image/ic_position.png",
+        "selectedIconPath": "image/ic_position.png",
+        "text": "弹窗"
+      },
+      {
+        "pagePath": "pages/data/data",
+        "iconPath": "image/ic_position.png",
+        "selectedIconPath": "image/ic_position.png",
+        "text": "data"
+      }
+    ]
   }
 }
