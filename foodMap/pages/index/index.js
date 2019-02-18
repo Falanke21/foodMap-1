@@ -64,16 +64,17 @@ Page({
       success: function (res) {
         console.log('getSystemInfo');
         console.log(res.windowWidth);
+        console.log(res.windowHeight);
         that.setData({
           map_width: res.windowWidth,
-          map_height: res.windowWidth,
+          map_height: res.windowHeight,
           controls: [
             {
               id: 1,
               iconPath: '/image/locate.png',
               position: {
-                left: 290,
-                top: 400,
+                left: res.windowWidth * 290 / 375,
+                top: res.windowHeight * 400 / 812,
                 width: 60,
                 height: 60
               },
@@ -83,8 +84,8 @@ Page({
               id: 2,
               iconPath: '/image/search.png',
               position: {
-                left: 290,
-                top: 330,
+                left: res.windowWidth * 290 / 375,
+                top: res.windowHeight * 330 / 812,
                 width: 60,
                 height: 60
               },
