@@ -23,31 +23,6 @@
   overflow: hidden;
   background: #fff;
 }
-.wx-popup-title {
-  width: 100%;
-  padding: 20rpx;
-  text-align: center;
-  font-size: 40rpx;
-  border-bottom: 2rpx solid red;
-}
-.wx-popup-con {
-  margin: 60rpx 10rpx;
-  text-align: center;
-}
-.wx-popup-btn {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 40rpx;
-}
-.wx-popup-btn text {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 30%;
-  height: 88rpx;
-  border: 2rpx solid #ccc;
-  border-radius: 88rpx;
-}
 
 .wx-popup-likes {
   width: 50px;
