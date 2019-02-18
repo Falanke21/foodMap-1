@@ -1,6 +1,6 @@
 /* pages/popupPage/popupPage.wxss */
 
-.wx-popup {
+/* .wx-popup {
   position: absolute;
   left: 0;
   top: 0;
@@ -8,18 +8,17 @@
   height: 100%;
   background: rgba(0, 0, 0, .5);
   z-index: 100;
-}
+} */
+
 .popup-container {
   position: absolute;
-  left: 50%;
-  top: 50%;
+  left: 10%;
+  top: 10%;
  
   width: 80%;
   max-width: 600rpx;
-  border: 2rpx solid #ccc;
-  border-radius: 10rpx;
   box-sizing: bordre-box;
-  transform: translate(-50%, -50%); 
+  /* transform: translate(-50%, -50%);  */
   overflow: hidden;
   background: #fff;
 }
@@ -31,8 +30,9 @@
   text-align: center;
   line-height: 50px;
   border-radius: 50%;
-  position: absolute;
-  left: 10px;
+  /* position: absolute; */
+  left: 80px;
+  top: 200px;
   transition: 0.5s;
   color: #fff;
 }

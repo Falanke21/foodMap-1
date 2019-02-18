@@ -11,7 +11,7 @@ Page({
     images: ["https://pbs.twimg.com/profile_images/558329813782376448/H2cb-84q_400x400.jpeg", "https://i.ytimg.com/vi/3flWbxiQeY4/maxresdefault.jpg"]
   },
 
-  //隐藏弹框
+  //回到地图
   backToMap: function () {
     wx.navigateBack();
   },

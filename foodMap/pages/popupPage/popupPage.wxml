@@ -1,6 +1,6 @@
 <!--pages/popupPage/popupPage.wxml-->
 
-<view class="wx-popup">
+<!-- <view class="wx-popup"> -->
   <view class='popup-container'>
     <view class="wx-popup-likes">{{likes}}</view>
       
@@ -16,8 +16,10 @@
         </swiper>
       </view>
       
+    <view class='popup-btn'>
     <button bindtap='addLike'>赞爆</button>
     <button bindtap='backToMap'>回到地图</button>
+    </view>
     
   </view>
-</view>
+<!-- </view> -->
