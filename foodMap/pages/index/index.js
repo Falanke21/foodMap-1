@@ -291,12 +291,13 @@ Page({
               latitude: 43.6532,
               width: 40,
               height: 30
-            }, {
-              id: 3,
-              iconPath: "../../image/map.png",
-              longitude: -79.3832,
-              latitude: 43.6839,
-              width: 30,
+            }, 
+            {
+              id: 3, 
+              iconPath: "../../image/map.png", 
+              longitude: 114.3605, 
+              latitude: 30.5448, 
+              width: 30, 
               height: 30
             }
           ]
@@ -330,12 +331,6 @@ Page({
       url: '/components/searchBox/searchBox'
     })
   }
-
-  , markertap(e) {
-
-    console.log(e)
-    this.popup.showPopup();
-  }
   , controltap: function (e) {
     console.log(e.controlId)
     var id = e.controlId
@@ -347,6 +342,13 @@ Page({
       this.bindSearchBtn()
     }
     
+  }, 
+  
+  markertap(e) {
+    console.log(e)
+    wx.navigateTo({
+      url: '../popupPage/popupPage'
+    })
   }
 
 })
