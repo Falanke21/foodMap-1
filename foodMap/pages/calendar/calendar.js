@@ -1,66 +1,21 @@
-// pages/calendar/calendar.js
+
+const MONTHS = ['Jan.', 'Feb.', 'Mar.', 'Apr.', 'May.', 'June.', 'July.', 'Aug.', 'Sept.', 'Oct.', 'Nov.', 'Dec.'];
+
 Page({
 
   /**
-   * Page initial data
+   * 页面的初始数据
    */
   data: {
-
+    year: new Date().getFullYear(),      // 年份
+    month: new Date().getMonth() + 1,    // 月份
+    day: new Date().getDate(),
+    str: MONTHS[new Date().getMonth()],  // 月份字符串
   },
 
   /**
-   * Lifecycle function--Called when page load
+   * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
   },
-
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page show
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page hide
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page unload
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * Page event handler function--Called when user drop down
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * Called when page reach bottom
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * Called when user click on the top right corner to share
-   */
-  onShareAppMessage: function () {
-
-  }
 })

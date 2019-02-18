@@ -31,14 +31,14 @@
     },
     {
       "pagePath": "pages/calendar/calendar",
-      "iconPath": "image/ic_position.png",
-      "selectedIconPath": "image/ic_position.png",
+      "iconPath": "image/event.png",
+      "selectedIconPath": "image/event.png",
       "text": "活动"
     },
     {
       "pagePath": "pages/self/self",
-      "iconPath": "image/ic_position.png",
-      "selectedIconPath": "image/ic_position.png",
+      "iconPath": "image/personal.png",
+      "selectedIconPath": "image/personal.png",
       "text": "个人"
     },
     {
