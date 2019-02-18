@@ -282,8 +282,8 @@ Page({
             }, {
               id: 3, 
               iconPath: "../../image/map.png", 
-              longitude: -79.3832, 
-              latitude: 43.6839, 
+              longitude: 114.3605, 
+              latitude: 30.5448, 
               width: 30, 
               height: 30
             }
@@ -311,14 +311,15 @@ Page({
     if (e.type == 'end') {
       this.getLngLat()
     }
-  }
-
-  , markertap(e) {
-
+  }, 
+  
+  markertap(e) {
     console.log(e)
-    this.popup.showPopup();
-  }
-  , controltap(e) {
+    wx.navigateTo({
+      url: '../popupPage/popupPage'
+    })
+  }, 
+  controltap(e) {
     this.moveTolocation()
   }
 
