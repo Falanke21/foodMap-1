@@ -267,23 +267,23 @@ Page({
             {
               id: 0, 
               iconPath: "../../image/peiqi.png", 
-              longitude: 40, 
-              latitude: 50, 
+              longitude: -79.3832, 
+              latitude: 43.6532, 
               width: 40, 
               height: 30
             },
             {
               id: 2, 
               iconPath: "../../image/search.png", 
-              longitude: 50, 
-              latitude: 60, 
+              longitude: -79.4142, 
+              latitude: 43.6532, 
               width: 40, 
               height: 30
             }, {
               id: 3, 
               iconPath: "../../image/map.png", 
-              longitude: 60, 
-              latitude: 70, 
+              longitude: -79.3832, 
+              latitude: 43.6839, 
               width: 30, 
               height: 30
             }
