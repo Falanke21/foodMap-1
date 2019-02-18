@@ -1,9 +1,10 @@
 
 
+
 function addNewBookToBookList(e) {
     var connection = new ActiveXObject("ADODB.Connection");
 
-    var connectionstring = "Data Source=<server>;Initial Catalog=<catalog>;User ID=<user>;Password=<password>;Provider=SQLOLEDB";
+    var connectionstring = "Data Source=<moca.database.windows.net>;Initial Catalog=<catalog>;User ID=<yxktroy>;Password=<mocA2019>;Provider=SQLOLEDB";
 
     connection.Open(connectionstring);
     var rs = new ActiveXObject("ADODB.Recordset");
