@@ -103,27 +103,27 @@ Page({
 
           , map_height: res.windowWidth
 
-          // , controls: [{
+          , controls: [{
 
-          //   id: 1,
+            id: 1,
 
-          //   iconPath: '../../image/ic_location.png',
+            iconPath: '/image/locate.png',
 
-          //   position: {
+            position: {
 
-          //     left: res.windowWidth / 2 - 8,
+              left: 290,
 
-          //     top: res.windowWidth / 2 - 16,
+              top: 400,
 
-          //     width: 30,
+              width: 60,
 
-          //     height: 30
+              height: 60
 
-          //   },
+            },
 
-          //  clickable: true
+            clickable: true
 
-          //}]
+          }]
 
         })
 
@@ -140,7 +140,7 @@ Page({
         that.moveTolocation();
       },
     }),
-    that.setData({ init_lat: latitude, init_long: longitude })
+      that.setData({ init_lat: latitude, init_long: longitude })
   },
 
   bindBarcodeInput: function (e) {
@@ -432,7 +432,7 @@ Page({
               , latitude: 50
               , width: 40
               , height: 30
-            }, 
+            },
             {
               id: 2
               , iconPath: "../../image/search.png"
@@ -452,7 +452,7 @@ Page({
 
         })
 
-        
+
 
 
 
@@ -492,6 +492,9 @@ Page({
 
     console.log(e)
 
+  }
+  , controltap(e) {
+    this.moveTolocation()
   }
 
 })
