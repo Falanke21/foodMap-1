@@ -283,7 +283,17 @@ Page({
               longitude: -79.3832,
               latitude: 43.6532,
               width: 40,
-              height: 30
+              height: 30,
+              callout: {
+                content: "Peiqi",
+                fontSize: 14,
+                bgColor: "#FFF",
+                borderWidth: 1,
+                borderColor: "#CCC",
+                padding: 4,
+                display: "ALWAYS",
+                textAlign: "center"
+              }
             },
             {
               id: 2,
@@ -345,9 +355,12 @@ Page({
     }
     
   }, 
-  
+  bindcallouttap: function (e) {
+    console.log("头上文字被点击", e)
+  },
+
   markertap(e) {
-    console.log(e)
+    console.log("", e)
     wx.navigateTo({
       url: '../popupPage/popupPage'
     })
