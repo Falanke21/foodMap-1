@@ -19,7 +19,7 @@
       </view>
       
     <button bindtap='addLike'>赞爆</button>
-    <button bindtap='hidePopup'>大喊“你是我爸”可退出</button>
+    <button bindtap='backToMap'>回到地图</button>
     
   </view>
 </view>

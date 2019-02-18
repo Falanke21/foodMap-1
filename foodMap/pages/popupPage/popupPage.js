@@ -12,10 +12,8 @@ Page({
   },
 
   //隐藏弹框
-  hidePopup: function () {
-    this.setData({
-      flag: !this.data.flag
-    })
+  backToMap: function () {
+    wx.navigateBack();
   },
   //展示弹框
   showPopup() {
