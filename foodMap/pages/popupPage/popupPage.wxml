@@ -10,7 +10,7 @@
         interval="2000">
            <block wx:for="{{images}}" wx:key="*this">
           <swiper-item>
-            <image class='swiper-image' src='{{item}}'></image>
+            <image class='swiper-image' src='{{item}}' mode='aspectFit'></image>
           </swiper-item>
         </block>
         </swiper>
