@@ -1,2 +1,3 @@
-<!--pages/data/data.wxml-->
-<text>pages/data/data.wxml</text>
+<view><text>the location is {{long}}, {{lat}}. </text> </view>
+<view><text>the address is {{address}}.</text></view>
+<view><text>the test result is {{test}}.</text></view>
