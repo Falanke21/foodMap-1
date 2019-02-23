@@ -68,8 +68,10 @@ Page({
               id: 1,
               iconPath: '/image/locate.png',
               position: {
-                left: res.windowWidth * 290 / 375,
-                top: res.windowHeight * 400 / 812,
+                //left: res.windowWidth * 290 / 375,
+                //top: res.windowHeight * 400 / 812,
+                left: 290,
+                top: 400,
                 width: 60,
                 height: 60
               },
@@ -79,8 +81,10 @@ Page({
               id: 2,
               iconPath: '/image/search.png',
               position: {
-                left: res.windowWidth * 290 / 375,
-                top: res.windowHeight * 330 / 812,
+                //left: res.windowWidth * 290 / 375,
+                //top: res.windowHeight * 330 / 812,
+                left: 290,
+                top: 330,
                 width: 60,
                 height: 60
               },
