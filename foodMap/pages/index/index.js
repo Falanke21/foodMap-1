@@ -27,11 +27,53 @@ Page({
     map: false
   },
 
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    wx.cloud.init()
+    const db = wx.cloud.database()
+    var that = this
+
+    db.collection('location').where({
+      type: "restaurant"
+    }).get({
+      success(res) {
+        var lis = res.data
+        console.log(res.data)
+        init_marker(lis)
+      }
+    })
+
   },
+
+  init_marker: function (lis) {
+    let i
+    for (i = 0; i < lis.length; i++) {
+      that.setData({
+        markers: [{
+          id: lis[i].id,
+          iconPath: "../../image/ic_location.png",
+          longitude: lis[i].longtitude,
+          latitude: lis[i].latitude,
+          width: 40,
+          height: 30,
+          callout: {
+            content: lis[i].name,
+            fontSize: 14,
+            bgColor: "#FFF",
+            borderWidth: 1,
+            borderColor: "#CCC",
+            padding: 4,
+            display: "ALWAYS",
+            textAlign: "center"
+          }
+        }]
+      })
+    }
+  },
+
 
   onLoad: function () {
     var that = this;
