@@ -42,18 +42,8 @@ Page({
       success(res) {
         var lis = res.data
         console.log(lis)
-        var mks = []
-        for (var i = 0; i < lis.length; i++) {
-          console.log(lis[i].name)
-          mks.push({
-            id: lis[i].id,
-            iconPath: "../../image/ic_location.png",
-            longitude: lis[i].longtitude,
-            latitude: lis[i].latitude,
-            width: 40,
-            height: 30,
-          })
-        }
+         var mks = that.init_marker(lis);
+        console.log(mks)
         that.setData({
           markers: mks
         })
@@ -64,33 +54,18 @@ Page({
   },
 
   init_marker: function (lis) {
-    console.log(lis)
-    let i
-    for (i = 0; i < lis.length; i++) {
-      that.setData({
-        markers: [{
-          id: lis[i].id,
-          iconPath: "../../image/ic_location.png",
-          longitude: lis[i].longtitude,
-          latitude: lis[i].latitude,
-          width: 40,
-          height: 30,
-          callout: {
-            content: lis[i].name,
-            fontSize: 14,
-            bgColor: "#FFF",
-            borderWidth: 1,
-            borderColor: "#CCC",
-            padding: 4,
-            display: "ALWAYS",
-            textAlign: "center"
-          }
-        }],
-        
-
+    var mks = []
+    for (var i = 0; i < lis.length; i++) {
+      mks.push({
+        id: lis[i].id,
+        iconPath: "../../image/ic_location.png",
+        longitude: lis[i].longtitude,
+        latitude: lis[i].latitude,
+        width: 40,
+        height: 30,
       })
     }
-    console.log(this.markers)
+    return mks
   },
 
 
@@ -102,17 +77,6 @@ Page({
       that.setData({
         longitude: locationInfo.longitude,
         latitude: locationInfo.latitude,
-        // markers: [
-        //   {
-        //     id: 0
-        //     , iconPath: '../../image/ic_location.png'
-        //     , longitude: locationInfo.longitude
-        //     , latitude: locationInfo.latitude
-        //     , width: 30
-        //     , height: 30
-        //   }
-
-        // ]
       })
     })
 
@@ -168,64 +132,7 @@ Page({
       that.setData({ init_lat: this.data.latitude, init_long: this.data.longitude })
   },
 
-  bindBarcodeInput: function (e) {
-    this.setData({
-      barcode: e.detail.value
-    })
-  },
-
-  bindBarcodeFocus: function (e) {
-    this.setData({
-      hiddenDropdown: false,
-      hiddenClear: false
-    })
-  },
-
-  bindBarcodeBlur: function (e) {
-    this.setData({
-      hiddenDropdown: true,
-      hiddenClear: true
-    })
-  },
-
-  scan: function (e) {
-    var that = this;
-    wx.scanCode({
-      success: function (res) {
-        that.setData({
-          barcode: res.result
-        });
-        that.query(e);
-      },
-
-      fail: function () {
-        that.setData({
-          barcode: "",
-          hiddenData: true
-        });
-      },
-
-      complete: function () {
-
-        // complete
-
-      }
-    })
-  },
-
-  setDemoData: function (e) {
-    this.setData({
-      barcode: this.data.demoData
-    });
-  },
-
-  clear: function (e) {
-    this.setData({
-      barcode: "",
-      hiddenData: true
-    });
-  },
-
+  
   query: function (e) {
     var url = "https://www.google.com/query";//查询数据的URL
     var that = this;
@@ -325,12 +232,9 @@ Page({
   },
 
   getLngLat: function () {
-
     var that = this;
     this.mapCtx = wx.createMapContext("myMap");
-
     this.mapCtx.getCenterLocation({
-
       success: function (res) {
         that.setData({
           longitude: res.longitude,
@@ -350,12 +254,8 @@ Page({
     mapCtx.moveToLocation();
   },
 
-  moveToLocation: function () {
-    this.mapCtx.moveToLocation()
-  },
-
   regionchange(e) {
-    // 地图发生变化的时候，获取中间点，也就是用户选择的位置
+    // 地图发生变化的时候，获取中间点，也就是选择的位置
     if (e.type == 'end') {
       this.getLngLat()
     }
