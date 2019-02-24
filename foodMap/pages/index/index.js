@@ -63,6 +63,17 @@ Page({
         latitude: lis[i].latitude,
         width: 40,
         height: 30,
+        callout: {
+          content: lis[i].name || '',
+          fontSize: 14,
+          bgColor: "#FFF",
+          borderWidth: 1,
+          borderColor: "#CCC",
+          padding: 4,
+          display: "ALWAYS",
+          textAlign: "center"
+        }
+
       })
     }
     return mks
@@ -281,6 +292,9 @@ Page({
   }, 
   bindcallouttap: function (e) {
     console.log("头上文字被点击", e)
+    wx.navigateTo({
+      url: '../popupPage/popupPage',
+    })
   },
 
   markertap(e) {
