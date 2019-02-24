@@ -41,14 +41,30 @@ Page({
     }).get({
       success(res) {
         var lis = res.data
-        console.log(res.data)
-        init_marker(lis)
+        console.log(lis)
+        var mks = []
+        for (var i = 0; i < lis.length; i++) {
+          console.log(lis[i].name)
+          mks.push({
+            id: lis[i].id,
+            iconPath: "../../image/ic_location.png",
+            longitude: lis[i].longtitude,
+            latitude: lis[i].latitude,
+            width: 40,
+            height: 30,
+          })
+        }
+        that.setData({
+          markers: mks
+        })
+
       }
     })
 
   },
 
   init_marker: function (lis) {
+    console.log(lis)
     let i
     for (i = 0; i < lis.length; i++) {
       that.setData({
@@ -69,9 +85,12 @@ Page({
             display: "ALWAYS",
             textAlign: "center"
           }
-        }]
+        }],
+        
+
       })
     }
+    console.log(this.markers)
   },
 
 
@@ -83,17 +102,17 @@ Page({
       that.setData({
         longitude: locationInfo.longitude,
         latitude: locationInfo.latitude,
-        markers: [
-          {
-            id: 0
-            , iconPath: '../../image/ic_location.png'
-            , longitude: locationInfo.longitude
-            , latitude: locationInfo.latitude
-            , width: 30
-            , height: 30
-          }
+        // markers: [
+        //   {
+        //     id: 0
+        //     , iconPath: '../../image/ic_location.png'
+        //     , longitude: locationInfo.longitude
+        //     , latitude: locationInfo.latitude
+        //     , width: 30
+        //     , height: 30
+        //   }
 
-        ]
+        // ]
       })
     })
 
@@ -317,42 +336,6 @@ Page({
           longitude: res.longitude,
           latitude: res.latitude,
           map: true,
-          markers: [
-            {
-              id: 0,
-              iconPath: "../../image/peiqi.png",
-              longitude: -79.3832,
-              latitude: 43.6532,
-              width: 40,
-              height: 30,
-              callout: {
-                content: "Peiqi",
-                fontSize: 14,
-                bgColor: "#FFF",
-                borderWidth: 1,
-                borderColor: "#CCC",
-                padding: 4,
-                display: "ALWAYS",
-                textAlign: "center"
-              }
-            },
-            {
-              id: 2,
-              iconPath: "../../image/search.png",
-              longitude: -79.4142,
-              latitude: 43.6532,
-              width: 40,
-              height: 30
-            }, 
-            {
-              id: 3, 
-              iconPath: "../../image/map.png", 
-              longitude: 114.3605, 
-              latitude: 30.5448, 
-              width: 30, 
-              height: 30
-            }
-          ]
         })
       }
     })
