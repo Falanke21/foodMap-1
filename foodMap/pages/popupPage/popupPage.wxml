@@ -1,25 +1,47 @@
 <!--pages/popupPage/popupPage.wxml-->
 
-<!-- <view class="wx-popup"> -->
   <view class='popup-container'>
-    <view class="wx-popup-likes">{{likes}}</view>
+    
+    <view class='merchant-name'>KINTON RAMEN</view>
+
+    <view class='merchant-address'>396 Church St</view>
       
-      <view class='swiper-container'>
-        <swiper
-        indicator-dots="true" autoplay="true" circular="true"
-        interval="2000">
-           <block wx:for="{{images}}" wx:key="*this">
-          <swiper-item>
-            <image class='swiper-image' src='{{item}}' mode='aspectFit'></image>
-          </swiper-item>
-        </block>
-        </swiper>
-      </view>
+    <view class='swiper-container'>
+      <swiper
+      indicator-dots="true" autoplay="true" circular="true"
+      interval="2000">
+          <block wx:for="{{images}}" wx:key="*this">
+        <swiper-item>
+          <image class='swiper-image' src='{{item}}' mode='scaleToFill'></image>
+        </swiper-item>
+      </block>
+      </swiper>
+    </view>
+
+    <view class='merchant-description'>KINTON RAMEN是2012年5月在多伦多开设的第一家正宗的日本拉面酒吧。专注于厨房的拉面，行政总厨Aki Urata在追求最优质的面条和肉汤方面毫不妥协。我们经验丰富的拉面厨师只使用最新鲜和最优质的食材准备每一个馅料。在KINTON RAMEN，我们邀请您体验各种特殊的拉面碗，直至最后一滴。</view>
+
+    <view class='merchant-hours'>
+    Saturday
+11:30a.m.–11:30p.m.
+Sunday
+11:30a.m.–10:30p.m.
+Monday
+11:30a.m.–10:30p.m.
+Tuesday
+11:30a.m.–10:30p.m.
+Tuesday 11:30a.m.–10:30p.m.
+Wednesday
+11:30a.m.–10:30p.m.
+Thursday
+11:30a.m.–10:30p.m.
+Friday
+11:30a.m.–11:30p.m.</view>
       
     <view class='popup-btn'>
     <button bindtap='addLike'>赞爆</button>
     <button bindtap='backToMap'>回到地图</button>
     </view>
+
+    <!-- <view class="wx-popup-likes">{{likes}}</view> -->
     
   </view>
-<!-- </view> -->
