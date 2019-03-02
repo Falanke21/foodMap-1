@@ -1,6 +1,0 @@
-<!--components/searchBox/searchBox.wxml-->
-<!-- 引入wsSearch模板 -->
-<import src="/wxSearch/wxSearch.wxml"/>
-<template is="wxSearch" data="{{wxSearchData}}"/>
-
-<text>components/searchBox/searchBox.wxml</text>

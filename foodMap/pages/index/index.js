@@ -274,7 +274,7 @@ Page({
   
   bindSearchBtn: function (e) {
     wx.navigateTo({
-      url: '/components/searchBox/searchBox'
+      url: '/pages/searchBox/searchBox'
     })
   }
 

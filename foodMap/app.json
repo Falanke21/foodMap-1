@@ -6,7 +6,8 @@
     "pages/self/self",
     "pages/dialog/dialog",
     "pages/popupPage/popupPage",
-    "pages/data/data"
+    "pages/data/data",
+    "pages/searchBox/searchBox"
   ],
   "window": {
     "backgroundTextStyle": "light",

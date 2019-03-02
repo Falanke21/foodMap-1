@@ -1,3 +1,0 @@
-/* components/searchBox/searchBox.wxss */
-/* 引入wxSearch wxss */
-@import "/wxSearch/wxSearch.wxss";

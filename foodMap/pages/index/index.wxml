@@ -3,14 +3,15 @@
   <!--绑定点击事件-->
 
   <!-- Jefferson: 搜索入口改成map -->
-<!-- 搜索框 -->
- <!-- <view class="search-wrapper">
+  <!-- 搜索框 -->
+  <view class="search-wrapper">
     <view class="search-panel">
       <view class="search-section">
-      <view class="search-button-wrapper">
+        <view class="search-button-wrapper">
         </view>
         <view class="search-input-wrapper ">
           <input bindinput="bindBarcodeInput" bindconfirm="query" bindfocus="bindBarcodeFocus" bindblur="bindBarcodeBlur" class="search-input" placeholder="搜索美食" value="{{barcode}}" confirm-type="search" />
+
         </view>
         <view class="search-button-wrapper">
           <image class="search-button" src="/image/search.png" bindtap="nearby_search"></image>
@@ -21,31 +22,19 @@
       <button size="mini" bindtap="setDemoData">示例</button>
       <button size="mini" bindtap="clear" style="margin-left:10px;">清空</button>
     </view>
-  </view> -->
+  </view>
 
 
-<!--地图容器-->
-<map id="myMap"
-   markers="{{markers}}"
-   style="width:100%;height:380px"
-   longitude="{{init_long}}" 
-   latitude="{{init_lat}}" 
-   scale="14" 
-   controls="{{controls}}" 
-   bindcontroltap="controltap" 
-   markers="{{markers}}" 
-   bindmarkertap="markertap"
-   bindcallouttap = "bindcallouttap" 
-   polyline="{{polyline}}" 
-   bindregionchange="regionchange" 
-   show-location style="width: 100%; height: 100%;top:0px;position:absolute">
+  <!--地图容器-->
+  <map id="myMap" markers="{{markers}}" style="width:100%;height:380px" longitude="{{init_long}}" latitude="{{init_lat}}" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" bindcallouttap="bindcallouttap"
+    polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height: 100%;top:0px;position:absolute">
 
-</map>
-<!-- <popup id='popup' 
+  </map>
+  <!-- <popup id='popup' 
       title='小组件' 
       content='我是谁'>
   </popup> -->
-<!--
+  <!--
 <map id="myMap" longitude="113.324520" latitude="23.099994" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height: 300px;"></map>
 -->
 </view>
