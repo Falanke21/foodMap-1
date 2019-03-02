@@ -42,6 +42,12 @@
 
 .merchant-hours {
   margin-top: 10px;
+  font-size: small;
+  display:block;
+}
+.merchant-hour {
+  margin-top: 10px;
+  font-size: small;
 }
 
 .wx-popup-likes {
