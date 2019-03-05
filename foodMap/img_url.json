@@ -1,0 +1,16 @@
+{ 
+  "type" : "location_img_url",
+  "restaurant": "../../image/ic_location.png",
+  "northern_chinese": "../../image/ic_location.png",
+  "yue": "../../image/ic_location.png",
+  "hot_pot": "../../image/ic_location.png",
+  "bbq": "../../image/ic_location.png",
+  "zhe_jiang": "../../image/ic_location.png",
+  "dessert": "../../image/ic_location.png",
+  "massage": "../../image/ic_location.png",
+  "ramen": "../../image/ic_location.png",
+  "noodle": "../../image/ic_location.png",
+  "haircut": "../../image/ic_location.png",
+  "gaming": "../../image/ic_location.png",
+  "cosmetic": "../../image/ic_location.png"
+}
