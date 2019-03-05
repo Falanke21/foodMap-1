@@ -7,7 +7,7 @@ var QQMapWX = require('../qqmap-wx.js');
 
 // 实例化API核心类
 var qqmapsdk = new QQMapWX({
-  key: '开发密钥（key）' // 必填
+  key: '97ede34cbbd1e55ed7776724df55a69f' // 必填//微信秘钥
 });
 
 Page({
@@ -35,14 +35,20 @@ Page({
     wx.cloud.init()
     const db = wx.cloud.database()
     var that = this
-
-    db.collection('location').where({
-      type: "restaurant"
+    var url_lis
+    db.collection('img_url').where({
+      type: "location_img_url"
     }).get({
+      success(res) {
+        url_lis = res.data
+        console.log(url_lis)
+      }
+    })
+    db.collection('location').get({
       success(res) {
         var lis = res.data
         console.log(lis)
-         var mks = that.init_marker(lis);
+         var mks = that.init_marker(lis, url_lis);
         console.log(mks)
         that.setData({
           markers: mks
@@ -53,12 +59,14 @@ Page({
 
   },
 
-  init_marker: function (lis) {
+  init_marker: function (lis, url_lis) {
     var mks = []
     for (var i = 0; i < lis.length; i++) {
+      var location_type = lis[i].type
+      //console.log(url_lis[0][location_type])
       mks.push({
         id: lis[i].id,
-        iconPath: "../../image/ic_location.png",
+        iconPath: url_lis[0][location_type],
         longitude: lis[i].longtitude,
         latitude: lis[i].latitude,
         width: 40,
