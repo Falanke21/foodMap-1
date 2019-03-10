@@ -269,7 +269,6 @@ Page({
  */
   moveTolocation: function () {
     //mapId 就是你在 map 标签中定义的 id
-    var that = this;
     // 以下Code因wx.getLocation()有bug停用
     // var mapCtx = wx.createMapContext("myMap");
     // mapCtx.moveToLocation();
