@@ -308,7 +308,7 @@ Page({
   markertap(e) {
     console.log("", e)
     wx.navigateTo({
-      url: '../popupPage/popupPage'
+      url: '../popupPage/popupPage',
     })
   }
 

@@ -1,5 +1,4 @@
 <!--pages/popupPage/popupPage.wxml-->
-
   <view class='popup-container'>
     
     <view class='merchant-name'>KINTON RAMEN</view>
@@ -47,7 +46,8 @@ Thursday
 </view>
 <view class='merchant-hour'>
 Friday
-11:30a.m.–11:30p.m.</view></view>
+11:30a.m.–11:30p.m.</view>
+</view>
       
     <view class='popup-btn'>
     <button bindtap='addLike'>赞爆</button>
