@@ -65,7 +65,7 @@ Page({
       var location_type = lis[i].type
       //console.log(url_lis[0][location_type])
       mks.push({
-        id: lis[i].id,
+        id: lis[i].dbid,
         iconPath: url_lis[0][location_type],
         longitude: lis[i].longtitude,
         latitude: lis[i].latitude,
@@ -226,7 +226,7 @@ Page({
         for (var i = 0; i < res.data.length; i++) {
           mks.push({ // 获取返回结果，放到mks数组中
             title: res.data[i].title,
-            id: res.data[i].id,
+            id: res.data[i].id, // TODO: id or dbid？？
             latitude: res.data[i].location.lat,
             longitude: res.data[i].location.lng,
             iconPath: "/resources/my_marker.png", //图标路径
