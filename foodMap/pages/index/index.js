@@ -27,7 +27,7 @@ Page({
     map: false
   },
 
-  
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -151,7 +151,7 @@ Page({
       that.setData({ init_lat: this.data.latitude, init_long: this.data.longitude })
   },
 
-  
+
   query: function (e) {
     var url = "https://www.google.com/query";//查询数据的URL
     var that = this;
@@ -269,8 +269,17 @@ Page({
  */
   moveTolocation: function () {
     //mapId 就是你在 map 标签中定义的 id
-    var mapCtx = wx.createMapContext("myMap");
-    mapCtx.moveToLocation();
+    // 以下Code因wx.getLocation()有bug停用
+    // var mapCtx = wx.createMapContext("myMap");
+    // mapCtx.moveToLocation();
+    wx.chooseLocation({
+      success: function(res) {
+        that.setData({
+          init_lat: res.latitude,
+          init_long: res.longitude
+        })
+      },
+    })
   },
 
   regionchange(e) {
@@ -279,7 +288,7 @@ Page({
       this.getLngLat()
     }
   },
-  
+
   bindSearchBtn: function (e) {
     wx.navigateTo({
       url: '/pages/searchBox/searchBox'
@@ -297,7 +306,7 @@ Page({
       this.bindSearchBtn()
     }
     
-  }, 
+  },
   bindcallouttap: function (e) {
     console.log("头上文字被点击", e)
     wx.navigateTo({
@@ -308,7 +317,7 @@ Page({
   markertap(e) {
     console.log("", e)
     wx.navigateTo({
-      url: '../popupPage/popupPage',
+      url: '../popupPage/popupPage'
     })
   }
 
