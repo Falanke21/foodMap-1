@@ -269,8 +269,17 @@ Page({
  */
   moveTolocation: function () {
     //mapId 就是你在 map 标签中定义的 id
-    var mapCtx = wx.createMapContext("myMap");
-    mapCtx.moveToLocation();
+    // 以下Code因wx.getLocation()有bug停用
+    // var mapCtx = wx.createMapContext("myMap");
+    // mapCtx.moveToLocation();
+    wx.chooseLocation({
+      success: function(res) {
+        that.setData({
+          init_lat: res.latitude,
+          init_long: res.longitude
+        })
+      },
+    })
   },
 
   regionchange(e) {
