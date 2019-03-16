@@ -1,6 +1,6 @@
 { 
   "type": "location_img_url",
-  "bbq": "../../image/ic_location.png",
+  "bbq": "../../image/bbq.png",
   "cosmetic": "../../image/cosmetic.png",
   "dessert": "../../image/dessert.png",
   "gaming": "../../image/ic_location.png",
@@ -17,5 +17,5 @@
   "sichuan": "../../image/sichuan.png",
   "sushi": "../../image/sushi.png",
   "yue": "../../image/yue.png",
-  "zhe_jiang": "../../image/bbq.png",
+  "zhe_jiang": "../../image/zhe_jiang.png",
 }
