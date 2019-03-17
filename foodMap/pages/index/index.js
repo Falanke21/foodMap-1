@@ -310,15 +310,17 @@ Page({
   bindcallouttap: function (e) {
     console.log("头上文字被点击", e)
     wx.navigateTo({
-      url: '../popupPage/popupPage',
+      url: '../popupPage/popupPage?dbid='+e.markerID
     })
   },
 
   markertap(e) {
     console.log("", e)
+    
     wx.navigateTo({
-      url: '../popupPage/popupPage'
+      url: '../popupPage/popupPage?dbid='+e.markerID
     })
+    console.log(e.currentTarget.dataset.offsetLeft)
   }
 
 })
