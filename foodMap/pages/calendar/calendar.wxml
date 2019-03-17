@@ -12,3 +12,6 @@
         </view>
     </view>
 </view>
+<view>
+<image src='/image/maintainence.png' mode='scaleToFill'> </image>
+</view>
