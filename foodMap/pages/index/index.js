@@ -69,7 +69,7 @@ Page({
         iconPath: url_lis[0][location_type],
         longitude: lis[i].longtitude,
         latitude: lis[i].latitude,
-        width: 40,
+        width: 30,
         height: 30,
         callout: {
           content: lis[i].name || '',
