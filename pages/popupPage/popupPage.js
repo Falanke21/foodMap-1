@@ -14,6 +14,7 @@ Page({
     address: 'defa_add',
     describ: 'defa_des',
     hours: 'defa_hours',
+    imageUrl: [],
     likes: 0
   },
 
@@ -78,11 +79,13 @@ Page({
           address: id_l[0].address,
           describ: id_l[0].describ,
           hours: id_l[0].hours,
-          likes: id_l[0].likes
+          likes: id_l[0].likes,
+          imageUrl: id_l[0].image
         })
       }
     })
-    console.log(that.data.name)
+    console.log(that.data.images)
+    console.log(that.data.imageUrl)
   },
 
   /**
