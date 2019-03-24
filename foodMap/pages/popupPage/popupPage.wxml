@@ -51,7 +51,7 @@ Friday
       
     <view class='popup-btn'>
     <button bindtap='addLike'>赞爆</button>
-    <button bindtap='backToMap'>回到地图</button>
+    <button bindtap= 'navigate'> 导航</button>
     </view>
 
     <!-- <view class="wx-popup-likes">{{likes}}</view> -->

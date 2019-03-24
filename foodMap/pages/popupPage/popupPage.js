@@ -34,6 +34,15 @@ Page({
     })
   },
 
+  navigate: function(e){
+    wx.openLocation({
+      latitude: 31.2961220000,
+      longitude: 121.5157870000,
+      name: !this.data.name,
+      address:!this.data.address
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
