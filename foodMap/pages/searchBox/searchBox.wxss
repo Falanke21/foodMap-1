@@ -1,2 +1,0 @@
-/* pages/searchBox/searchBox.wxss */
-@import "../../utils/wxSearchView/wxSearchView.wxss";

@@ -1,4 +1,0 @@
-/* pages/dialog/dialog.wxss */
-.niceButton{
-  margin: 20px;
-}
