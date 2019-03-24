@@ -22,6 +22,22 @@
       </swiper>
     </view>
 
+
+    <view class="section tc">
+  <video
+    id="myVideo"
+    src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"
+    danmu-list="{{danmuList}}"
+    enable-danmu
+    danmu-btn
+    controls
+  ></video>
+  <view class="btn-area">
+    <!-- <button bindtap="bindButtonTap">获取视频</button>
+    <input bindblur="bindInputBlur" />
+    <button bindtap="bindSendDanmu">发送弹幕</button> -->
+  </view>
+</view>
     <view class='merchant-description'>{{describ}}</view>
 
     <view class='merchant-hours'>
