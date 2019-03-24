@@ -9,9 +9,9 @@
       <swiper
       indicator-dots="true" autoplay="true" circular="true"
       interval="2000">
-          <block wx:for="{{images}}" wx:key="*this">
+          <block wx:for="{{imageUrl}}" wx:key="*this">
         <swiper-item>
-          <image class='swiper-image' src='{{imageUrl}}' mode='scaleToFill'></image>
+          <image class='swiper-image' src='{{item}}' mode='scaleToFill'></image>
         </swiper-item>
       </block>
       </swiper>

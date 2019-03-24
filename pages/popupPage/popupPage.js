@@ -56,7 +56,14 @@ Page({
     })
     console.log(that.data.mkid)
   },
-
+  
+  init_img_url: function (lis) {
+    var url_lis = []
+    for (var i = 0; i < lis.length; i++) {
+      url_lis.push(lis[i])
+    }
+    return url_lis
+    },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -73,14 +80,16 @@ Page({
     }).get({
       success(res) {
         id_l = res.data
-        console.log(id_l[0])
+        //console.log(id_l[0])
+        var lis = that.init_img_url(id_l[0].image)
+        console.log(lis)
         that.setData({
           name: id_l[0].name,
           address: id_l[0].address,
           describ: id_l[0].describ,
           hours: id_l[0].hours,
           likes: id_l[0].likes,
-          imageUrl: id_l[0].image
+          imageUrl: lis
         })
       }
     })
