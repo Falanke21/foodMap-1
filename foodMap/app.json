@@ -43,18 +43,6 @@
         "iconPath": "image/personal.png",
         "selectedIconPath": "image/personal.png",
         "text": "个人"
-      },
-      {
-        "pagePath": "pages/dialog/dialog",
-        "iconPath": "image/ic_position.png",
-        "selectedIconPath": "image/ic_position.png",
-        "text": "弹窗"
-      },
-      {
-        "pagePath": "pages/data/data",
-        "iconPath": "image/ic_position.png",
-        "selectedIconPath": "image/ic_position.png",
-        "text": "data"
       }
     ]
   }
