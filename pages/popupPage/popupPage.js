@@ -66,7 +66,7 @@ Page({
     const db = wx.cloud.database()
     // var that = this
     var id_l
-    var loc_id = that.data.mkid
+    var loc_id = parseInt(that.data.mkid)
     db.collection('location').where({
       dbid: loc_id
     }).get({
