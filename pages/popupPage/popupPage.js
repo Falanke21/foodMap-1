@@ -1,10 +1,26 @@
 // pages/popupPage/popupPage.js
+function getRandomColor() {
+  const rgb = []
+  for (let i = 0; i < 3; ++i) {
+    let color = Math.floor(Math.random() * 256).toString(16)
+    color = color.length == 1 ? '0' + color : color
+    rgb.push(color)
+  }
+  return '#' + rgb.join('')
+}
+
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    userInfo: {},
+    hasUserInfo: false,
+    nickName: '',
+    avatarUrl: '',
+    openId: '',
     flag: true,
     likes: 0,
     name: 'defa_name',
@@ -15,7 +31,19 @@ Page({
     describ: 'defa_des',
     hours: 'defa_hours',
     imageUrl: [],
-    likes: 0
+    likes: 0,
+    src: '',
+    danmuList: [
+      {
+        text: '第 1s 出现的弹幕',
+        color: '#ff0000',
+        time: 1
+      },
+      {
+        text: '第 3s 出现的弹幕',
+        color: '#ff00ff',
+        time: 3
+      }]
   },
 
   //回到地图
@@ -33,6 +61,11 @@ Page({
     this.setData({
       likes: ++this.data.likes
     })
+    this.addExp()
+  },
+
+  addExp() {
+    var that = this
   },
 
   navigate: function(e){
@@ -55,6 +88,34 @@ Page({
       mkid: dbid
     })
     console.log(that.data.mkid)
+    if (app.globalData.userInfo) {
+      this.setData({
+        userInfo: app.globalData.userInfo,
+        hasUserInfo: true
+      })
+    } else if (this.data.canIUse) {
+      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+      // 所以此处加入 callback 以防止这种情况
+      app.userInfoReadyCallback = res => {
+        this.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true
+        })
+      }
+    } else {
+      // 在没有 open-type=getUserInfo 版本的兼容处理
+      wx.getUserInfo({
+        success: res => {
+          app.globalData.userInfo = res.userInfo
+          this.setData({
+            userInfo: res.userInfo,
+            hasUserInfo: true,
+            nickName: res.userInfo.nickName,
+            avatarUrl: res.userInfo.avatarUrl
+          })
+        }
+      })
+    }
   },
   
   init_img_url: function (lis) {
@@ -68,6 +129,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    this.videoContext = wx.createVideoContext('myVideo')
     var that = this
     console.log('onRead')
     wx.cloud.init()
