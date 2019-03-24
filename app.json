@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/calendar/calendar",
+    "pages/self/self",
+    "pages/dialog/dialog",
+    "pages/popupPage/popupPage",
+    "pages/data/data",
+    "pages/searchBox/searchBox"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "image/map.png",
+        "selectedIconPath": "image/map.png",
+        "text": "地图"
+      },
+      {
+        "pagePath": "pages/calendar/calendar",
+        "iconPath": "image/event.png",
+        "selectedIconPath": "image/event.png",
+        "text": "活动"
+      },
+      {
+        "pagePath": "pages/self/self",
+        "iconPath": "image/personal.png",
+        "selectedIconPath": "image/personal.png",
+        "text": "个人"
+      }
+    ]
+  }
+}
