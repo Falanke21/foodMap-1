@@ -28,6 +28,20 @@
   text-align: center;
 }
 
+.merchant-likes {
+  margin-top: 10px;
+  margin-left: 90px;
+  font-size: medium;
+  text-align: center;
+  width: 45%;
+}
+
+.image-lit {
+  float: right;
+  height: 20px;
+  width: 20px;
+}
+
 .swiper-container {
   padding: 10px;
   height: 140px;
@@ -62,8 +76,10 @@
   line-height: 50px;
   border-radius: 50%;
   /* position: absolute; */
-  left: 80px;
-  top: 200px;
+  /* left: 250px; */
+  /* top: 350px; */
   transition: 0.5s;
   color: #fff;
+  display: inline-block;
+  margin: 10px;
 }
