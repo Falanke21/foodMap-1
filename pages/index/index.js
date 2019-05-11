@@ -112,18 +112,19 @@ Page({
               id: 1,
               iconPath: '/image/locate.png',
               position: {
-                //left: res.windowWidth * 290 / 375,
-                //top: res.windowHeight * 400 / 812,
-                left: 290,
-                top: 400,
+                left: res.windowWidth * 290 / 375,
+                top: res.windowHeight * 400 / 812,
+                //left: 290,
+                //top: 400,
                 width: 60,
                 height: 60
               },
               clickable: true
+              /** 
             },
             {
               id: 2,
-              iconPath: '/image/search.png',
+              //iconPath: '/image/search.png',
               position: {
                 //left: res.windowWidth * 290 / 375,
                 //top: res.windowHeight * 330 / 812,
@@ -133,7 +134,9 @@ Page({
                 height: 60
               },
               clickable: true
+              **/
             }]
+            
         })
       }
     })
@@ -145,7 +148,7 @@ Page({
           latitude: res.latitude,
           longitude: res.longitude,
         })
-        that.moveTolocation();
+        //that.moveTolocation();
       },
     }),
       that.setData({ init_lat: this.data.latitude, init_long: this.data.longitude })
@@ -272,6 +275,7 @@ Page({
     // 以下Code因wx.getLocation()有bug停用
     // var mapCtx = wx.createMapContext("myMap");
     // mapCtx.moveToLocation();
+    var that = this
     wx.chooseLocation({
       success: function(res) {
         that.setData({
