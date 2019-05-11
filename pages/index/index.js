@@ -275,6 +275,7 @@ Page({
     // 以下Code因wx.getLocation()有bug停用
     // var mapCtx = wx.createMapContext("myMap");
     // mapCtx.moveToLocation();
+    var that = this
     wx.chooseLocation({
       success: function(res) {
         that.setData({
