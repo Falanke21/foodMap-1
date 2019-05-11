@@ -12,4 +12,5 @@
   </block>
 </view>
 
-<button bindtap='showPopup'>点我</button>
+<button bindtap='showProduct'>点我</button>
+<product></product>

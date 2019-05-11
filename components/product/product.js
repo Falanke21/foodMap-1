@@ -1,5 +1,8 @@
 // components/product/product.js
 Component({
+  options: {
+    multipleSlots: true // 在组件定义时的选项中启用多slot支持
+  },
   /**
    * Component properties
    */
@@ -11,14 +14,14 @@ Component({
    * Component initial data
    */
   data: {
-
+    flag: true,
   },
 
   /**
    * Component methods
    */
   methods: {
-    hidePopup: function () {
+    hidePopup() {
       this.setData({
         flag: !this.data.flag
       })

@@ -21,4 +21,11 @@ Page({
   onLoad: function (options) {
   },
 
+  onReady: function () {
+    this.popup = this.selectComponent("#product");
+  },
+
+  showProduct: function() {
+    this.popup.showPopup();
+  }
 })
