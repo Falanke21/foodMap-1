@@ -18,10 +18,8 @@
   </view>
 </view>
 <view class="self-btn">
-  <view class="wallet-btn">
-    <button class='btn' bindtap='getWallet'>卡包</button>
+  <view class="wallet-btn" bindtap='getWallet'>卡包
   </view>
-  <view class="scan-btn">
-    <button bindtap= 'scan'> 扫码</button>
+  <view class="scan-btn" bindtap='scan'> 扫码
   </view>
 </view>
