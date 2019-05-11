@@ -112,12 +112,12 @@ Page({
               id: 1,
               iconPath: '/image/locate.png',
               position: {
-                left: res.windowWidth * 290 / 375,
-                top: res.windowHeight * 400 / 812,
+                left: res.windowWidth * 325 / 375,
+                top: res.windowHeight * 100 / 800,
                 //left: 290,
                 //top: 400,
-                width: 60,
-                height: 60
+                width: 40,
+                height: 40
               },
               clickable: true
               /** 
