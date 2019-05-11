@@ -110,16 +110,17 @@ Page({
           controls: [
             {
               id: 1,
-              //iconPath: '/image/locate.png',
+              iconPath: '/image/locate.png',
               position: {
-                //left: res.windowWidth * 290 / 375,
-                //top: res.windowHeight * 400 / 812,
-                left: 290,
-                top: 400,
+                left: res.windowWidth * 290 / 375,
+                top: res.windowHeight * 400 / 812,
+                //left: 290,
+                //top: 400,
                 width: 60,
                 height: 60
               },
               clickable: true
+              /** 
             },
             {
               id: 2,
@@ -133,7 +134,9 @@ Page({
                 height: 60
               },
               clickable: true
+              **/
             }]
+            
         })
       }
     })
