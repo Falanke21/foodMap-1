@@ -49,12 +49,17 @@ Page({
         var lis = res.data
         console.log(lis)
          var mks = that.init_marker(lis, url_lis);
-        console.log(mks)
+        //console.log(mks)
         that.setData({
           markers: mks
         })
 
       }
+    })
+
+    var mapCtx = wx.createMapContext("myMap");
+    that.setData({
+      map: mapCtx
     })
 
   },
@@ -112,8 +117,8 @@ Page({
               id: 1,
               iconPath: '/image/locate.png',
               position: {
-                left: res.windowWidth * 325 / 375,
-                top: res.windowHeight * 100 / 800,
+                left: res.windowWidth * 0.85,
+                top: res.windowHeight * 0.1,
                 //left: 290,
                 //top: 400,
                 width: 40,
@@ -142,13 +147,13 @@ Page({
     })
 
     wx.getLocation({
-      type: 'gcj02',
+      type: 'wgs84',
       success: function (res) {
         that.setData({
           latitude: res.latitude,
           longitude: res.longitude,
         })
-        //that.moveTolocation();
+        //that.moveToLocation();
       },
     }),
       that.setData({ init_lat: this.data.latitude, init_long: this.data.longitude })
@@ -267,24 +272,23 @@ Page({
     })
   },
 
-  /**
- * 移动到中心点
- */
-  moveTolocation: function () {
-    //mapId 就是你在 map 标签中定义的 id
-    // 以下Code因wx.getLocation()有bug停用
-    // var mapCtx = wx.createMapContext("myMap");
-    // mapCtx.moveToLocation();
-    var that = this
+/**移动到中心点 */
+  moveToLocation: function () {
+    var that = this;
     wx.chooseLocation({
-      success: function(res) {
+      success: function (res) {
         that.setData({
-          init_lat: res.latitude,
-          init_long: res.longitude
-        })
+          longitude: res.longitude,
+          latitude: res.latitude,
+        });
+        
       },
-    })
+      fail: function (err) {
+        console.log(err)
+      }
+    });
   },
+
 
   regionchange(e) {
     // 地图发生变化的时候，获取中间点，也就是选择的位置
@@ -297,14 +301,13 @@ Page({
     wx.navigateTo({
       url: '/pages/searchBox/searchBox'
     })
-  }
-
-  , controltap: function (e) {
+  },
+   controltap: function (e) {
     console.log('map control id: ' + e.controlId)
     var id = e.controlId
     // 定位
     if (id == 1) {
-      this.moveTolocation()
+      this.moveToLocation()
     // 搜索
     } else if (id == 2) {
       this.bindSearchBtn()
