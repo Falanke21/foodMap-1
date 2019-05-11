@@ -9,11 +9,12 @@ page {
 }
 
 .product {
-  background-color: rgb(255, 224, 122);
-  margin-top: 15px;
+  background-image: linear-gradient(rgb(255, 233, 110), yellow);
+  margin-top: 15px; 
   margin-left: 30px;
   margin-right: 30px;
   padding: 20px;
+  border-radius: 50px;
 }
 
 .product-text {
