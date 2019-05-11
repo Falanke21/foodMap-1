@@ -3,7 +3,9 @@
   <block wx:for='{{merchandise}}'> 
     <view class='item-container'>
       <view class='product'>
-        {{item}}
+        <view class='product-text'>
+          {{item}}
+        </view>
       </view>
     </view>
   </block>
