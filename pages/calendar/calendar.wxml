@@ -1,17 +1,12 @@
 <!--pages/calendar/calendar.wxml-->
-<view class="container-fluid">
-    <view class="calendar-box">
-        <view class="left">
-            <view class="today">
-                <text>{{day}}</text>
-                <text class="monthStr">{{str}}</text>
-            </view>            
-        </view>
-        <view class="right">
-            <calendar header="{{false}}" cell-size="20" days-color="{{demo1_days_style}}" active-type="square" />
-        </view>
-    </view>
-</view>
 <view>
-<image src='/image/maintainence.png' mode='scaleToFill'> </image>
+  <block wx:for='{{merchandise}}'> 
+    <view class='item-container'>
+      <view class='product'>
+        {{item}}
+      </view>
+    </view>
+  </block>
 </view>
+
+<button bindtap='showPopup'>点我</button>

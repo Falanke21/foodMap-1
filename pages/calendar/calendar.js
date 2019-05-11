@@ -11,6 +11,8 @@ Page({
     month: new Date().getMonth() + 1,    // 月份
     day: new Date().getDate(),
     str: MONTHS[new Date().getMonth()],  // 月份字符串
+
+    merchandise: ["Hello", "my hobby", "sing", "dance", "rap", "basketball"]
   },
 
   /**
@@ -18,4 +20,5 @@ Page({
    */
   onLoad: function (options) {
   },
+
 })
