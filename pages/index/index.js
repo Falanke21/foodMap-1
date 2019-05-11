@@ -145,7 +145,7 @@ Page({
           latitude: res.latitude,
           longitude: res.longitude,
         })
-        that.moveTolocation();
+        //that.moveTolocation();
       },
     }),
       that.setData({ init_lat: this.data.latitude, init_long: this.data.longitude })
