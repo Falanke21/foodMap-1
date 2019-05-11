@@ -1,0 +1,23 @@
+.product-btn {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.product{  
+  width: 100%;  
+  margin-top: 10rpx;   
+  font-size: 30rpx;  
+  display: flex;  
+  height: 80rpx;  
+  border-bottom: 1px 
+  solid #DBDBDB;  
+  flex-direction: row;  
+  justify-content: space-between;  
+  align-items: center;
+}
+.left{  
+  padding-left: 30rpx;  
+  color: #A9A9A9;  
+}
+.right{
+  padding-right: 30rpx;
+}
