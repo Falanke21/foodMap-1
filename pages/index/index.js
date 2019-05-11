@@ -110,7 +110,7 @@ Page({
           controls: [
             {
               id: 1,
-              iconPath: '/image/locate.png',
+              //iconPath: '/image/locate.png',
               position: {
                 //left: res.windowWidth * 290 / 375,
                 //top: res.windowHeight * 400 / 812,
@@ -123,7 +123,7 @@ Page({
             },
             {
               id: 2,
-              iconPath: '/image/search.png',
+              //iconPath: '/image/search.png',
               position: {
                 //left: res.windowWidth * 290 / 375,
                 //top: res.windowHeight * 330 / 812,
