@@ -1,0 +1,7 @@
+/* pages/launch/launch.wxss */
+page {
+    background-color: rgb(0, 153, 153);
+}
+.container {
+  margin-top: 50rpx; 
+}

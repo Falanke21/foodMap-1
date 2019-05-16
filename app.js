@@ -46,9 +46,9 @@ App({
         }
       })
     }
-  }
-
-  ,globalData: {
+  },
+  
+  globalData: {
     userInfo: null
   ,locationInfo: null
   }

@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/launch/launch",
     "pages/index/index",
     "pages/logs/logs",
     "pages/calendar/calendar",
@@ -8,6 +9,7 @@
     "pages/popupPage/popupPage",
     "pages/data/data",
     "pages/searchBox/searchBox"
+    
   ],
   "permission": {
     "scope.userLocation": {

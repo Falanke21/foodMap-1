@@ -1,0 +1,9 @@
+<!--pages/launch/launch.wxml-->
+<view class="container">
+<image class="launch_img"src="/image/loading.png" mode="aspectFit"></image>
+
+<image class="load_gif"src="/image/preload.gif"
+  style="width: 70px; height: 70px;
+></image>
+
+</view>
