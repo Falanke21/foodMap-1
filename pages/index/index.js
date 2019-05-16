@@ -225,12 +225,14 @@ Page({
       barcode: e.detail.value
     })
   },
+  
   bindBarcodeFocus: function (e) {
     this.setData({
       hiddenDropdown: false,
       hiddenClear: false
     })
   },
+
   bindBarcodeBlur: function (e) {
     this.setData({
       hiddenDropdown: true,
