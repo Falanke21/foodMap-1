@@ -220,6 +220,24 @@ Page({
     })
   },
 
+  bindBarcodeInput: function (e) {
+    this.setData({
+      barcode: e.detail.value
+    })
+  },
+  bindBarcodeFocus: function (e) {
+    this.setData({
+      hiddenDropdown: false,
+      hiddenClear: false
+    })
+  },
+  bindBarcodeBlur: function (e) {
+    this.setData({
+      hiddenDropdown: true,
+      hiddenClear: true
+    })
+  },
+
 
 
   // 事件触发，调用接口
