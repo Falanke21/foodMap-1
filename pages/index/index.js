@@ -125,11 +125,11 @@ Page({
                 height: 40
               },
               clickable: true
-              /** 
+              // /** 
             },
             {
               id: 2,
-              //iconPath: '/image/search.png',
+              iconPath: '/image/search.png',
               position: {
                 //left: res.windowWidth * 290 / 375,
                 //top: res.windowHeight * 330 / 812,
@@ -139,7 +139,7 @@ Page({
                 height: 60
               },
               clickable: true
-              **/
+              // **/
             }]
             
         })
