@@ -1,5 +1,6 @@
 <!--pages/launch/launch.wxml-->
-<view class="container">
+
+<view wx:if="{{!hasUserInfo && canIUse}}" class="container">
 <image class="launch_img"src="/image/loading.png" mode="aspectFit"></image>
 
 <image class="load_gif"src="/image/preload.gif"
@@ -7,3 +8,11 @@
 ></image>
 
 </view>
+
+<view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" bindtap="bindUserLogin"> 立即登录 </button>
+    <block wx:else open-type="getUserInfo">
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>

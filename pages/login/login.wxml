@@ -1,0 +1,2 @@
+<!--pages/login/login.wxml-->
+<button class='wx-login' open-type="getUserInfo" bindgetuserinfo="getUserInfo">微信授权一键登录</button>

@@ -1,4 +1,5 @@
 {
+  "cloud": true,
   "pages": [
     "pages/launch/launch",
     "pages/index/index",
@@ -8,8 +9,8 @@
     "pages/dialog/dialog",
     "pages/popupPage/popupPage",
     "pages/data/data",
-    "pages/searchBox/searchBox"
-    
+    "pages/searchBox/searchBox",
+    "pages/login/login"
   ],
   "permission": {
     "scope.userLocation": {

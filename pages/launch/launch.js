@@ -3,35 +3,66 @@ const app = getApp()
 // pages/launch/launch.js
 Page({
 
+  globalData: {
+    appid: 'wx675248299f115b5b',//请勿透露，请勿转载，请勿截图，此程序专属id
+    secret: '97ede34cbbd1e55ed7776724df55a69f',//如上
+  },
+
   /**
    * Page initial data
    */
   data: {
+    motto: '',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    openid:''
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
+    //this.getUserInfo_permission();
+    //this.getOpenid();
+
+    // this.loadUser();
+    // let timer = setTimeout(() => {
+    //   clearTimeout(timer)
+    //   this.direct()
+    // }, 500)
+    
+  },
+  // 事件处理函数：跳转到登陆页
+  bindUserLogin: function () {
+    wx.navigateTo({
+      url: '../login/login',
+    })
+  },
+
+  onShow: function () {
     this.getUserInfo_permission();
-    let timer = setTimeout(() => {
+    if(this.data.hasUserInfo){
+      this.getOpenid();
+      this.loadUser();
+
+      //离开launch 页面
+      let timer = setTimeout(() => {
       clearTimeout(timer)
       this.direct()
     }, 2000)
+    }
+    
   },
 
   getUserInfo_permission: function (){
+    var that = this
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
       })
     } else if (this.data.canIUse) {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
       app.userInfoReadyCallback = res => {
         this.setData({
           userInfo: res.userInfo,
@@ -39,7 +70,6 @@ Page({
         })
       }
     } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
       wx.getUserInfo({
         success: res => {
           app.globalData.userInfo = res.userInfo
@@ -50,6 +80,8 @@ Page({
         }
       })
     }
+    console.log("hi")
+    console.log(this.data.userInfo.nickName)
   },
   
   getUserInfo: function (e) {
@@ -76,37 +108,60 @@ Page({
     wx.cloud.init()
     const db = wx.cloud.database()
     var that = this
-
+    console.log("loadUser")
+    console.log(this.data.userInfo)
     db.collection('wxuser').where({
-      wxname: userInfo.nickName
+      wxname: this.data.userInfo.nickName
     }).get({
       success(res) {
         var user = res.data
         console.log(user)
+        console.log(user.length)
         if(user.length == 0){
-          that.createUser();
+          console.log("new user")
+          that.db_createUser();
+        }else{
+          console.log("user exits")
         }
       }
     })
   },
-  createUser: function (){
+  db_createUser: function (){
     wx.cloud.init()
     const db = wx.cloud.database()
     var that = this
+    var nickName = this.data.userInfo.nickName
+
     db.collection('wxuser').add({
       // data 字段表示需新增的 JSON 数据
       data: {
         exp: 0,
-        image: userInfo.avatarUrl,
+        image: this.data.userInfo.avatarUrl,
         level:1,
-        unionid:"",
-        wxname: userInfo.nickName
+        openid:this.getOpenid(),
+        wxname: nickName
       },
       success(res) {
         console.log(res)
       },
       fail: console.error
     })
+  },
+  // 获取用户openid
+  getOpenid() {
+    let that = this;
+    var openid;
+    wx.cloud.callFunction({
+      name: 'getOpenid',
+      complete: res => {
+        console.log('云函数获取到的openid: ', res.result)
+        openid = res.result.openId;
+        that.setData({
+          openid: openid
+        })
+      }
+    })
+    return openid
   }
 
 
