@@ -3,7 +3,9 @@ page {
     background-color: rgb(0, 153, 153);
 }
 .container {
-  margin-top: 50rpx; 
+  margin-top: 200rpx;  
+  padding: 0 20rpx ;  
+  align-items: center;  
 }
 
 .userinfo {

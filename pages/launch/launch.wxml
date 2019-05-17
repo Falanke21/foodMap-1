@@ -12,7 +12,11 @@
 <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" bindtap="bindUserLogin"> 立即登录 </button>
     <block wx:else open-type="getUserInfo">
+      
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <image class="load_gif"src="/image/preload.gif"
+  style="width: 70px; height: 70px;
+></image>
     </block>
   </view>
