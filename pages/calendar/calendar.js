@@ -1,6 +1,5 @@
 
 const MONTHS = ['Jan.', 'Feb.', 'Mar.', 'Apr.', 'May.', 'June.', 'July.', 'Aug.', 'Sept.', 'Oct.', 'Nov.', 'Dec.'];
-
 Page({
 
   /**
@@ -25,7 +24,7 @@ Page({
     this.popup = this.selectComponent("#product");
   },
 
-  showProduct: function() {
+  showProduct: function(e) {
     this.popup.showPopup();
   }
 })
