@@ -1,5 +1,6 @@
 <!--components/product/product.wxml-->
-<text>components/product/product.wxml</text>
+<!--<text>components/product/product.wxml</text>-->
+<!-->
 <view class = "container" style='display:block;' hidden="{{flag}}">
   <view class = 'product'>
   <view class = 'left'> 商品内容</view>

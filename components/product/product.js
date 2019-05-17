@@ -7,7 +7,7 @@ Component({
    * Component properties
    */
   properties: {
-
+    
   },
 
   /**
@@ -27,10 +27,15 @@ Component({
       })
     },
     //展示弹框
-    showPopup() {
+    showPopup(e) {
+      console.log("This calendar looks stupid");
       this.setData({
         flag: !this.data.flag
+      },
+      wx.navigateTo({
+        url: 'productpage/productpage.wxml',
       })
+      )
     }
 
   }
