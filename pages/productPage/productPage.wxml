@@ -1,0 +1,25 @@
+<!--pages/productPage/productPage.wxml-->
+<view class = "container" hidden="{{flag}}">
+  <view class = 'product'>
+  <view class = 'left'> 商品内容</view>
+  <view class = 'right'> </view>
+  </view>
+  <view class = 'product'>
+  <view class = 'left'> 时间</view>
+  <view class = 'right'> </view>
+  </view>
+  <view class = 'product'>
+  <view class = 'left'> 有效期</view>
+  <view class = 'right'> </view>
+  </view>
+  <view class = 'product'>
+  <view class = 'left'> 店铺</view>
+  <view class = 'right'> </view>
+  </view>
+  <view class = 'product'>
+  <view class = 'left'> 打折券号</view>
+  <view class = 'right'> </view>
+  </view>
+  <view class = 'product-btn'> </view>
+  <button> 兑换</button>
+</view>
