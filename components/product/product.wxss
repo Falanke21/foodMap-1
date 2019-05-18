@@ -1,3 +1,4 @@
+/* components/product/product.wxss */
 .product-btn {
   margin-top: 20px;
   margin-bottom: 20px;

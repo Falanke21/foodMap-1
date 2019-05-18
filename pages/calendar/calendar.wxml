@@ -4,11 +4,12 @@
     <view class='item-container'>
       <view class='product'>
         <view class='product-text'>
+          <image class='type-image' src='/image/massage.png'></image>
           {{item}}
         </view>
       </view>
     </view>
   </block>
 </view>
-
-<button bindtap='showPopup'>点我</button>
+<product id = "product"></product>
+<button bindtap='showProduct'>点我</button>
