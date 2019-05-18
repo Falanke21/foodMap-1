@@ -83,7 +83,7 @@ Page({
           borderWidth: 1,
           borderColor: "#CCC",
           padding: 4,
-          display: "ALWAYS",
+          display: "BYCLICK",
           textAlign: "center"
         }
 
@@ -318,6 +318,51 @@ Page({
     })
   },
 
+  getMapScale: function () {
+    var that = this;
+    this.mapCtx = wx.createMapContext("myMap");
+    this.mapCtx.getScale({
+      success: function (res) {
+        that.setData({
+          scale: res.scale
+        })
+      }
+    })
+  },
+
+  displayCallout: function () {
+    var that = this;
+    var mks = that.data.markers;
+    
+    if (mks) {
+      var prev = mks[0].callout.display;
+      if (this.data.scale <= 17) {
+        for (var i = 0; i < mks.length; i++) {
+          mks[i].callout.display = "BYCLICK";
+        }
+      } else {
+        for (var i = 0; i < mks.length; i++) {
+          mks[i].callout.display = "ALWAYS";
+        }
+      }
+      var aft = mks[0].callout.display;
+      if (prev != aft) {
+        console.log('prev scale ===' + prev)
+        console.log('after scale ===' + aft)
+        this.setData({
+          longitude: this.data.longitude,
+          latitude: this.data.latitude,
+          markers: mks,
+          map: 0
+        })
+        this.setData({
+          map: 1
+        })
+      }
+    }
+      console.log(mks)
+  },
+
 /**移动到中心点 */
   moveToLocation: function () {
     var that = this;
@@ -340,7 +385,10 @@ Page({
     // 地图发生变化的时候，获取中间点，也就是选择的位置
     if (e.type == 'end') {
       this.getLngLat()
+      this.getMapScale()
+      console.log('scale is ===' + this.data.scale)
     }
+    this.displayCallout()
   },
 
    controltap: function (e) {
