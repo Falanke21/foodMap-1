@@ -11,7 +11,8 @@ Page({
     day: new Date().getDate(),
     str: MONTHS[new Date().getMonth()],  // 月份字符串
 
-    merchandise: ["Hello", "my hobby", "sing", "dance", "rap", "basketball"]
+    merchandiseList: ["no data in cloud"],
+    url_lis: []
   },
 
   /**
@@ -22,6 +23,30 @@ Page({
 
   onReady: function () {
     this.popup = this.selectComponent("#product");
+    const db = wx.cloud.database();
+
+    var that = this;
+    
+    db.collection('merchandise').get({
+      success(res) {
+        // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
+        that.setData({
+          merchandiseList: res.data,
+        });
+      }
+    })
+
+    db.collection('img_url').where({
+      type: "location_img_url"
+    }).get({
+      success(res) {
+        that.setData({
+          url_lis: res.data[0],
+      })
+      }
+    })
+
+    console.log(this.data.url_lis)
   },
 
   showProduct: function(e) {
