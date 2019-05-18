@@ -89,5 +89,14 @@ Page({
       fail: function (res) { },
       complete: function (res) { },
     })
+  },
+
+  wallettap(e) {
+    console.log("", e)
+
+    wx.navigateTo({
+      url: '../wallet/wallet'
+    })
+    console.log(e.currentTarget.dataset.offsetLeft)
   } 
 })

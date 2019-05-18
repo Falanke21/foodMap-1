@@ -10,7 +10,8 @@
     "pages/popupPage/popupPage",
     "pages/data/data",
     "pages/searchBox/searchBox",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/wallet/wallet"
   ],
   "permission": {
     "scope.userLocation": {
