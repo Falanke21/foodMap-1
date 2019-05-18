@@ -81,6 +81,13 @@ Page({
       exp: this.data.exp + expIncr
     })
   },
-
-  
+  scan () {
+    wx.scanCode({
+      onlyFromCamera: false,
+      scanType: [],
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  } 
 })
