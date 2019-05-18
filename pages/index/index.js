@@ -220,25 +220,51 @@ Page({
     })
   },
 
-  bindBarcodeInput: function (e) {
-    this.setData({
-      barcode: e.detail.value
-    })
-  },
-  
   bindBarcodeFocus: function (e) {
     this.setData({
       hiddenDropdown: false,
       hiddenClear: false
     })
+    console.log("BarcodeFocus", e)
+  },
+
+  bindBarcodeInput: function (e) {
+    this.setData({
+      barcode: e.detail.value
+    })
+    // console.log("BarcodeInput", e)
   },
 
   bindBarcodeBlur: function (e) {
-    this.setData({
-      hiddenDropdown: true,
-      hiddenClear: true
+    // this.setData({
+    //   hiddenDropdown: true,
+    //   hiddenClear: true
+    // })
+    console.log("BarcodeBlur", e)
+    var inputPassIn = e.detail.value
+    if (!String.prototype.format) {
+      String.prototype.format = function () {
+        var args = arguments;
+        return this.replace(/{(\d+)}/g, function (match, number) {
+          return typeof args[number] != 'undefined'
+            ? args[number]
+            : match
+            ;
+        });
+      };
+    }
+    wx.navigateTo({
+      url: '/pages/searchBox/searchBox?inputPassIn={0}'.format(inputPassIn)
     })
   },
+
+  bindSearchBtn: function (e) {
+    wx.navigateTo({
+      url: '/pages/searchBox/searchBox'
+    })
+  },
+
+
 
 
 
@@ -317,11 +343,6 @@ Page({
     }
   },
 
-  bindSearchBtn: function (e) {
-    wx.navigateTo({
-      url: '/pages/searchBox/searchBox'
-    })
-  },
    controltap: function (e) {
     console.log('map control id: ' + e.controlId)
     var id = e.controlId

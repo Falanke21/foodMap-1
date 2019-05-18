@@ -14,7 +14,12 @@
 
         </view>
         <view class="search-button-wrapper">
-          <image class="search-button" src="/image/search.png" bindtap="nearby_search"></image>
+        <!-- We try to abandon the red search bar's nearby_search function.
+             This search function utilizes QQmap's functionality, which only
+             works in China.  -->
+          <!-- <image class="search-button" src="/image/search.png" bindtap="nearby_search"></image> -->
+          <image class="search-button" src="/image/search.png"></image>
+
         </view>
       </view>
     </view>
