@@ -50,6 +50,8 @@ Page({
   },
 
   showProduct: function(e) {
-    this.popup.showPopup();
+    wx.navigateTo({
+      url: '../productPage/productPage',
+    })
   }
 })

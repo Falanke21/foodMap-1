@@ -11,5 +11,4 @@
     </view>
   </block>
 </view>
-<product id = "product"></product>
 <button bindtap='showProduct'>点我</button>
