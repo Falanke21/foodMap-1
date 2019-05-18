@@ -1,7 +1,19 @@
 //app.js
 App({
+  globalData: {
+    userInfo: null,
+    locationInfo: null,
+  },
   onLaunch: function () {
     // 展示本地存储能力
+    if (!wx.cloud){
+      console.error('调用云开发失败，请使用2.2.3或以上的基础库以使用云能力')
+    }else{
+      wx.cloud.init({
+        env: 'moca-map-3c18df',
+        traceUser: true
+        })
+    }
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs) 
@@ -18,6 +30,7 @@ App({
             success: function(res){
               that.globalData.userInfo = res.userInfo
               typeof cb == "function" && cb(that.globalData.userInfo)
+              console.log(res.userInfo)
               
             }
           })
@@ -46,10 +59,7 @@ App({
         }
       })
     }
-  }
-
-  ,globalData: {
-    userInfo: null
-  ,locationInfo: null
-  }
+  },
+  
+  
 })

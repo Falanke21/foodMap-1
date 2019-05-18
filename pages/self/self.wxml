@@ -1,19 +1,21 @@
 <!--pages/self/self.wxml-->
 <view class="container">
-  <!-- <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-  </view> -->
+  
   <open-data type="userAvatarUrl"></open-data>
 <open-data class="userinfo-nickname" type="userNickName"></open-data>
 </view>
 <view class="section">
   <view class="level">
-    <text class="user-level"> Level {{level}}</text>
+    <text class="user-level"> 等级： {{level}}</text>
   </view>
   <view class="experience">
     <!-- Needs 100 more experiences on every level -->
-    <progress percent="{{exp / levelUpNeed * 100}}" stroke-width="12" activeColor="pink" active active-mode="forwards" />
+    <progress percent="{{exp / levelUpNeed * 100}}" stroke-width="8" activeColor="rgb(87, 107, 149)" active active-mode="forwards" />
+  </view>
+</view>
+<view class="self-btn">
+  <view class="wallet-btn" bindtap='getWallet'>卡包
+  </view>
+  <view class="scan-btn" bindtap='scan'> 扫码
   </view>
 </view>

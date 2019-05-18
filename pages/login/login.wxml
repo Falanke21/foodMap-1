@@ -1,0 +1,5 @@
+<!--pages/login/login.wxml-->
+<view class="container">
+<image class="launch_img"src="/image/loading.png" mode="aspectFit"></image>
+</view>
+<button class='wx-login' open-type="getUserInfo" bindgetuserinfo="getUserInfo">微信授权一键登录</button>

@@ -1,18 +1,18 @@
-/***
- * // 定义数据格式
- * "wxSearchData":{
- *  configconfig:{
- *    style: "wxSearchNormal"
- *  },
- *  view:{
- *    hidden: true,
- *    searchbarHeght: 20
- *  }
- *  hotKeys:[],//自定义热门搜索
- *  his:[]//历史搜索关键字
- *  value
- * }
- */
+// /***
+//  * // 定义数据格式
+//  * "wxSearchData":{
+//  *  configconfig:{
+//  *    style: "wxSearchNormal"
+//  *  },
+//  *  view:{
+//  *    hidden: true,
+//  *    searchbarHeght: 20
+//  *  }
+//  *  hotKeys:[],//自定义热门搜索
+//  *  his:[]//历史搜索关键字
+//  *  value
+//  * }
+//  */
 
 // 提示集合
 var __tipKeys = [];
@@ -23,8 +23,9 @@ var __goBackFunction = null;
 // 应用变量
 var __that = null;
 
+
 // 初始化函数
-function init(that, hotKeys, tipKeys, searchFunction, goBackFunction) {
+function init(that, initInput, hotKeys, tipKeys, searchFunction, goBackFunction) {
 
   __that = that;
   __tipKeys = tipKeys;
@@ -37,7 +38,7 @@ function init(that, hotKeys, tipKeys, searchFunction, goBackFunction) {
     barHeight: barHeight
   }
   temData.hotKeys = hotKeys;
-
+  // Search for passed in input
   wx.getSystemInfo({
     success: function (res) {
       var wHeight = res.windowHeight;
@@ -46,6 +47,8 @@ function init(that, hotKeys, tipKeys, searchFunction, goBackFunction) {
       __that.setData({
         wxSearchData: temData
       });
+      __that.data.wxSearchData.value = initInput;
+      console.log("wxSearchData.value", __that.data.wxSearchData.value);
     }
   });
 

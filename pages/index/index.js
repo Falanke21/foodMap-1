@@ -49,12 +49,17 @@ Page({
         var lis = res.data
         console.log(lis)
          var mks = that.init_marker(lis, url_lis);
-        console.log(mks)
+        //console.log(mks)
         that.setData({
           markers: mks
         })
 
       }
+    })
+
+    var mapCtx = wx.createMapContext("myMap");
+    that.setData({
+      map: mapCtx
     })
 
   },
@@ -112,19 +117,19 @@ Page({
               id: 1,
               iconPath: '/image/locate.png',
               position: {
-                left: res.windowWidth * 290 / 375,
-                top: res.windowHeight * 400 / 812,
+                left: res.windowWidth * 0.85,
+                top: res.windowHeight * 0.1,
                 //left: 290,
                 //top: 400,
-                width: 60,
-                height: 60
+                width: 40,
+                height: 40
               },
               clickable: true
-              /** 
+              // /** 
             },
             {
               id: 2,
-              //iconPath: '/image/search.png',
+              iconPath: '/image/search.png',
               position: {
                 //left: res.windowWidth * 290 / 375,
                 //top: res.windowHeight * 330 / 812,
@@ -134,7 +139,7 @@ Page({
                 height: 60
               },
               clickable: true
-              **/
+              // **/
             }]
             
         })
@@ -142,13 +147,13 @@ Page({
     })
 
     wx.getLocation({
-      type: 'gcj02',
+      type: 'wgs84',
       success: function (res) {
         that.setData({
           latitude: res.latitude,
           longitude: res.longitude,
         })
-        //that.moveTolocation();
+        //that.moveToLocation();
       },
     }),
       that.setData({ init_lat: this.data.latitude, init_long: this.data.longitude })
@@ -215,6 +220,52 @@ Page({
     })
   },
 
+  bindBarcodeFocus: function (e) {
+    this.setData({
+      hiddenDropdown: false,
+      hiddenClear: false
+    })
+    console.log("BarcodeFocus", e)
+  },
+
+  bindBarcodeInput: function (e) {
+    this.setData({
+      barcode: e.detail.value
+    })
+    // console.log("BarcodeInput", e)
+  },
+
+  bindBarcodeBlur: function (e) {
+    // this.setData({
+    //   hiddenDropdown: true,
+    //   hiddenClear: true
+    // })
+    console.log("BarcodeBlur", e)
+    var inputPassIn = e.detail.value
+    if (!String.prototype.format) {
+      String.prototype.format = function () {
+        var args = arguments;
+        return this.replace(/{(\d+)}/g, function (match, number) {
+          return typeof args[number] != 'undefined'
+            ? args[number]
+            : match
+            ;
+        });
+      };
+    }
+    wx.navigateTo({
+      url: '/pages/searchBox/searchBox?inputPassIn={0}'.format(inputPassIn)
+    })
+  },
+
+  bindSearchBtn: function (e) {
+    wx.navigateTo({
+      url: '/pages/searchBox/searchBox'
+    })
+  },
+
+
+
 
 
   // 事件触发，调用接口
@@ -267,24 +318,23 @@ Page({
     })
   },
 
-  /**
- * 移动到中心点
- */
-  moveTolocation: function () {
-    //mapId 就是你在 map 标签中定义的 id
-    // 以下Code因wx.getLocation()有bug停用
-    // var mapCtx = wx.createMapContext("myMap");
-    // mapCtx.moveToLocation();
-    var that = this
+/**移动到中心点 */
+  moveToLocation: function () {
+    var that = this;
     wx.chooseLocation({
-      success: function(res) {
+      success: function (res) {
         that.setData({
-          init_lat: res.latitude,
-          init_long: res.longitude
-        })
+          longitude: res.longitude,
+          latitude: res.latitude,
+        });
+        
       },
-    })
+      fail: function (err) {
+        console.log(err)
+      }
+    });
   },
+
 
   regionchange(e) {
     // 地图发生变化的时候，获取中间点，也就是选择的位置
@@ -293,18 +343,12 @@ Page({
     }
   },
 
-  bindSearchBtn: function (e) {
-    wx.navigateTo({
-      url: '/pages/searchBox/searchBox'
-    })
-  }
-
-  , controltap: function (e) {
+   controltap: function (e) {
     console.log('map control id: ' + e.controlId)
     var id = e.controlId
     // 定位
     if (id == 1) {
-      this.moveTolocation()
+      this.moveToLocation()
     // 搜索
     } else if (id == 2) {
       this.bindSearchBtn()
