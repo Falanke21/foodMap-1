@@ -17,6 +17,11 @@ Component({
     flag: true,
   },
 
+  attached() {
+    // 在组件实例进入页面节点树时执行
+    console.log("flag is " + this.data.flag);
+  },
+
   /**
    * Component methods
    */
@@ -32,9 +37,6 @@ Component({
       this.setData({
         flag: !this.data.flag
       },
-      wx.navigateTo({
-        url: 'productpage/productpage.wxml',
-      })
       )
     }
 
