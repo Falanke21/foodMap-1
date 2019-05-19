@@ -1,4 +1,5 @@
 const app = getApp()
+const db = wx.cloud.database()
 
 // pages/self/self.js
 Page({
@@ -8,11 +9,12 @@ Page({
    */
   data: {
     level: 1,
-    exp: 20,
+    exp: 0,
     levelUpNeed: 100,
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    id: 0
   },
 
   /**
@@ -50,7 +52,7 @@ Page({
               if (res.confirm) {
                 console.log('用户点击确定')
                 wx.navigateTo({
-                  url: '../tologin/tologin',
+                  url: '../login/login',
                 })
               }
             }
@@ -58,6 +60,25 @@ Page({
         }
       })
     }
+
+    var that = this;
+    db.collection('wxuser').where({
+      wxname: app.globalData.userInfo.nickName
+    }).get({
+      success(res) {
+        that.setData({
+          exp: res.data[0].exp,
+          level: res.data[0].level,
+          id: res.data[0]._id
+        })
+        console.log(res.data[0].exp)
+        console.log(res.data[0]._id)
+        console.log(that.id)
+      },
+      fail(res) {
+        console.log('fail')
+      }
+    })
   },
 
   getUserInfo: function (e) {
@@ -80,14 +101,49 @@ Page({
     this.setData({
       exp: this.data.exp + expIncr
     })
+
   },
-  scan () {
+
+  gainCredit() {
+
+  },
+
+  scan() {
+    var that = this
     wx.scanCode({
       onlyFromCamera: false,
       scanType: [],
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
+      success: function (res) {
+        //预留判断用户今日扫码，打卡次数或店家二维码是否合法
+        if (true) {
+          //加经验
+          that.gainExp()
+          //加积分
+          that.gainCredit()
+          //存储积分，等级，经验至数据库
+
+          wx.showToast({
+            title: '打卡成功',
+          })
+
+          // console.log(that._id)
+          //   db.collection('wxuser').doc(that.id).update({
+          //       data : {
+          //         exp: that.exp,
+          //         level: that.level
+          //       },
+          //     success: console.log,
+          //     fail: console.error
+          //   })
+        }
+        console.log("Scan successful")
+      },
+      fail: function (res) {
+        console.log("Scan fail")
+      },
+      complete: function (res) {
+        console.log("Scan complete")
+      },
     })
   },
 
@@ -98,5 +154,5 @@ Page({
       url: '../wallet/wallet'
     })
     console.log(e.currentTarget.dataset.offsetLeft)
-  } 
+  }
 })
