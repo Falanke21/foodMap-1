@@ -21,9 +21,9 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    var scene = decodeURIComponent(options.scene);
-    console.log("========")
-    console.log(options);
+    // var scene = decodeURIComponent(options.scene);
+    // console.log("========")
+    // console.log(options);
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
