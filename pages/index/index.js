@@ -125,7 +125,7 @@ Page({
                 height: 40
               },
               clickable: true
-              // /** 
+              /** 
             },
             {
               id: 2,
@@ -139,7 +139,7 @@ Page({
                 height: 60
               },
               clickable: true
-              // **/
+              **/
             }]
             
         })
