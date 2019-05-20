@@ -21,6 +21,9 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
+    var scene = decodeURIComponent(options.scene);
+    console.log("========")
+    console.log(options);
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -114,14 +117,26 @@ Page({
       onlyFromCamera: false,
       scanType: [],
       success: function (res) {
+       
         //预留判断用户今日扫码，打卡次数或店家二维码是否合法
+        // if (userLocationArrayList.indexOf(res.result.locationId ) == -1) {
+            //加经验
+            // that.gainExp()
+            // //加积分
+            // that.gainCredit()
+            // //存储积分，等级，经验至数据库
+            //userLocationArrayList.add(res.result.locationId)
+            // wx.showToast({
+            //   title: '打卡成功',
+            // })
+        //}
         if (true) {
           //加经验
           that.gainExp()
           //加积分
           that.gainCredit()
           //存储积分，等级，经验至数据库
-
+          
           wx.showToast({
             title: '打卡成功',
           })
