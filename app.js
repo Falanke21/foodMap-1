@@ -3,6 +3,7 @@ App({
   globalData: {
     userInfo: null,
     locationInfo: null,
+    openid: null,
   },
   onLaunch: function () {
     // 展示本地存储能力

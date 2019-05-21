@@ -360,7 +360,7 @@ Page({
         })
       }
     }
-      console.log(mks)
+      //console.log(mks)
   },
 
 /**移动到中心点 */
@@ -386,7 +386,7 @@ Page({
     if (e.type == 'end') {
       this.getLngLat()
       this.getMapScale()
-      console.log('scale is ===' + this.data.scale)
+      //console.log('scale is ===' + this.data.scale)
     }
     this.displayCallout()
   },
