@@ -44,6 +44,9 @@ Page({
   mySearchFunction: function (value) {
     console.log("mySearchFunction Triggered")
     // do your job here
+    this.setData({
+      hiddenDropDown: true
+    })
     wx.cloud.init()
     const db = wx.cloud.database()
     var markerId
@@ -88,7 +91,7 @@ Page({
 
   // 5 返回回调函数
   myGobackFunction: function () {
-    console.log("muGobackFunction Triggered")
+    console.log("myGobackFunction Triggered")
     // do your job here
     // 示例：返回
     wx.redirectTo({
