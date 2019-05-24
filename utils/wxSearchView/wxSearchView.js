@@ -61,6 +61,10 @@ function wxSearchInput(e) {
   // 寻找提示值 
   var tipKeys = [];
   if (inputValue && inputValue.length > 0) {
+    // 显示搜索备选
+    __that.setData({
+      hiddenDropDown: false
+    });
     for (var i = 0; i < __tipKeys.length; i++) {
       var mindKey = __tipKeys[i];
       // 包含字符串
@@ -68,6 +72,11 @@ function wxSearchInput(e) {
         tipKeys.push(mindKey);
       }
     }
+  } else {
+    // 隐藏搜索备选
+    __that.setData({
+      hiddenDropDown: true
+    });
   }
   // 更新数据
   temData.value = inputValue;

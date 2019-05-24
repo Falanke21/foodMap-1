@@ -15,7 +15,8 @@ Page({
       {name: 'push --force'},
       {name: 'merge -f'},
       {name: 'commit -m ""'}
-    ]
+    ],
+    hiddenDropDown: true
   },
 
   /**
@@ -37,6 +38,7 @@ Page({
   wxSearchDeleteAll: WxSearch.wxSearchDeleteAll, // 删除所有的历史记录
   wxSearchConfirm: WxSearch.wxSearchConfirm,  // 搜索函数
   wxSearchClear: WxSearch.wxSearchClear,  // 清空函数
+
 
   // 4 搜索回调函数  
   mySearchFunction: function (value) {
