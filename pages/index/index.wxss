@@ -2,9 +2,9 @@
 .search-wrapper {
   position: fixed;/*悬停搜索框的关键样式*/
   top: 0px;
-  left: 0;
+  /* left: 0; */
   width: 100%;
-  z-index: 999;
+  /* z-index: 999; */
 }
 
 .search-panel {
@@ -12,7 +12,7 @@
 }
 
 .search-section {
-  padding: 5px 0px;
+  padding: 4px 4px;
   display: flex;
   flex-direction: row;
 }
@@ -21,18 +21,18 @@
   padding: 5px;
   flex-direction: row;
   background-color: #eee;
-  padding-left:42px;   
+  padding-left:42px;
 }
 
 .search-input-wrapper {
-  flex: 2;
-  padding: 1px;
+  flex: 8;
+  padding: 0px;
   background-color: white;
   border-radius: 2px;
 }
 
 .search-placeholder {
-  font-size: 18px;
+  padding:0px 0px 0px 0px;
 }
 
 button[plain]{ border:0 }
