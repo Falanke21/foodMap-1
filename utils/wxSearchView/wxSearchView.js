@@ -47,8 +47,6 @@ function init(that, hotKeys, tipKeys, searchFunction, goBackFunction) {
       __that.setData({
         wxSearchData: temData
       });
-      __that.data.wxSearchData.value = initInput;
-      console.log("wxSearchData.value", __that.data.wxSearchData.value);
     }
   });
 
