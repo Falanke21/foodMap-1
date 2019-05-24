@@ -10,7 +10,8 @@
         <view class="search-button-wrapper">
         </view>
         <view class="search-input-wrapper ">
-          <input bindinput="bindBarcodeInput" bindconfirm="query" bindfocus="bindBarcodeFocus" bindblur="bindBarcodeBlur" class="search-input" placeholder="搜索美食" value="{{barcode}}" confirm-type="search" />
+          <!-- <input bindinput="bindBarcodeInput" bindconfirm="query" bindfocus="bindBarcodeFocus" bindblur="bindBarcodeBlur" class="search-input" placeholder="搜索美食" value="{{barcode}}" confirm-type="search" /> -->
+          <button class="search-placeholder" bindtap="bindSearchBtn" plain="true" hover-class="none">搜索美食</button>
 
         </view>
         <view class="search-button-wrapper">

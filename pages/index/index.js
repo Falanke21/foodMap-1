@@ -220,21 +220,6 @@ Page({
     })
   },
 
-  bindBarcodeFocus: function (e) {
-    this.setData({
-      hiddenDropdown: false,
-      hiddenClear: false
-    })
-    console.log("BarcodeFocus", e)
-  },
-
-  bindBarcodeInput: function (e) {
-    this.setData({
-      barcode: e.detail.value
-    })
-    // console.log("BarcodeInput", e)
-  },
-
   bindBarcodeBlur: function (e) {
     // this.setData({
     //   hiddenDropdown: true,
