@@ -14,16 +14,13 @@ Page({
    */
   onLoad: function (options) {
     var that = this
-    console.log("inputPassIn", options.inputPassIn)
     WxSearch.init(
       that,
-      options.inputPassIn,
       ['奶茶', '烧烤', "炸鸡", "甜食", '日料', '小笼包'],
       ['北方菜', '粤菜', '四川菜', "鲁菜"],
       that.mySearchFunction,
       that.myGobackFunction
     );
-    this.mySearchFunction(options.inputPassIn)
   },
 
   wxSearchInput: WxSearch.wxSearchInput,  // 输入变化时的操作

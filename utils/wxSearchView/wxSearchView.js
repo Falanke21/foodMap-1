@@ -25,7 +25,7 @@ var __that = null;
 
 
 // 初始化函数
-function init(that, initInput, hotKeys, tipKeys, searchFunction, goBackFunction) {
+function init(that, hotKeys, tipKeys, searchFunction, goBackFunction) {
 
   __that = that;
   __tipKeys = tipKeys;
