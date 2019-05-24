@@ -1,4 +1,7 @@
 <!--pages/searchBox/searchBox.wxml-->
 <include src="../../utils/wxSearchView/wxSearchView.wxml" />
 <text>pages/searchBox/searchBox.wxml\n</text>
-<text>Search alternatives list in development.</text>
+<text>蔡徐坤开发搜索功能中</text>
+<view wx:for="{{schrRes}}" wx:for-index="idx" wx:for-item="item">
+  {{idx}}: {{item.name}}
+</view>

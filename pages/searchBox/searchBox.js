@@ -7,6 +7,15 @@ Page({
    * Page initial data
    */
   data: {
+    // Results in drop down list
+    schrRes: [
+      {name: '我喜欢'},
+      {name: 'copy'},
+      {name: 'paste'},
+      {name: 'push --force'},
+      {name: 'merge -f'},
+      {name: 'commit -m ""'}
+    ]
   },
 
   /**
