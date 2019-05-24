@@ -23,10 +23,11 @@
         </view>
       </view>
     </view>
-    <view class="search-demo" hidden="{{hiddenDropdown}}">
+    <!-- The map is covering the original drop down list of red search bar, we are implementing the drop down list in elsewhere. -->
+    <!-- <view class="search-demo" hidden="{{hiddenDropdown}}">
       <button size="mini" bindtap="setDemoData">示例</button>
       <button size="mini" bindtap="clear" style="margin-left:10px;">清空</button>
-    </view>
+    </view> -->
   </view>
 
 
