@@ -160,13 +160,15 @@ Page({
         }
         else {
           wx.showToast({
-            title: '二维码已过期',
+            title: '打卡失败',
           })
         }
         console.log("Scan successful")
       },
       fail: function (res) {
-        console.log("Scan fail")
+        wx.showToast({
+          title: '扫描失败',
+        })
       },
       complete: function (res) {
         console.log("Scan complete")
