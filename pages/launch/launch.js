@@ -165,7 +165,7 @@ Page({
           userid: userid
         })
         console.log('本地openid 已同步为： ',userid)
-        app.globalData.oepnid = this.data.userid
+        app.globalData.openid = this.data.userid
         console.log('Global data 更新为：', app.globalData)
       }
       
