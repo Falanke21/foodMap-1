@@ -48,8 +48,8 @@ Page({
       success(res) {
         var lis = res.data
         console.log(lis)
-         var mks = that.init_marker(lis, url_lis);
-        //console.log(mks)
+        var mks = that.init_marker(lis, url_lis);
+        console.log(mks)
         that.setData({
           markers: mks
         })
@@ -58,6 +58,7 @@ Page({
     })
 
     var mapCtx = wx.createMapContext("myMap");
+    console.log("MAPCTXXXXXX====" + mapCtx)
     that.setData({
       map: mapCtx
     })
@@ -68,7 +69,7 @@ Page({
     var mks = []
     for (var i = 0; i < lis.length; i++) {
       var location_type = lis[i].type
-      //console.log(url_lis[0][location_type])
+      console.log(url_lis[0][location_type])
       mks.push({
         id: lis[i].dbid,
         iconPath: url_lis[0][location_type],
@@ -83,9 +84,9 @@ Page({
           borderWidth: 1,
           borderColor: "#CCC",
           padding: 4,
+          display: "BYCLICK",
           textAlign: "center"
         }
-
       })
     }
     return mks
