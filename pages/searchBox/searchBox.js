@@ -31,6 +31,19 @@ Page({
       that.mySearchFunction,
       that.myGobackFunction
     );
+
+    var that = this;
+    var locations = []
+    wx.cloud.init()
+    const db = wx.cloud.database()
+    
+    db.collection('location').get({
+      success (res) {
+        that.setData({
+          schrRes: res.data
+        })
+      }
+    })
   },
 
   wxSearchInput: WxSearch.wxSearchInput,  // 输入变化时的操作
