@@ -48,8 +48,8 @@ Page({
       success(res) {
         var lis = res.data
         console.log(lis)
-         var mks = that.init_marker(lis, url_lis);
-        //console.log(mks)
+        var mks = that.init_marker(lis, url_lis);
+        console.log(mks)
         that.setData({
           markers: mks
         })
@@ -58,6 +58,7 @@ Page({
     })
 
     var mapCtx = wx.createMapContext("myMap");
+    console.log("MAPCTXXXXXX====" + mapCtx)
     that.setData({
       map: mapCtx
     })
@@ -68,7 +69,7 @@ Page({
     var mks = []
     for (var i = 0; i < lis.length; i++) {
       var location_type = lis[i].type
-      //console.log(url_lis[0][location_type])
+      console.log(url_lis[0][location_type])
       mks.push({
         id: lis[i].dbid,
         iconPath: url_lis[0][location_type],
@@ -86,7 +87,6 @@ Page({
           display: "BYCLICK",
           textAlign: "center"
         }
-
       })
     }
     return mks
@@ -115,31 +115,16 @@ Page({
           controls: [
             {
               id: 1,
-              iconPath: '/image/locate.png',
+              iconPath: '/image/locate1.png',
               position: {
                 left: res.windowWidth * 0.85,
                 top: res.windowHeight * 0.1,
                 //left: 290,
                 //top: 400,
-                width: 40,
+                width: 32,
                 height: 40
               },
               clickable: true
-              /** 
-            },
-            {
-              id: 2,
-              iconPath: '/image/search.png',
-              position: {
-                //left: res.windowWidth * 290 / 375,
-                //top: res.windowHeight * 330 / 812,
-                left: 290,
-                top: 330,
-                width: 60,
-                height: 60
-              },
-              clickable: true
-              **/
             }]
             
         })
@@ -319,7 +304,8 @@ Page({
     var that = this;
     var mks = that.data.markers;
     
-    if (mks) {
+    if (mks && this.data.scale) {
+      console.log(this.data.scale)
       var prev = mks[0].callout.display;
       if (this.data.scale <= 17) {
         for (var i = 0; i < mks.length; i++) {
@@ -370,6 +356,7 @@ Page({
     // 地图发生变化的时候，获取中间点，也就是选择的位置
     if (e.type == 'end') {
       this.getLngLat()
+      console.log("RC")
       this.getMapScale()
       //console.log('scale is ===' + this.data.scale)
     }
