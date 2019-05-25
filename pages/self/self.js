@@ -59,7 +59,8 @@ Page({
     if (this.data.exp + expIncr >= this.data.levelUpNeed) {
       this.setData({
         level: ++this.data.level,
-        levelUpNeed: this.data.levelUpNeed + 100,
+        levelUpNeed: this.data.levelUpNeed,
+        exp : 0,
       })
     }
     this.setData({
