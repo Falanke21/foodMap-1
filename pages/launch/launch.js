@@ -139,7 +139,8 @@ Page({
         image: this.data.userInfo.avatarUrl,
         level:1,
         openid:this.getOpenid(),
-        wxname: nickName
+        wxname: nickName,
+        wallet: []
       },
       success(res) {
         console.log(res)

@@ -12,6 +12,28 @@ page {
   margin-right: 30rpx
 }
 
+.empty-wallet{
+  border: solid 10rpx rgb(255, 255, 255);
+  height: center;
+  margin-top: 250rpx;
+  border-radius: 30rpx;
+  flex-direction: center; 
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.empty-wallet-text{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-display: bold;
+  font-size: large;
+  color: aliceblue
+}
+
 .product {
   margin-top: 10rpx;
   margin-left: 30rpx;

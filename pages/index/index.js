@@ -69,7 +69,7 @@ Page({
     var mks = []
     for (var i = 0; i < lis.length; i++) {
       var location_type = lis[i].type
-      console.log(url_lis[0][location_type])
+      //console.log(url_lis[0][location_type])
       mks.push({
         id: lis[i].dbid,
         iconPath: url_lis[0][location_type],

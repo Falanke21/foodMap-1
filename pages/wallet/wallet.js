@@ -9,6 +9,16 @@ Page({
     displayTicket: "",
     hasUserInfo: true,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    isEmpty: true,
+  },
+
+  /**
+    * Lifecycle function--Called when page load
+    */
+  onLoad: function (options) {
+    this.getOpenId()
+    console.log('openId is === ' + this.data.openId)
+    this.loadWallet();
   },
 
   getOpenId() {
@@ -18,20 +28,35 @@ Page({
     })
   },
 
-  loadTicket() {
+  loadWallet(){
     const db = wx.cloud.database()
     var that = this;
     db.collection('wxuser').where({
       _openid: this.data.openId
     }).get({
       success(res) {
-        var userTickets = [];
-        for (var i = 0; i < res.data[0].wallet.length; i++) {
-          userTickets.push(res.data[0].wallet[i])
+        console.log(res.data[0].wallet.length)
+        if (res.data[0].wallet.length > 0) {
+          this.setNEmpty();
+          var userTickets = [];
+          for (var i = 0; i < res.data[0].wallet.length; i++) {
+            userTickets.push(res.data[0].wallet[i])
+          };
+          wx.setStorageSync('userTickets', userTickets); // 缓存user tickets
         };
-        wx.setStorageSync('userTickets', userTickets); // 缓存user tickets
+        
       }
     })
+    console.log("the wallet is: " + this.data.isEmpty)
+    if (this.data.isEmpty != true) {
+      this.loadTicket();
+    }
+  },
+
+  loadTicket() {
+    const db = wx.cloud.database()
+    var that = this;
+    
     db.collection('merchandise').get({
       success(res) {
         var allTickets = res.data;
@@ -55,62 +80,11 @@ Page({
     console.log("these tickets will be displayed")
     console.log(this.data.displayTicket)
   },
-
-  /**
-   * Lifecycle function--Called when page load
-   */
-  onLoad: function(options) {
-    this.getOpenId()
-    console.log('openId is === ' + this.data.openId)
-    this.loadTicket()
-  },
-
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page show
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page hide
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page unload
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * Page event handler function--Called when user drop down
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * Called when page reach bottom
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * Called when user click on the top right corner to share
-   */
-  onShareAppMessage: function() {
-
+  
+  setNEmpty(){
+    var that = this;
+    this.setData({
+      isEmpty: false
+    })
   }
 })
