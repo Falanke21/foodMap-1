@@ -2,7 +2,7 @@
 <text>卡包页面</text>
 
 <view>
-  <block wx:for='{{allTicket}}'> 
+  <block wx:for='{{displayTicket}}'> 
     <view class='item-container'>
       <view class='product' bindtap='tap'>
         <view class='product-text'>
