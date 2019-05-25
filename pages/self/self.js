@@ -91,46 +91,60 @@ Page({
         //   title: '打卡成功',
         // })
         //}
-        if (true) {
-          //加经验
-          that.gainExp()
-          //加积分
-          that.gainCredit()
-          //存储积分，等级，经验至数据库
+        var location_id = res.result
+        console.log(location_id)
+        db.collection('location').where({ _id: location_id }).get({
+          success(result) {
+            try {
+              wx.showToast({
+                title: '打卡' + result.data[0].name + '成功',
+              })
+              //加经验
+              that.gainExp()
+              //加积分
+              that.gainCredit()
+              //存储积分，等级，经验至数据库
 
-          const newExp = that.data.exp
-          const newlvl = that.data.level
-          console.log(that._id)
+              const newExp = that.data.exp
+              const newlvl = that.data.level
+              console.log(that._id)
 
-          db.collection('wxuser').where({
-            _openid: app.globalData.openid
-          }).get({
-            success(res) {
-              db.collection('wxuser').doc(res.data[0]._id).update({
-                data: {
-                  exp: newExp,
-                  level: newlvl
+              db.collection('wxuser').where({
+                _openid: app.globalData.openid
+              }).get({
+                success(res) {
+                  db.collection('wxuser').doc(res.data[0]._id).update({
+                    data: {
+                      exp: newExp,
+                      level: newlvl
+                    },
+                    success: res => {
+
+                    },
+                    fail: err => {
+                      icon: 'none',
+                        console.error('[数据库] [更新记录] 失败：', err)
+                    }
+                  })
                 },
-                success: res => {
-
-                },
-                fail: err => {
-                  icon: 'none',
-                    console.error('[数据库] [更新记录] 失败：', err)
+                fail(res) {
+                  console.log('fail')
                 }
               })
-            },
-            fail(res) {
-              console.log('fail')
             }
-          })
-
-        }
-        console.log("Scan successful")
-
-        wx.showToast({
-          title: '打卡成功',
+            catch (e) {
+              wx.showToast({
+                title: '打卡失败',
+              })
+            }
+          },
+          fail(result) {
+            wx.showToast({
+              title: '打卡失败',
+            })
+          }
         })
+        console.log("Scan successful")
       },
       fail: function (res) {
         console.log("Scan fail")
