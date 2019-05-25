@@ -1,6 +1,16 @@
 /* pages/calendar/calendar.wxss */
 page {
-  background: linear-gradient(to bottom, #654ea3, #eaafc8, #ffffff);
+  background: linear-gradient(to bottom, #ffed9e, #ffffff);
+}
+
+.header{
+  background: linear-gradient(to bottom, #ff5f6d, #ffc371);
+  color: white;
+  text-align: center;
+  font-size: larger;
+  font: bolder;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .item-container {
@@ -9,7 +19,7 @@ page {
 }
 
 .product {
-  background: linear-gradient(to bottom, #de6262, #ffb88c); 
+  background: linear-gradient(to bottom, #ffbe73, rgb(254,170,54)); 
   margin-top: 10px;
   margin-left: 30px;
   margin-right: 30px;
