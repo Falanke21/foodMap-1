@@ -1,23 +1,33 @@
 /* pages/productPage/productPage.wxss */
+page{
+  background-color: hsla(46, 95%, 77%, 0.781);
+}
+
+.widget_arrow{
+    width:40px; 
+    height:40px; 
+}
+
 .product-btn {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  width: 90%;
+  margin-top: 30rpx;
+  background-color: #FFCC00;
+  color: #FFF;
 }
 .product{  
   width: 100%;  
-  margin-top: 10rpx;   
-  font-size: 30rpx;  
+  font-size: 35rpx;  
   display: flex;  
   height: 80rpx;  
   border-bottom: 1px 
-  solid #DBDBDB;  
+  solid rgba(240, 223, 128, 0.664);  
   flex-direction: row;  
   justify-content: space-between;  
   align-items: center;
 }
 .left{  
   padding-left: 30rpx;  
-  color: #A9A9A9;  
+  color: rgb(169, 169, 169);  
 }
 .right{
   padding-right: 30rpx;

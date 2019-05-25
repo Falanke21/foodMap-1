@@ -1,11 +1,12 @@
 <!--pages/productPage/productPage.wxml-->
+<image class = "widget_arrow" src = "../../image/bbq.png" mode="aspectFill"></image>
 <view class = "container" hidden="{{flag}}">
   <view class = 'product'>
   <view class = 'left'> 商品内容</view>
   <view class = 'right'> </view>
   </view>
   <view class = 'product'>
-  <view class = 'left'> 时间</view>
+  <view class = 'left'> 商家</view>
   <view class = 'right'> </view>
   </view>
   <view class = 'product'>
@@ -13,13 +14,8 @@
   <view class = 'right'> </view>
   </view>
   <view class = 'product'>
-  <view class = 'left'> 店铺</view>
+  <view class = 'left'> Credit</view>
   <view class = 'right'> </view>
   </view>
-  <view class = 'product'>
-  <view class = 'left'> 打折券号</view>
-  <view class = 'right'> </view>
-  </view>
-  <view class = 'product-btn'> </view>
-  <button> 兑换</button>
+  <button class = 'product-btn' bindtap='exchange'> 兑换</button>
 </view>
