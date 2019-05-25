@@ -78,18 +78,18 @@ Page({
       onlyFromCamera: false,
       scanType: [],
       success: function (res) {
-       
+
         //预留判断用户今日扫码，打卡次数或店家二维码是否合法
         // if (userLocationArrayList.indexOf(res.result.locationId ) == -1) {
-            //加经验
-            // that.gainExp()
-            // //加积分
-            // that.gainCredit()
-            // //存储积分，等级，经验至数据库
-            //userLocationArrayList.add(res.result.locationId)
-            // wx.showToast({
-            //   title: '打卡成功',
-            // })
+        //加经验
+        // that.gainExp()
+        // //加积分
+        // that.gainCredit()
+        // //存储积分，等级，经验至数据库
+        //userLocationArrayList.add(res.result.locationId)
+        // wx.showToast({
+        //   title: '打卡成功',
+        // })
         //}
         if (true) {
           //加经验
@@ -97,22 +97,40 @@ Page({
           //加积分
           that.gainCredit()
           //存储积分，等级，经验至数据库
-          
-          wx.showToast({
-            title: '打卡成功',
+
+          const newExp = that.data.exp
+          const newlvl = that.data.level
+          console.log(that._id)
+
+          db.collection('wxuser').where({
+            _openid: app.globalData.openid
+          }).get({
+            success(res) {
+              db.collection('wxuser').doc(res.data[0]._id).update({
+                data: {
+                  exp: newExp,
+                  level: newlvl
+                },
+                success: res => {
+
+                },
+                fail: err => {
+                  icon: 'none',
+                    console.error('[数据库] [更新记录] 失败：', err)
+                }
+              })
+            },
+            fail(res) {
+              console.log('fail')
+            }
           })
 
-          // console.log(that._id)
-          //   db.collection('wxuser').doc(that.id).update({
-          //       data : {
-          //         exp: that.exp,
-          //         level: that.level
-          //       },
-          //     success: console.log,
-          //     fail: console.error
-          //   })
         }
         console.log("Scan successful")
+
+        wx.showToast({
+          title: '打卡成功',
+        })
       },
       fail: function (res) {
         console.log("Scan fail")
@@ -120,6 +138,7 @@ Page({
       complete: function (res) {
         console.log("Scan complete")
       },
+
     })
   },
 
