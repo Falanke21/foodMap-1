@@ -19,7 +19,7 @@
              This search function utilizes QQmap's functionality, which only
              works in China.  -->
           <!-- <image class="search-button" src="/image/search.png" bindtap="nearby_search"></image> -->
-          <image class="search-button" src="/image/search.png"></image>
+          <image class="search-button" src="/image/ss2.png"></image>
 
         </view>
       </view>

@@ -8,7 +8,7 @@
 }
 
 .search-panel {
-  background-color: #f45;
+  background-color: rgb(4, 187, 181);
 }
 
 .search-section {
