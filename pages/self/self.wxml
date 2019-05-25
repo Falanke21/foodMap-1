@@ -10,7 +10,7 @@
   </view>
   <view class="experience">
     <!-- Needs 100 more experiences on every level -->
-    <progress percent="{{exp / levelUpNeed * 100}}" stroke-width="8" activeColor="rgb(87, 107, 149)" active active-mode="forwards" />
+    <progress percent="{{exp / levelUpNeed * 100}}" stroke-width="8" activeColor="rgb(4, 187, 181)" active active-mode="forwards" />
   </view>
 </view>
 <view class="self-btn">
