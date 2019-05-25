@@ -35,7 +35,7 @@ Page({
     db.collection('merchandise').get({
       success(res) {
         var allTickets = res.data;
-        wx.setStorageSync('allTickets', allTickets); // 缓存user tickets
+        wx.setStorageSync('allTickets', allTickets); // 缓存databse tickets
       }
     })
     var displayT = [];
@@ -44,6 +44,7 @@ Page({
     for (var i = 0; i < userT.length; i++) {
       for (var j = 0; j < allT.length; j++) {
         if (userT[i] == allT[j].id) {
+          allT[j].expire_date = allT[j].expire_date.slice(0, 10);
           displayT.push(allT[j]);
         }
       }
@@ -54,11 +55,11 @@ Page({
     console.log("these tickets will be displayed")
     console.log(this.data.displayTicket)
   },
-  
+
   /**
    * Lifecycle function--Called when page load
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     this.getOpenId()
     console.log('openId is === ' + this.data.openId)
     this.loadTicket()
@@ -67,49 +68,49 @@ Page({
   /**
    * Lifecycle function--Called when page is initially rendered
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * Lifecycle function--Called when page show
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * Lifecycle function--Called when page hide
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * Lifecycle function--Called when page unload
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * Page event handler function--Called when user drop down
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * Called when page reach bottom
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * Called when user click on the top right corner to share
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })
