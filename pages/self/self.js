@@ -91,59 +91,77 @@ Page({
         //   title: '打卡成功',
         // })
         //}
-        var location_id = res.result
+        var timestamp = Date.parse(new Date());
+        var date = new Date(timestamp);
+
+        var location_id = res.result.substring(6)
+        var year = res.result.substring(0, 4)
+        var month = res.result.substring(4, 6)
+
+        //获取年份  
+        var Y = date.getFullYear();
+        //获取月份  
+        var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
+
         console.log(location_id)
-        db.collection('location').where({ _id: location_id }).get({
-          success(result) {
-            try {
-              wx.showToast({
-                title: '打卡' + result.data[0].name + '成功',
-              })
-              //加经验
-              that.gainExp()
-              //加积分
-              that.gainCredit()
-              //存储积分，等级，经验至数据库
+        if (Y == year && M == month) {
+          db.collection('location').where({ _id: location_id }).get({
+            success(result) {
+              try {
+                wx.showToast({
+                  title: '打卡' + result.data[0].name + '成功',
+                })
+                //加经验
+                that.gainExp()
+                //加积分
+                that.gainCredit()
+                //存储积分，等级，经验至数据库
 
-              const newExp = that.data.exp
-              const newlvl = that.data.level
-              console.log(that._id)
+                const newExp = that.data.exp
+                const newlvl = that.data.level
+                console.log(that._id)
 
-              db.collection('wxuser').where({
-                _openid: app.globalData.openid
-              }).get({
-                success(res) {
-                  db.collection('wxuser').doc(res.data[0]._id).update({
-                    data: {
-                      exp: newExp,
-                      level: newlvl
-                    },
-                    success: res => {
+                db.collection('wxuser').where({
+                  _openid: app.globalData.openid
+                }).get({
+                  success(res) {
+                    db.collection('wxuser').doc(res.data[0]._id).update({
+                      data: {
+                        exp: newExp,
+                        level: newlvl
+                      },
+                      success: res => {
 
-                    },
-                    fail: err => {
-                      icon: 'none',
-                        console.error('[数据库] [更新记录] 失败：', err)
-                    }
-                  })
-                },
-                fail(res) {
-                  console.log('fail')
-                }
-              })
-            }
-            catch (e) {
+                      },
+                      fail: err => {
+                        icon: 'none',
+                          console.error('[数据库] [更新记录] 失败：', err)
+                      }
+                    })
+                  },
+                  fail(res) {
+                    console.log('fail')
+                  }
+                })
+              }
+              catch (e) {
+                wx.showToast({
+                  title: '打卡失败',
+                })
+              }
+            },
+            fail(result) {
               wx.showToast({
                 title: '打卡失败',
               })
             }
-          },
-          fail(result) {
-            wx.showToast({
-              title: '打卡失败',
-            })
-          }
-        })
+          })
+        }
+        else {
+          wx.showToast({
+            title: '二维码已过期',
+          })
+        }
         console.log("Scan successful")
       },
       fail: function (res) {
