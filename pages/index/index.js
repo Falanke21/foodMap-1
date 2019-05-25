@@ -83,7 +83,6 @@ Page({
           borderWidth: 1,
           borderColor: "#CCC",
           padding: 4,
-          display: "BYCLICK",
           textAlign: "center"
         }
 
@@ -319,7 +318,8 @@ Page({
     var that = this;
     var mks = that.data.markers;
     
-    if (mks) {
+    if (mks && this.data.scale) {
+      console.log(this.data.scale)
       var prev = mks[0].callout.display;
       if (this.data.scale <= 17) {
         for (var i = 0; i < mks.length; i++) {
