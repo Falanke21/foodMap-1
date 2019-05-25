@@ -12,14 +12,16 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    this.setData({
+      id: options.id,
+    })
   },
 
   /**
    * Lifecycle function--Called when page is initially rendered
    */
   onReady: function () {
-
+    console.log("This product is of id: " + this.data.id)
   },
 
   /**
