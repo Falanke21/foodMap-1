@@ -37,6 +37,7 @@ Page({
       success(res) {
         console.log(res.data[0].wallet.length)
         if (res.data[0].wallet.length > 0) {
+          console.log("detected dollar")
           this.setNEmpty();
           var userTickets = [];
           for (var i = 0; i < res.data[0].wallet.length; i++) {
@@ -82,9 +83,11 @@ Page({
   },
   
   setNEmpty(){
+    console.log()
     var that = this;
     this.setData({
       isEmpty: false
     })
   }
+
 })

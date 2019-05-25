@@ -14,8 +14,17 @@
   </view>
 </view>
 <view class="self-btn">
-  <view class="wallet-btn" bindtap='wallettap'>卡包
+
+  <view class="wallet-wrap">
+    
+    <view class="wallet-btn" bindtap='wallettap' >
+      <image class="wallet-png" src="/image/wallet.png" mode='aspectFit'></image>
+    </view>
   </view>
-  <view class="scan-btn" bindtap='scan'> 扫码
+ 
+  <view class="scan-wrap">
+    <view class="scan-btn" bindtap='scan'> 
+      <image class="scan-png" src="/image/scan.png" mode='aspectFit'></image>
+    </view>
   </view>
 </view>

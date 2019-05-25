@@ -45,17 +45,6 @@
   width: 600rpx;
   height: 10rpx;
 }
-
-.wallet-btn {
-  margin-top: 50rpx;
-  margin-bottom: 20rpx;
-  margin-left: 70rpx;
-  width: 200rpx;
-  height: 200rpx;
-  border: solid black 1rpx;
-  text-align: center;
-  border-radius: 25rpx;
-}
 .self-btn {
   display: flex;
   flex-direction: row;
@@ -65,14 +54,38 @@
   width: 200rpx; */
 }
 
-.scan-btn {
+.wallet-wrap {
+  margin-top: 50rpx;
+  margin-bottom: 20rpx;
+   margin-left: 70rpx;
+}
+.wallet-btn {
+  width: 200rpx;
+  height: 200rpx;
+  border: solid rgb(32, 204, 175) 3rpx;
+  border-radius: 25rpx;
+}
+.wallet-png {
+  width: 180rpx;
+  height: 180rpx;
+  position: fiexed;
+
+}
+
+.scan-wrap {
   margin-top: 50rpx;
   margin-bottom: 20rpx;
   margin-left: 200rpx;
   margin-right: 70rpx;
+}
+.scan-png {
   width: 200rpx;
   height: 200rpx;
-  border: solid black 1rpx;
-  text-align: center;
+  position: fiexed;
+}
+.scan-btn {
+  width: 200rpx;
+  height: 200rpx;
+  border: solid rgb(32, 204, 175) 3rpx;
   border-radius: 25rpx;
 }
