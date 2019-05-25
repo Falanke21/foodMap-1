@@ -115,31 +115,16 @@ Page({
           controls: [
             {
               id: 1,
-              iconPath: '/image/locate.png',
+              iconPath: '/image/locate1.png',
               position: {
                 left: res.windowWidth * 0.85,
                 top: res.windowHeight * 0.1,
                 //left: 290,
                 //top: 400,
-                width: 40,
+                width: 32,
                 height: 40
               },
               clickable: true
-              /** 
-            },
-            {
-              id: 2,
-              iconPath: '/image/search.png',
-              position: {
-                //left: res.windowWidth * 290 / 375,
-                //top: res.windowHeight * 330 / 812,
-                left: 290,
-                top: 330,
-                width: 60,
-                height: 60
-              },
-              clickable: true
-              **/
             }]
             
         })
@@ -371,6 +356,7 @@ Page({
     // 地图发生变化的时候，获取中间点，也就是选择的位置
     if (e.type == 'end') {
       this.getLngLat()
+      console.log("RC")
       this.getMapScale()
       //console.log('scale is ===' + this.data.scale)
     }
