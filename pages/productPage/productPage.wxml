@@ -17,5 +17,14 @@
   <view class = 'left'> Credit</view>
   <view class = 'right'> </view>
   </view>
+  <view>
+  <div align = "left">
+    <button class = "add-btn"bindtap="minusNum">-</button>
+    </div>
+    <text>{{addedNum}}</text>
+    <div aligh = "right">
+    <button class = "minus-btn" bindtap="addNum">+</button>
+    </div>
+    </view>
   <button class = 'product-btn' bindtap='exchange'> 兑换</button>
 </view>

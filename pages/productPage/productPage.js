@@ -5,7 +5,9 @@ Page({
    * Page initial data
    */
   data: {
-    id: 0
+    id: 0,
+    minusStatus:true,
+    addedNum:1,
   },
 
   /**
@@ -71,5 +73,26 @@ Page({
       icon:"success",
       duration: 200
     })
+  },
+  addNum: function () {
+    var courseCount = this.data.addedNum;
+    courseCount++;
+    this.setData({
+      addedNum: courseCount,
+      minusStatus: false
+    })
+  },
+  minusNum: function () {
+    var courseCount = this.data.addedNum;
+    if (courseCount > 1) {
+      courseCount--;
+    }
+    //数字<=1时，开启 - 按钮的disable状态
+    var minusStatus = courseCount <= 1 ? true : false;
+    this.setData({
+      addedNum: courseCount,
+      minusStatus: minusStatus
+    });
   }
+
 })
