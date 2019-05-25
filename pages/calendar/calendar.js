@@ -50,8 +50,9 @@ Page({
   },
 
   showProduct: function(e) {
+    console.log(e.currentTarget.id);
     wx.navigateTo({
-      url: '../productPage/productPage',
+      url: '../productPage/productPage?id=' + e.currentTarget.id,
     })
-  }
+  },
 })
