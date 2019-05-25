@@ -16,22 +16,20 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    openid:''
+    userid:"",
+    test: ""
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    //this.getUserInfo_permission();
-    //this.getOpenid();
-
-    // this.loadUser();
-    // let timer = setTimeout(() => {
-    //   clearTimeout(timer)
-    //   this.direct()
-    // }, 500)
-    
+    wx.setStorageSync('test', "testing testing")
+    var test = wx.getStorageSync('test')
+    this.setData({
+      test: test
+    })
+    console.log(test)
   },
   // 事件处理函数：跳转到登陆页
   bindUserLogin: function () {
@@ -41,16 +39,18 @@ Page({
   },
 
   onShow: function () {
+    var that = this
     this.getUserInfo_permission();
     if(this.data.hasUserInfo){
       this.getOpenid();
       this.loadUser();
 
+      
       //离开launch 页面
       let timer = setTimeout(() => {
       clearTimeout(timer)
       this.direct()
-    }, 2000)
+    }, 1000)
     }
     
   },
@@ -120,7 +120,7 @@ Page({
         if(user.length == 0){
           console.log("new user")
           that.db_createUser();
-        }else{
+        }else if(user.length == 1){
           console.log("user exits")
         }
       }
@@ -149,18 +149,28 @@ Page({
   },
   // 获取用户openid
   getOpenid() {
-    let that = this;
+    var that = this;
     var openid;
     wx.cloud.callFunction({
       name: 'getOpenid',
       complete: res => {
-        console.log('云函数获取到的openid: ', res.result)
+        console.log('云函数获取到的openid: ', res.result.openId)
         openid = res.result.openId;
         that.setData({
           openid: openid
         })
+        wx.setStorageSync("userid", res.result.openId)
+        var userid = wx.getStorageSync('userid')
+        this.setData({
+          userid: userid
+        })
+        console.log('本地openid 已同步为： ',userid)
+        app.globalData.openid = this.data.userid
+        console.log('Global data 更新为：', app.globalData)
       }
+      
     })
+    
     return openid
   }
 

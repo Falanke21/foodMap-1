@@ -7,6 +7,16 @@ Page({
    * Page initial data
    */
   data: {
+    // Results in drop down list
+    schrRes: [
+      {name: '我喜欢'},
+      {name: 'copy'},
+      {name: 'paste'},
+      {name: 'push --force'},
+      {name: 'merge -f'},
+      {name: 'commit -m ""'}
+    ],
+    hiddenDropDown: true
   },
 
   /**
@@ -14,16 +24,26 @@ Page({
    */
   onLoad: function (options) {
     var that = this
-    console.log("inputPassIn", options.inputPassIn)
     WxSearch.init(
       that,
-      options.inputPassIn,
       ['奶茶', '烧烤', "炸鸡", "甜食", '日料', '小笼包'],
       ['北方菜', '粤菜', '四川菜', "鲁菜"],
       that.mySearchFunction,
       that.myGobackFunction
     );
-    this.mySearchFunction(options.inputPassIn)
+
+    var that = this;
+    var locations = []
+    wx.cloud.init()
+    const db = wx.cloud.database()
+    
+    db.collection('location').get({
+      success (res) {
+        that.setData({
+          schrRes: res.data
+        })
+      }
+    })
   },
 
   wxSearchInput: WxSearch.wxSearchInput,  // 输入变化时的操作
@@ -32,10 +52,14 @@ Page({
   wxSearchConfirm: WxSearch.wxSearchConfirm,  // 搜索函数
   wxSearchClear: WxSearch.wxSearchClear,  // 清空函数
 
+
   // 4 搜索回调函数  
   mySearchFunction: function (value) {
     console.log("mySearchFunction Triggered")
     // do your job here
+    this.setData({
+      hiddenDropDown: true
+    })
     wx.cloud.init()
     const db = wx.cloud.database()
     var markerId
@@ -80,7 +104,7 @@ Page({
 
   // 5 返回回调函数
   myGobackFunction: function () {
-    console.log("muGobackFunction Triggered")
+    console.log("myGobackFunction Triggered")
     // do your job here
     // 示例：返回
     wx.redirectTo({

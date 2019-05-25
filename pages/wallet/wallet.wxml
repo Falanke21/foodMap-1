@@ -1,0 +1,15 @@
+<!--pages/wallet/wallet.wxml-->
+<text>卡包页面</text>
+
+<view>
+  <block wx:for='{{displayTicket}}'> 
+    <view class='item-container'>
+      <view class='product' bindtap='tap'>
+        <view class='product-text'>
+          <image class='type-image' src='/image/massage.png'></image>
+          {{item.name}}
+        </view> {{item.expire_date}}
+      </view>
+    </view>
+  </block>
+</view>

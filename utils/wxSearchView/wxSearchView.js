@@ -25,7 +25,7 @@ var __that = null;
 
 
 // 初始化函数
-function init(that, initInput, hotKeys, tipKeys, searchFunction, goBackFunction) {
+function init(that, hotKeys, tipKeys, searchFunction, goBackFunction) {
 
   __that = that;
   __tipKeys = tipKeys;
@@ -47,8 +47,6 @@ function init(that, initInput, hotKeys, tipKeys, searchFunction, goBackFunction)
       __that.setData({
         wxSearchData: temData
       });
-      __that.data.wxSearchData.value = initInput;
-      console.log("wxSearchData.value", __that.data.wxSearchData.value);
     }
   });
 
@@ -63,6 +61,10 @@ function wxSearchInput(e) {
   // 寻找提示值 
   var tipKeys = [];
   if (inputValue && inputValue.length > 0) {
+    // 显示搜索备选
+    __that.setData({
+      hiddenDropDown: false
+    });
     for (var i = 0; i < __tipKeys.length; i++) {
       var mindKey = __tipKeys[i];
       // 包含字符串
@@ -70,6 +72,11 @@ function wxSearchInput(e) {
         tipKeys.push(mindKey);
       }
     }
+  } else {
+    // 隐藏搜索备选
+    __that.setData({
+      hiddenDropDown: true
+    });
   }
   // 更新数据
   temData.value = inputValue;
