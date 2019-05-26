@@ -1,9 +1,9 @@
 <!--pages/searchBox/searchBox.wxml-->
 <include src="../../utils/wxSearchView/wxSearchView.wxml" />
 <text>pages/searchBox/searchBox.wxml\n</text>
-<text>蔡徐坤搜索功能开发中</text>
+<text>Hey你debug像蔡徐坤\n</text>
 <view hidden="{{hiddenDropDown}}">
-  <view wx:for="{{schrRes}}" wx:for-index="idx" wx:for-item="item">
-    {{idx}}: {{item.name}}
-  </view>
+  <navigator class="searchBox-item" url="../popupPage/popupPage?dbid={{item.dbid}}" wx:for="{{schrRes}}" wx:for-index="index" wx:for-item="item">
+    {{index}}: {{item.name}}
+  </navigator>
 </view>

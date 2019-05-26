@@ -1,2 +1,8 @@
 /* pages/searchBox/searchBox.wxss */
 @import "../../utils/wxSearchView/wxSearchView.wxss";
+
+.searchBox-item {
+  border: 10rpx solid pink;
+  margin: 10rpx;
+  text-align: center;
+}
