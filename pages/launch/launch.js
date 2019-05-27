@@ -140,7 +140,8 @@ Page({
         level:1,
         openid:this.getOpenid(),
         wxname: nickName,
-        wallet: []
+        wallet: [],
+        scanRecord:[]
       },
       success(res) {
         console.log(res)
