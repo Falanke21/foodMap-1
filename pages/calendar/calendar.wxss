@@ -1,10 +1,10 @@
 /* pages/calendar/calendar.wxss */
 page {
-  background: linear-gradient(to bottom, #ffed9e, #ffffff);
+  background: linear-gradient(to bottom, #ffffff, #ffffff);
 }
 
 .header{
-  background: linear-gradient(to bottom, #ff5f6d, #ffc371);
+  background: linear-gradient(to bottom, #00b377, #00b377);
   color: white;
   text-align: center;
   font-size: larger;
@@ -19,12 +19,13 @@ page {
 }
 
 .product {
-  background: linear-gradient(to bottom, #ffbe73, rgb(254,170,54)); 
+  background: linear-gradient(to bottom, #00b377, #00b377); 
   margin-top: 10px;
   margin-left: 30px;
   margin-right: 30px;
   padding: 20px;
   border-radius: 20px;
+  border: solid rgb(20, 153, 131) 5rpx;
 
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 20px 0 rgba(0, 0, 0, 0.19);
 }
