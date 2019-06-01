@@ -73,12 +73,14 @@ Friday
 
       
     <view class='popup-btn'>
-    <view class='like-container'>
-      <!-- <view class="wx-popup-likes">{{likes}}</view> -->
-      <button class='like-btn' bindtap='addLike'>赞爆</button>
-    </view>
-    
-    <button bindtap= 'navigate'> 导航</button>
+      <view class='like-container'>
+        <!-- <view class="wx-popup-likes">{{likes}}</view> -->
+        <button class='like-btn' bindtap='addLike'>打卡</button>
+        
+      </view>
+      <view class="coupon-container">
+        <button bindtap= ''> 优惠券</button>
+      </view>
     </view>
     
   </view>

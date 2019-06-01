@@ -3,9 +3,7 @@
 <view class="ticket">
    <view class="iamges">
       <image class = "shop_image" src="/image/maintainence.png"></image>
-      
-      <!-- <view style='width:60px;height:60px;background:green;' animation="{{alphaData}}" bindtap='alphaClick'>透明度</view>  -->
-      <image class = "ticket_image" src="/image/pet.png" animation="{{alphaData}}" bindtap='shiyong'></image>
+      <image class = "ticket_image" src="/image/pet.png" animation="{{alphaData}}" bindtap='alphaClick'></image>
    </view>
    <text> 使用点狗爪！！</text>\n
    <text> Expired date: Here </text>
