@@ -206,6 +206,8 @@ Page({
 
   },
   showCoupon: function () {
-    console.log("hello");
+    wx.navigateTo({
+      url: '../couponPage/couponPage',
+    })
   }
 })
