@@ -2,9 +2,9 @@
 <text>券的名字</text>
 <view class="ticket">
    <view class="iamges">
-      <image class = "shop_image" src="/image/maintainence.png"></image>
-      <image class = "ticket_image" src="/image/pet.png" animation="{{alphaData}}" bindtap='alphaClick'></image>
+      <image class = "ticket_image" src="/image/pet.png" animation="{{alphaData}}"></image>
+      <image class = "use_image" src="/image/ic_location.png" animation="{{alphaData}}" bindtap='alphaClick'></image>
    </view>
-   <text> 使用点狗爪！！</text>\n
+   <text> 使用点右上图标！！</text>\n
    <text> Expired date: Here </text>
 </view>
