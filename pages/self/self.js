@@ -15,7 +15,8 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     id: 0,
-    scanRecord:[]
+    scanRecord:[],
+    likes:0,
   },
 
   /**
@@ -69,6 +70,36 @@ Page({
 
   },
 
+  addLike(location_id){
+    console.log(location_id)
+    this.setData({
+      likes: ++this.data.likes
+    })
+    var that = this
+    db.collection('location').where({
+      _id: location_id
+    }).get({
+      success(res) {
+        console.log(that.data.likes)
+        db.collection('location').doc(location_id).update({
+          data: {
+            likes: 20,
+          },
+          success: res => {
+            console.log("========")
+          },
+          fail: err => {
+            icon: 'none',
+              console.error('[数据库] [更新记录] 失败：', err)
+          }
+        })
+      },
+      fail(res) {
+        console.log('fail')
+      }
+    })
+  },
+
   gainCredit() {
 
   },
@@ -109,6 +140,9 @@ Page({
         if (Y == year && M == month) {
           db.collection('location').where({ _id: location_id }).get({
             success(result) {
+              that.setData({
+                likes: result.data[0].likes
+              })
               try {
                 var location_index = -1;
                 for (var i = 0; i < that.data.scanRecord.length; i++) {
@@ -123,6 +157,7 @@ Page({
                     if (that.data.scanRecord[location_index].entries <= 1) {
                       that.gainExp();
                       that.gainCredit();
+                      that.addLike(location_id);
                       console.log("成功啦1");
 
                     } else {
@@ -134,12 +169,14 @@ Page({
                     that.data.scanRecord[location_index].entries = 1;
                     that.gainExp();
                     that.gainCredit();
+                    that.addLike(location_id);
                     console.log("成功啦2");
                   }
                 } else {
                   that.data.scanRecord.push({ dbid: location_id, date: new Date(), entries: 1 })
                   that.gainExp();
                   that.gainCredit();
+                  that.addLike(location_id);
                   console.log(that.data.scanRecord);
                 }
 
@@ -155,8 +192,23 @@ Page({
                 const newExp = that.data.exp
                 const newlvl = that.data.level
                 const newScanRecord = that.data.scanRecord
-                console.log(that._id)
+                const newLike = that.data.likes
+                
+                // db.collection('location').doc(location_id).update({
 
+                //   data: {
+                //     likes: newLike
+                //   },
+                //   success: res => {
+                //     console.log(newlike)
+                //   },
+                //   fail: err => {
+                //     icon: 'none',
+                //       console.error('[数据库] [更新记录] 失败：', err)
+                //   }
+                // })
+                console.log(location_id)
+                console.log(newLike)
                 db.collection('wxuser').where({
                   _openid: app.globalData.openid
                 }).get({
@@ -180,6 +232,8 @@ Page({
                     console.log('fail')
                   }
                 })
+                //upldate like
+                
               }
               catch (e) {
                 wx.showToast({
