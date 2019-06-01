@@ -50,8 +50,9 @@ Page({
   },
 
   showProduct: function(e) {
+    var dbid = e.currentTarget.dataset.index+1;
     wx.navigateTo({
-      url: '../productPage/productPage?id=' + e.currentTarget.id,
+      url: '../popupPage/popupPage?dbid=' + dbid,
     })
   },
 })

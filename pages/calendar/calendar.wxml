@@ -5,7 +5,7 @@
 <view>
   <block wx:for='{{merchandiseList}}'> 
     <view class='item-container'>
-      <view class='product' id="{{item.id}}" bindtap='showProduct'>
+      <view class='product' id="{{item.id}}" bindtap='showProduct' data-index="{{index}}">
         <view class='product-text'>
           <image class='type-image' src='{{url_lis[item.type]}}'></image>
           {{item.name}}

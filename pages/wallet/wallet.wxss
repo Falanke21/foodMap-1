@@ -1,15 +1,24 @@
 /* pages/wallet/wallet.wxss */
 page {
-    background-color: rgb(0, 153, 153);
+    background-color: rgb(255, 255, 255);
 }
 
 .item-container {
-  border: solid 1rpx black;
+  border: none;
   height: 150rpx;
-  border-radius: 30rpx;
-  margin-top: 10rpx;
+  margin-top: 30rpx;
   margin-left: 30rpx;
   margin-right: 30rpx
+}
+
+.header{
+  background: linear-gradient(to bottom, #00b377, #00b377);
+  color: white;
+  text-align: center;
+  font-size: larger;
+  font: bolder;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .empty-wallet{
@@ -35,11 +44,13 @@ page {
 }
 
 .product {
-  margin-top: 10rpx;
+   background: linear-gradient(to bottom, #00b377, #00b377);
   margin-left: 30rpx;
   margin-right: 30rpx;
-  /* padding: 20px; */
+  padding: 20rpx;
   border-radius: 20rpx;
+  border: solid rgb(20, 153, 131) 5rpx;
+
   max-height: 300rpx;
   max-width: 1000rpx
 }
@@ -53,6 +64,14 @@ page {
   color: white;
 
 }
+.item-date-text{
+  margin-left: 5rpx;
+  display: flex;
+  color: white;
+  justify-content: right;
+  text-align: right;
+  font-size: small;
+}
 
 .type-image {
   height: 30rpx;
@@ -61,6 +80,7 @@ page {
 }
 
 .btn {
+  
   border: solid 1rpx black;
   height: 100rpx;
   border-radius: 20rpx;
