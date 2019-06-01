@@ -27,7 +27,7 @@ Page({
 
     var that = this;
     
-    db.collection('merchandise').get({
+    db.collection('location').get({
       success(res) {
         // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
         that.setData({
