@@ -112,6 +112,10 @@ Page({
     })
   },
 
+  tapItem: function(e) {
+    console.log("tapping", e.currentTarget);
+  },
+
 
   /**
    * Lifecycle function--Called when page is initially rendered
@@ -161,4 +165,6 @@ Page({
   onShareAppMessage: function () {
 
   }
+
+  
 })

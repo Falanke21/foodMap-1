@@ -14,30 +14,30 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    id: 0
+    id: 0,
+    scanRecord:[]
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    // var scene = decodeURIComponent(options.scene);
-    // console.log("========")
-    // console.log(options);
 
     var that = this;
     db.collection('wxuser').where({
-      wxname: app.globalData.openid
+      _openid: app.globalData.openid
     }).get({
       success(res) {
         that.setData({
           exp: res.data[0].exp,
           level: res.data[0].level,
-          id: res.data[0]._id
+          id: res.data[0]._id,
+          scanRecord: res.data[0].scanRecord
         })
         console.log(res.data[0].exp)
         console.log(res.data[0]._id)
         console.log(that.id)
+        console.log(that.data.scanRecord)
       },
       fail(res) {
         console.log('fail')
@@ -75,13 +75,14 @@ Page({
 
   scan() {
     var that = this
+    var user= []
     wx.scanCode({
       onlyFromCamera: false,
       scanType: [],
       success: function (res) {
-
+        
         //预留判断用户今日扫码，打卡次数或店家二维码是否合法
-        // if (userLocationArrayList.indexOf(res.result.locationId ) == -1) {
+
         //加经验
         // that.gainExp()
         // //加积分
@@ -91,11 +92,11 @@ Page({
         // wx.showToast({
         //   title: '打卡成功',
         // })
-        //}
+      
         var timestamp = Date.parse(new Date());
         var date = new Date(timestamp);
 
-        var location_id = res.result.substring(6)
+        var location_id = res.result.substring(8)
         var year = res.result.substring(0, 4)
         var month = res.result.substring(4, 6)
 
@@ -104,22 +105,56 @@ Page({
         //获取月份  
         var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
 
-        console.log(location_id)
+        console.log(location_id);
         if (Y == year && M == month) {
           db.collection('location').where({ _id: location_id }).get({
             success(result) {
               try {
+                var location_index = -1;
+                for (var i = 0; i < that.data.scanRecord.length; i++) {
+                  if (location_id == that.data.scanRecord[i].dbid) {
+                    location_index = i;
+                  }
+                }
+                if (location_index != -1) {
+                  console.log(that.data.scanRecord[location_index].date.toLocaleDateString())
+                  console.log(new Date().toLocaleDateString());
+                  if (that.data.scanRecord[location_index].date.toLocaleDateString() == new Date().toLocaleDateString()) {
+                    if (that.data.scanRecord[location_index].entries <= 1) {
+                      that.gainExp();
+                      that.gainCredit();
+                      console.log("成功啦1");
+
+                    } else {
+                      console.log("exceed tries");
+                    }
+                    that.data.scanRecord[location_index].entries++;
+                  } else {
+                    that.data.scanRecord[location_index].date = new Date();
+                    that.data.scanRecord[location_index].entries = 1;
+                    that.gainExp();
+                    that.gainCredit();
+                    console.log("成功啦2");
+                  }
+                } else {
+                  that.data.scanRecord.push({ dbid: location_id, date: new Date(), entries: 1 })
+                  that.gainExp();
+                  that.gainCredit();
+                  console.log(that.data.scanRecord);
+                }
+
                 wx.showToast({
                   title: '打卡' + result.data[0].name + '成功',
                 })
-                //加经验
-                that.gainExp()
-                //加积分
-                that.gainCredit()
+                // //加经验
+                // that.gainExp()
+                // //加积分
+                // that.gainCredit()
                 //存储积分，等级，经验至数据库
 
                 const newExp = that.data.exp
                 const newlvl = that.data.level
+                const newScanRecord = that.data.scanRecord
                 console.log(that._id)
 
                 db.collection('wxuser').where({
@@ -129,7 +164,8 @@ Page({
                     db.collection('wxuser').doc(res.data[0]._id).update({
                       data: {
                         exp: newExp,
-                        level: newlvl
+                        level: newlvl,
+                        scanRecord: newScanRecord
                       },
                       success: res => {
 
