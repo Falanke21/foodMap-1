@@ -9,7 +9,6 @@ Page({
     displayTicket: "",
     hasUserInfo: true,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    isEmpty: true,
   },
 
   /**
@@ -19,6 +18,16 @@ Page({
     this.getOpenId()
     console.log('openId is === ' + this.data.openId)
     this.loadWallet();
+    var userT = wx.getStorageSync('userTickets');
+    if (userT.length > 0) {
+      this.loadTicket();
+    }
+  },
+
+  tap: function(e) {
+    wx.navigateTo({
+      url: '/pages/searchBox/searchBox'
+    })
   },
 
   getOpenId() {
@@ -38,20 +47,14 @@ Page({
         console.log(res.data[0].wallet.length)
         if (res.data[0].wallet.length > 0) {
           console.log("detected dollar")
-          this.setNEmpty();
           var userTickets = [];
           for (var i = 0; i < res.data[0].wallet.length; i++) {
             userTickets.push(res.data[0].wallet[i])
           };
           wx.setStorageSync('userTickets', userTickets); // 缓存user tickets
         };
-        
       }
     })
-    console.log("the wallet is: " + this.data.isEmpty)
-    if (this.data.isEmpty != true) {
-      this.loadTicket();
-    }
   },
 
   loadTicket() {
@@ -81,13 +84,5 @@ Page({
     console.log("these tickets will be displayed")
     console.log(this.data.displayTicket)
   },
-  
-  setNEmpty(){
-    console.log()
-    var that = this;
-    this.setData({
-      isEmpty: false
-    })
-  }
 
 })
