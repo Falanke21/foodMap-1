@@ -5,7 +5,7 @@ Page({
    * Page initial data
    */
   data: {
-
+    alphaData:null
   },
 
   /**
@@ -62,5 +62,11 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  alphaClick: function(even) {
+    var animation = wx.createAnimation({})
+    animation.opacity(0.2).step({duration:3000})
+    this.setData({alphaData: animation.export()})
   }
 })
