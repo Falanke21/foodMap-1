@@ -26,7 +26,7 @@ Page({
 
   tap: function(e) {
     wx.navigateTo({
-      url: '/pages/searchBox/searchBox'
+      url: '/pages/wallet/popup/wpopup'
     })
   },
 
@@ -46,7 +46,6 @@ Page({
       success(res) {
         console.log(res.data[0].wallet.length)
         if (res.data[0].wallet.length > 0) {
-          console.log("detected dollar")
           var userTickets = [];
           for (var i = 0; i < res.data[0].wallet.length; i++) {
             userTickets.push(res.data[0].wallet[i])
