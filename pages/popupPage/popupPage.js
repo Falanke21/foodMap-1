@@ -57,12 +57,18 @@ Page({
     })
   },
   //赞一哈
-  addLike() {
-    this.setData({
-      likes: ++this.data.likes
+  // addLike() {
+    // this.setData({
+    //   likes: ++this.data.likes
+    // })
+    // this.addExp()
+  // },
+  addLike: function (e) {
+    wx.switchTab({
+      url: '../self/self',
     })
-    this.addExp()
   },
+  
 
   addExp() {
     var that = this
