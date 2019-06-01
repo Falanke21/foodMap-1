@@ -1,6 +1,8 @@
 <!--pages/wallet/wallet.wxml-->
 
-
+<view class='header'>
+我的钱包
+</view>
 <view  wx:if="{{!isEmpty}}">
   <block wx:for='{{displayTicket}}'> 
     <view class='item-container'>
@@ -8,7 +10,9 @@
         <view class='product-text'>
           <image class='type-image' src='/image/massage.png'></image>
           {{item.name}}
-        </view> {{item.expire_date}}
+        </view>
+          <view class='item-date-text' style='right'>{{item.expire_date}}</view>
+         
       </view>
     </view>
   </block>
