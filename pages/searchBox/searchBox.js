@@ -44,6 +44,9 @@ Page({
         })
       }
     })
+
+    var x = this.editDist("cat", "CAT");
+    console.log("测试EditDistance函数", x)
   },
 
   wxSearchInput: WxSearch.wxSearchInput,  // 输入变化时的操作
@@ -53,6 +56,28 @@ Page({
   wxSearchClear: WxSearch.wxSearchClear,  // 清空函数
 
 
+  editDist: function (word1, word2) {
+    let dp = new Array(2);
+    dp = dp.fill().map(() => (new Array(word1.length + 1)));
+    dp[0][0] = 0;
+
+    for (let i = 1; i < dp[0].length; i++) {
+      dp[0][i] = dp[0][i - 1] + 1;
+    }
+
+    for (let i = 1; i < word2.length + 1; i++) {
+      for (let j = 0; j < dp[0].length; j++) {
+        if (j === 0) {
+          dp[i % 2][j] = dp[(i - 1) % 2][j] + 1;
+          continue;
+        }
+        dp[i % 2][j] = Math.min(dp[(i - 1) % 2][j], dp[(i - 1) % 2][j - 1], dp[i % 2][j - 1]) + 1;
+        if (word2[i - 1] === word1[j - 1]) dp[i % 2][j] = dp[(i - 1) % 2][j - 1];
+      }
+    }
+
+    return dp[word2.length % 2][word1.length];
+  },
   // 4 搜索回调函数  
   mySearchFunction: function (value) {
     console.log("mySearchFunction Triggered")
