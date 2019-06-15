@@ -16,6 +16,7 @@ Page({
       {name: 'merge -f'},
       {name: 'commit -m ""'}
     ],
+    rankedRes: [],
     hiddenDropDown: true
   },
 
@@ -31,19 +32,8 @@ Page({
       that.mySearchFunction,
       that.myGobackFunction
     );
-
-    var that = this;
-    var locations = []
-    wx.cloud.init()
-    const db = wx.cloud.database()
+    this.fetchLocations();
     
-    db.collection('location').get({
-      success (res) {
-        that.setData({
-          schrRes: res.data
-        })
-      }
-    })
   },
 
   wxSearchInput: WxSearch.wxSearchInput,  // 输入变化时的操作
@@ -52,32 +42,22 @@ Page({
   wxSearchConfirm: WxSearch.wxSearchConfirm,  // 搜索函数
   wxSearchClear: WxSearch.wxSearchClear,  // 清空函数
 
+  // Fetch location data from the cloud
+  fetchLocations: function() {
+    var that = this;
+    wx.cloud.init()
+    const db = wx.cloud.database()
 
-  editDist: function (word1, word2) {
-    word1 = word1.toLowerCase()
-    word2 = word2.toLowerCase()
-    let dp = new Array(2);
-    dp = dp.fill().map(() => (new Array(word1.length + 1)));
-    dp[0][0] = 0;
-
-    for (let i = 1; i < dp[0].length; i++) {
-      dp[0][i] = dp[0][i - 1] + 1;
-    }
-
-    for (let i = 1; i < word2.length + 1; i++) {
-      for (let j = 0; j < dp[0].length; j++) {
-        if (j === 0) {
-          dp[i % 2][j] = dp[(i - 1) % 2][j] + 1;
-          continue;
-        }
-        dp[i % 2][j] = Math.min(dp[(i - 1) % 2][j], dp[(i - 1) % 2][j - 1], dp[i % 2][j - 1]) + 1;
-        if (word2[i - 1] === word1[j - 1]) dp[i % 2][j] = dp[(i - 1) % 2][j - 1];
+    db.collection('location').get({
+      success(res) {
+        that.setData({
+          schrRes: res.data
+        })
       }
-    }
-
-    return dp[word2.length % 2][word1.length];
+    })
   },
-  // 4 搜索回调函数  
+
+  // 4 搜索回调函数
   mySearchFunction: function (value) {
     console.log("mySearchFunction Triggered")
     // do your job here

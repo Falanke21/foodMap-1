@@ -3,7 +3,7 @@
 <text>pages/searchBox/searchBox.wxml\n</text>
 <text>Hey你debug像蔡徐坤\n</text>
 <view hidden="{{hiddenDropDown}}">
-  <navigator class="searchBox-item" url="../popupPage/popupPage?dbid={{item.dbid}}" wx:for="{{schrRes}}" wx:for-index="index" wx:for-item="item">
+  <navigator class="searchBox-item" url="../popupPage/popupPage?dbid={{item.dbid}}" wx:for="{{rankedRes}}" wx:for-index="index" wx:for-item="item">
     {{index}}: {{item.name}}
   </navigator>
 </view>
