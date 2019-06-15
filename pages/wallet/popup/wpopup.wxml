@@ -1,10 +1,12 @@
 <!--pages/wallet/popup/wpopup.js.wxml-->
-<text>券的名字</text>
+<view class='header'>
+  券的名字
+</view>
 <view class="ticket">
-   <view class="iamges">
-      <image class = "ticket_image" src="/image/pet.png" animation="{{alphaData}}"></image>
-      <image class = "use_image" src="/image/ic_location.png" animation="{{alphaData}}" bindtap='alphaClick'></image>
-   </view>
-   <text> 使用点右上图标！！</text>\n
-   <text> Expired date: Here </text>
+  <view class="ticket_wrapper">
+    <image class="ticket_image" src="/image/pet.png" animation="{{alphaData}}"></image>
+    <image class="use_image" src="/image/ic_location.png" animation="{{alphaData}}" bindtap='alphaClick'></image>
+  </view>
+  <text> 使用点右上图标！！</text>\n
+  <text> Expired date: Here </text>
 </view>
