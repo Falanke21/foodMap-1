@@ -52,7 +52,7 @@ Page({
   showProduct: function(e) {
     var dbid = e.currentTarget.dataset.index+1;
     wx.navigateTo({
-      url: '../shopPage/shopPage?dbid=' + dbid,
+      url: '../popupPage/popupPage?dbid=' + dbid,
     })
   },
 })
