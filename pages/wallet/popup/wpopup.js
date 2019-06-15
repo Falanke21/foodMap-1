@@ -5,7 +5,8 @@ Page({
    * Page initial data
    */
   data: {
-    alphaData:null
+    alphaData:null,
+    betaData:null
   },
 
   /**
@@ -65,8 +66,11 @@ Page({
   },
 
   alphaClick: function(even) {
-    var animation = wx.createAnimation({})
-    animation.opacity(0).step({duration:3000})
-    this.setData({alphaData: animation.export()})
+    var animation1 = wx.createAnimation({})
+    animation1.opacity(0.2).step({duration:1000})
+    this.setData({alphaData: animation1.export()})
+    var animation2 = wx.createAnimation({})
+    animation2.opacity(0).step({ duration:5})
+    this.setData({betaData: animation2.export()})
   }
 })

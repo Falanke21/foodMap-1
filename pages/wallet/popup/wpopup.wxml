@@ -4,9 +4,9 @@
 </view>
 <view class="ticket">
   <view class="ticket_wrapper">
-    <image class="ticket_image" src="/image/pet.png" animation="{{alphaData}}"></image>
-    <image class="use_image" src="/image/ic_location.png" animation="{{alphaData}}" bindtap='alphaClick'></image>
+    <image class="ticket_image" src="/image/quan1.png" animation="{{alphaData}}"></image>
+    <image class="used_image" src="/image/usedbutton.png"></image>
+    <!-- <text> Expired date: Here </text> -->
+    <image class="use_image" src="/image/redeembutton.png" animation="{{betaData}}" bindtap='alphaClick'></image>
   </view>
-  <text> 使用点右上图标！！</text>\n
-  <text> Expired date: Here </text>
 </view>
