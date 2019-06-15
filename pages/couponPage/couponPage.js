@@ -12,7 +12,7 @@ Page({
     day: new Date().getDate(),
     str: MONTHS[new Date().getMonth()],  // 月份字符串
     name:'defa_name',
-    merchandiseList: ["no data in cloud"],
+    couponList: ["no data in cloud"],
     url_lis: []
   },
 
@@ -24,25 +24,25 @@ Page({
     that.setData({
     name:options.name
     })
-    console.log(this.data.name)
   },
 
   onReady: function () {
     console.log("This product is of id: " + this.data.id)
+    console.log("This page's name is "+this.data.name)
     this.popup = this.selectComponent("#product");
     const db = wx.cloud.database();
-
+    console.log(db)
     var that = this;
-
-    db.collection('location').get({
-      success(res) {
-        // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
+    db.collection('coupon_test').where({
+      shop:that.data.name
+    }).get({
+      success(res){
+        console.log(res)
         that.setData({
-          merchandiseList: res.data,
-        });
+          couponList:res.data,
+        })
       }
     })
-
     db.collection('img_url').where({
       type: "location_img_url"
     }).get({
@@ -52,8 +52,6 @@ Page({
         })
       }
     })
-
-    console.log(this.data.url_lis)
   },
 
   showProduct: function (e) {
