@@ -44,9 +44,6 @@ Page({
         })
       }
     })
-
-    var x = this.editDist("cat", "CAT");
-    console.log("测试EditDistance函数", x)
   },
 
   wxSearchInput: WxSearch.wxSearchInput,  // 输入变化时的操作
@@ -57,6 +54,8 @@ Page({
 
 
   editDist: function (word1, word2) {
+    word1 = word1.toLowerCase()
+    word2 = word2.toLowerCase()
     let dp = new Array(2);
     dp = dp.fill().map(() => (new Array(word1.length + 1)));
     dp[0][0] = 0;
