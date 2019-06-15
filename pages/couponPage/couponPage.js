@@ -11,7 +11,7 @@ Page({
     month: new Date().getMonth() + 1,    // 月份
     day: new Date().getDate(),
     str: MONTHS[new Date().getMonth()],  // 月份字符串
-
+    name:'defa_name',
     merchandiseList: ["no data in cloud"],
     url_lis: []
   },
@@ -20,6 +20,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this
+    that.setData({
+    name:options.name
+    })
+    console.log(this.data.name)
   },
 
   onReady: function () {
