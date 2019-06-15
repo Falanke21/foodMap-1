@@ -16,6 +16,7 @@ Page({
       {name: 'merge -f'},
       {name: 'commit -m ""'}
     ],
+    rankedRes: [],
     hiddenDropDown: true
   },
 
@@ -31,19 +32,8 @@ Page({
       that.mySearchFunction,
       that.myGobackFunction
     );
-
-    var that = this;
-    var locations = []
-    wx.cloud.init()
-    const db = wx.cloud.database()
+    this.fetchLocations();
     
-    db.collection('location').get({
-      success (res) {
-        that.setData({
-          schrRes: res.data
-        })
-      }
-    })
   },
 
   wxSearchInput: WxSearch.wxSearchInput,  // 输入变化时的操作
@@ -52,8 +42,22 @@ Page({
   wxSearchConfirm: WxSearch.wxSearchConfirm,  // 搜索函数
   wxSearchClear: WxSearch.wxSearchClear,  // 清空函数
 
+  // Fetch location data from the cloud
+  fetchLocations: function() {
+    var that = this;
+    wx.cloud.init()
+    const db = wx.cloud.database()
 
-  // 4 搜索回调函数  
+    db.collection('location').get({
+      success(res) {
+        that.setData({
+          schrRes: res.data
+        })
+      }
+    })
+  },
+
+  // 4 搜索回调函数
   mySearchFunction: function (value) {
     console.log("mySearchFunction Triggered")
     // do your job here

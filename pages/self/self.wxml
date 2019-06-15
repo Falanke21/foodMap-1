@@ -6,9 +6,14 @@
 
 <view class="section">
   <open-data class="userinfo-nickname"    type="userNickName"></open-data>
-  <view class="userlvl">
+  <view class="userlvl" >
   <view class="lvloval"> LV{{level}}</view>
-  <image class="lvlicon" src="/image/diamond.png"> </image>
+  <image class="lvlicon" wx:if="{{level>3}}" src="/image/diamond.png"> </image>
+  <image class="lvlicon" wx:if="{{level>7}}" src="/image/diamond.png"> </image>
+  <image class="lvlicon" wx:if="{{level==1}}" src="/image/flower.png"> </image>
+  <image class="lvlicon" wx:if="{{level==2}}" src="/image/star.jpg"> </image>
+  <image class="lvlicon" wx:if="{{level==3}}" src="/image/sun.png"> </image>
+  
   </view>
   <view class="experience">
     <!-- Needs 100 more experiences on every level -->

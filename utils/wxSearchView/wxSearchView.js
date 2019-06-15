@@ -53,6 +53,57 @@ function init(that, hotKeys, tipKeys, searchFunction, goBackFunction) {
   getHisKeys(__that);
 }
 
+// Search alternatives ranking algor
+function rankschrRes(keyword, resArr) {
+  var arr = resArr;
+  // Calculate editDist for elements
+  for (let i = 0; i < arr.length; i++) {
+    let name_dist = editDist(arr[i].name, keyword);
+    let type_dist = editDist(arr[i].type, keyword);
+    if (name_dist < type_dist) {
+      arr[i].editDist = name_dist;
+    } else {
+      arr[i].editDist = type_dist;
+    }
+    // arr[i].editDist = editDist(arr[i].type + arr[i].name, keyword);
+  }
+  arr.sort(comparator)
+  __that.setData({
+    rankedRes: arr
+  })
+}
+
+// Compare two locations' edit distance
+function comparator(a, b) {
+  return a.editDist - b.editDist
+}
+
+// Edit distance between two string, case senseless
+function editDist(word1, word2) {
+  word1 = word1.toLowerCase()
+  word2 = word2.toLowerCase()
+  let dp = new Array(2);
+  dp = dp.fill().map(() => (new Array(word1.length + 1)));
+  dp[0][0] = 0;
+
+  for (let i = 1; i < dp[0].length; i++) {
+    dp[0][i] = dp[0][i - 1] + 1;
+  }
+
+  for (let i = 1; i < word2.length + 1; i++) {
+    for (let j = 0; j < dp[0].length; j++) {
+      if (j === 0) {
+        dp[i % 2][j] = dp[(i - 1) % 2][j] + 1;
+        continue;
+      }
+      dp[i % 2][j] = Math.min(dp[(i - 1) % 2][j], dp[(i - 1) % 2][j - 1], dp[i % 2][j - 1]) + 1;
+      if (word2[i - 1] === word1[j - 1]) dp[i % 2][j] = dp[(i - 1) % 2][j - 1];
+    }
+  }
+
+  return dp[word2.length % 2][word1.length];
+}
+
 // 搜索框输入时候操作
 function wxSearchInput(e) {
   var inputValue = e.detail.value;
@@ -61,6 +112,7 @@ function wxSearchInput(e) {
   // 寻找提示值 
   var tipKeys = [];
   if (inputValue && inputValue.length > 0) {
+    rankschrRes(inputValue, __that.data.schrRes)
     // 显示搜索备选
     __that.setData({
       hiddenDropDown: false

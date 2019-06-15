@@ -1,0 +1,17 @@
+<!--pages/calendar/calendar.wxml-->
+<view class='header'>
+<!-- {shopName} -->
+</view>
+<view>
+  <block wx:for='{{merchandiseList}}'> 
+    <view class='item-container'>
+      <view class='product' id="{{item.id}}" bindtap='showProduct' data-index="{{index}}">
+        <view class='product-text'>
+          <image class='type-image' src='{{url_lis[item.type]}}'></image>
+          {{item.name}}
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+<button bindtap='showProduct'>点我</button>
