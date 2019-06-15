@@ -1,9 +1,22 @@
 /* pages/wallet/popup/wpopup.js.wxss */
-.images {
+
+.header{
+  background: linear-gradient(to bottom, #00b377, #00b377);
+  color: white;
+  text-align: center;
+  font-size: larger;
+  font: bolder;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.ticket_wrapper {
   position: relative;
   border: solid 1rpx black;
-  width: 500rpx;
-  height: 300rpx
+  max-width: 500rpx;
+  max-height: 300rpx;
+  /* float: right;  
+  margin-left: -30px; */
 }
 
 .ticket_image {
@@ -11,11 +24,11 @@
   border: solid 1rpx black;
   z-index: 2;
   width: 500rpx;
-  height: 300rpx
+  height: 350rpx
 }
 
 .use_image {
-  position: abssolute;
+  position: absolute;
   z-index: 1;
   width: 50rpx;
   height: 50rpx;
