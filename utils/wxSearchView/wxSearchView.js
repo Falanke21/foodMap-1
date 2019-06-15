@@ -58,7 +58,14 @@ function rankschrRes(keyword, resArr) {
   var arr = resArr;
   // Calculate editDist for elements
   for (let i = 0; i < arr.length; i++) {
-    arr[i].editDist = editDist(arr[i].name + arr[i].type, keyword);
+    let name_dist = editDist(arr[i].name, keyword);
+    let type_dist = editDist(arr[i].type, keyword);
+    if (name_dist < type_dist) {
+      arr[i].editDist = name_dist;
+    } else {
+      arr[i].editDist = type_dist;
+    }
+    // arr[i].editDist = editDist(arr[i].type + arr[i].name, keyword);
   }
   arr.sort(comparator)
   __that.setData({
