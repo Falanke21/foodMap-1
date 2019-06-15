@@ -17,6 +17,7 @@ Page({
     id: 0,
     scanRecord:[],
     likes:0,
+    imageUrl: '/image/diamond.png',
   },
 
   /**
@@ -44,6 +45,28 @@ Page({
         console.log('fail')
       }
     })
+
+    if (that.level == 1) {
+      that.setData({
+        imageUrl: '/image/flower.png'
+      })
+    }
+    else if (that.level == 2) {
+      that.setData({
+        imageUrl: '/image/star.jpg'
+      })
+    }
+    else if (that.level == 3) {
+      that.setData({
+        imageUrl: '/image/sun.png'
+      })
+    }
+    else {
+      that.setData({
+        imageUrl: '/image/diamond.png'
+      })
+    }
+
   },
 
   getUserInfo: function (e) {
