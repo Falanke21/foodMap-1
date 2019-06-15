@@ -177,9 +177,8 @@ Page({
    */
   showCoupon: function (e) {
     console.log(e);
-    var cpid = e.currentTarget.dataset.index + 1;
     wx.navigateTo({
-      url: '../couponPage/couponPage?name='+this.data.name + '&?cpid=' + cpid,
+      url: '../couponPage/couponPage?shopName=' + this.data.name + '&shopId=' + this.data.mkid,
     })
   },
   /**

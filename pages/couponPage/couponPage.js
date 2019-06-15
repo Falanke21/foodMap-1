@@ -11,9 +11,8 @@ Page({
     month: new Date().getMonth() + 1,    // 月份
     day: new Date().getDate(),
     str: MONTHS[new Date().getMonth()],  // 月份字符串
-    name:'defa_name',
+    shopName:'defa_name',
     couponList: ["no data in cloud"],
-    url_lis: []
   },
 
   /**
@@ -22,35 +21,25 @@ Page({
   onLoad: function (options) {
     var that = this
     that.setData({
-    name:options.name
+      shopId: options.shopId,
+      shopName: options.shopName
     })
   },
 
   onReady: function () {
-    console.log("This product is of id: " + this.data.id)
-    console.log("This page's name is "+this.data.name)
-    this.popup = this.selectComponent("#product");
     const db = wx.cloud.database();
-    console.log(db)
     var that = this;
-    db.collection('coupon_test').where({
-      shop:that.data.name
+    
+    var shopId = parseInt(this.data.shopId);
+    db.collection('merchandise').where({
+      belong: shopId
     }).get({
-      success(res){
+      success: function(res){
         console.log(res)
         that.setData({
           couponList:res.data,
         })
-      }
-    })
-    db.collection('img_url').where({
-      type: "location_img_url"
-    }).get({
-      success(res) {
-        that.setData({
-          url_lis: res.data[0],
-        })
-      }
+      },
     })
   },
 
