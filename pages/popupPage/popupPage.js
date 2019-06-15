@@ -172,6 +172,16 @@ Page({
 
   },
 
+/**
+ * 通过这个函数来从popup page跳转到coupon page
+ */
+  showCoupon:function(e){
+  console.log(e);
+  var cpid = e.currentTarget.dataset.index + 1;
+  wx.navigateTo({
+    url: '../couponPage/coupon?cpid='+cpid,
+  })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */
