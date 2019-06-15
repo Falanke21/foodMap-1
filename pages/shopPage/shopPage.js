@@ -1,3 +1,4 @@
+// pages/popupPage/popupPage.js
 function getRandomColor() {
   const rgb = []
   for (let i = 0; i < 3; ++i) {
@@ -172,6 +173,16 @@ Page({
   },
 
   /**
+   * 通过这个函数来从popup page跳转到coupon page
+   */
+  showCoupon: function (e) {
+    console.log(e);
+    var cpid = e.currentTarget.dataset.index + 1;
+    wx.navigateTo({
+      url: '../couponPage/couponPage?cpid=' + cpid,
+    })
+  },
+  /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
@@ -204,10 +215,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  showCoupon: function () {
-    wx.navigateTo({
-      url: '../couponPage/couponPage',
-    })
   }
 })

@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    id : 0,
     year: new Date().getFullYear(),      // 年份
     month: new Date().getMonth() + 1,    // 月份
     day: new Date().getDate(),
@@ -22,6 +23,7 @@ Page({
   },
 
   onReady: function () {
+    console.log("This product is of id: " + this.data.id)
     this.popup = this.selectComponent("#product");
     const db = wx.cloud.database();
 

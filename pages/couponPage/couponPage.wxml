@@ -14,4 +14,3 @@
     </view>
   </block>
 </view>
-<button bindtap='showProduct'>点我</button>
