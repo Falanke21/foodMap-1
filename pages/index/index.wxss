@@ -61,6 +61,7 @@ button[plain]{ border:0 }
   width: 32px;
   height: 32px;
 }
+
 .container .img{
   top: 480px;
   display: flex;

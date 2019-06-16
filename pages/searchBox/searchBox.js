@@ -17,7 +17,7 @@ Page({
       {name: 'commit -m ""'}
     ],
     rankedRes: [],
-    hiddenDropDown: true
+    hiddenSchrRes: true
   },
 
   /**
@@ -62,7 +62,7 @@ Page({
     console.log("mySearchFunction Triggered")
     // do your job here
     this.setData({
-      hiddenDropDown: true
+      hiddenSchrRes: true
     })
     wx.cloud.init()
     const db = wx.cloud.database()

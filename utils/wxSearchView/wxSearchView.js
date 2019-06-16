@@ -115,7 +115,7 @@ function wxSearchInput(e) {
     rankschrRes(inputValue, __that.data.schrRes)
     // 显示搜索备选
     __that.setData({
-      hiddenDropDown: false
+      hiddenSchrRes: false
     });
     for (var i = 0; i < __tipKeys.length; i++) {
       var mindKey = __tipKeys[i];
@@ -127,7 +127,7 @@ function wxSearchInput(e) {
   } else {
     // 隐藏搜索备选
     __that.setData({
-      hiddenDropDown: true
+      hiddenSchrRes: true
     });
   }
   // 更新数据

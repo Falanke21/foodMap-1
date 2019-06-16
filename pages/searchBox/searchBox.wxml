@@ -1,8 +1,6 @@
 <!--pages/searchBox/searchBox.wxml-->
 <include src="../../utils/wxSearchView/wxSearchView.wxml" />
-<text>pages/searchBox/searchBox.wxml\n</text>
-<text>Hey你debug像蔡徐坤\n</text>
-<view hidden="{{hiddenDropDown}}">
+<view hidden="{{hiddenSchrRes}}">
   <navigator class="searchBox-item" url="../popupPage/popupPage?dbid={{item.dbid}}" wx:for="{{rankedRes}}" wx:for-index="index" wx:for-item="item">
     {{index}}: {{item.name}}
   </navigator>
