@@ -27,8 +27,8 @@ Page({
     var that = this
     WxSearch.init(
       that,
-      ['奶茶', '烧烤', "炸鸡", "甜食", '日料', '小笼包'],
-      ['北方菜', '粤菜', '四川菜', "鲁菜"],
+      ['川味轩', '云尚米线', "降龙爪爪", "嘿糖", "Snow Lava"],
+      ['VRulez', 'R&K Salon', '云顶国养生堂', "COLA PET"],
       that.mySearchFunction,
       that.myGobackFunction
     );
@@ -108,11 +108,8 @@ Page({
 
   // 5 返回回调函数
   myGobackFunction: function () {
-    console.log("myGobackFunction Triggered")
-    // do your job here
     // 示例：返回
-    wx.redirectTo({
-      url: '../index/index?searchValue=返回'
+    wx.navigateBack({
     })
   },
 
