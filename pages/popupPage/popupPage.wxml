@@ -79,7 +79,7 @@ Friday
         
       </view>
       <view class="coupon-container">
-        <button bindtap= ''> 优惠券</button>
+        <button bindtap= 'showCoupon'> 优惠券</button>
       </view>
     </view>
     

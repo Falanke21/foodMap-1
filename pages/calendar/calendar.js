@@ -15,26 +15,34 @@ Page({
     url_lis: []
   },
 
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
   },
 
+
   onReady: function () {
     this.popup = this.selectComponent("#product");
     const db = wx.cloud.database();
 
     var that = this;
-    
-    db.collection('location').get({
-      success(res) {
-        // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
-        that.setData({
-          merchandiseList: res.data,
-        });
-      }
+
+    //通过云函数调取所有商家
+    wx.cloud.callFunction({
+      // 云函数名称
+      name: 'getLocation',
     })
+      .then(res => {
+        console.log(res.result.data)
+        that.setData({
+           merchandiseList: res.result.data,
+
+         });
+
+      })
+      .catch(console.error);
 
     db.collection('img_url').where({
       type: "location_img_url"
@@ -52,7 +60,7 @@ Page({
   showProduct: function(e) {
     var dbid = e.currentTarget.dataset.index+1;
     wx.navigateTo({
-      url: '../popupPage/popupPage?dbid=' + dbid,
+      url: '../shopPage/shopPage?dbid=' + dbid,
     })
   },
 })

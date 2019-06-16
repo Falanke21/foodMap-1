@@ -1,23 +1,49 @@
 /* pages/wallet/popup/wpopup.js.wxss */
-.images {
-  position: relative;
-  border: solid 1rpx black;
-  width: 500rpx;
-  height: 300rpx
+
+.header{
+  background: linear-gradient(to bottom, #00b377, #00b377);
+  color: white;
+  text-align: center;
+  font-size: larger;
+  font: bolder;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
-.ticket_image {
+.ticket_wrapper {
   position: relative;
+  display: flex;
+  max-width: 700rpx;
+  max-height: 600rpx;
+  justify-content: center;        
+  align-items:center; 
+  /* float: right;  
+  margin-left: -30px; */
+}
+
+.ticket_wrapper ticket_image {
+  /* display: flex;
+  justify-content: center; */
   border: solid 1rpx black;
-  z-index: 2;
-  width: 500rpx;
-  height: 300rpx
+  /* z-index: 2; */
+  width: 600rpx;
+  height: 450rpx
 }
 
 .use_image {
-  position: abssolute;
+  position: absolute;
+  top: 340rpx;
+  z-index: 2;
+  width: 250rpx;
+  height: 80rpx;
+  /* border: solid 1rpx black */
+}
+
+.used_image {
+  position: absolute;
+  top: 330rpx;
   z-index: 1;
-  width: 50rpx;
-  height: 50rpx;
-  border: solid 1rpx black
+  width: 250rpx;
+  height: 90rpx;
+  /* border: solid 1rpx black */
 }
