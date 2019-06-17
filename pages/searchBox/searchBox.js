@@ -17,7 +17,8 @@ Page({
       {name: 'commit -m ""'}
     ],
     rankedRes: [],
-    hiddenSchrRes: true
+    hiddenSchrRes: true,
+    img_url_list: []
   },
 
   /**
@@ -33,7 +34,7 @@ Page({
       that.myGobackFunction
     );
     this.fetchLocations();
-    
+    this.fetchImgUrl();
   },
 
   wxSearchInput: WxSearch.wxSearchInput,  // 输入变化时的操作
@@ -41,6 +42,22 @@ Page({
   wxSearchDeleteAll: WxSearch.wxSearchDeleteAll, // 删除所有的历史记录
   wxSearchConfirm: WxSearch.wxSearchConfirm,  // 搜索函数
   wxSearchClear: WxSearch.wxSearchClear,  // 清空函数
+
+  // Fetch img_urls from the cloud
+  fetchImgUrl: function() {
+    var that = this;
+    wx.cloud.init()
+    const db = wx.cloud.database()
+    
+    db.collection('img_url').get({
+      success(res) {
+        that.setData({
+          // Default image of respective type
+          img_url_list: res.data[0]
+        })
+      }
+    })
+  },
 
   // Fetch location data from the cloud
   fetchLocations: function() {

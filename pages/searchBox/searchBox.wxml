@@ -1,7 +1,21 @@
 <!--pages/searchBox/searchBox.wxml-->
 <include src="../../utils/wxSearchView/wxSearchView.wxml" />
 <view hidden="{{hiddenSchrRes}}">
-  <navigator class="searchBox-item" url="../popupPage/popupPage?dbid={{item.dbid}}" wx:for="{{rankedRes}}" wx:for-index="index" wx:for-item="item">
-    {{index}}: {{item.name}}
+  <navigator url="../popupPage/popupPage?dbid={{item.dbid}}" wx:for="{{rankedRes}}" wx:for-index="index" wx:for-item="item">
+    <view class='searchBox-wrap'>
+      <view class="searchBox-item">
+        <view class='searchBox-item-header'>
+          <view>
+            <image float='left' class='searchBox-item-image' mode='widthFix' src='{{img_url_list[item.type]}}'></image> <text> {{item.name}} {{item.hours}}</text>
+          </view>
+        </view>
+
+        <view class='searchBox-item-descrb'>
+          <text>{{item.type}} {{item.address}}\n</text>
+        </view>
+      </view>
+
+    </view>
+
   </navigator>
 </view>
