@@ -6,14 +6,15 @@
   border-bottom-style: 20rpx;
   border-radius: 5rpx;
   text-align: left;
-  display: flex;
   padding-top: 20rpx;
   padding-bottom: 20rpx;
   padding-left: 20rpx;
-  letter-spacing:2rpx;
 }
 
 .searchBox-item {
+  justify-content: row;
+  row-gap: 20rpx;
+  display: flex;
 }
 
 .searchBox-item-header {
@@ -25,7 +26,7 @@
 }
 
 .searchBox-item-image {
-  width: 40rpx;
+  width: 50rpx;
 }
 
 .searchBox-item-descrb {
