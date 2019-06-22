@@ -34,4 +34,10 @@
       <image class="scan-png" src="/image/scan.png" mode='aspectFit'></image>
     </view>
   </view>
+
+  <view class="nav-to-wx-MOCA">
+    <view class="scan-btn" bindtap='scan'> 
+      <image class="scan-png" src="/image/scan.png" mode='aspectFit'></image>
+    </view>
+  </view>
 </view>

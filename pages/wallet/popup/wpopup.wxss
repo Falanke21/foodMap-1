@@ -10,6 +10,14 @@
   padding-bottom: 20px;
 }
 
+.ticket {
+  position: relative;
+  display: flex;
+  height: 1000rpx;
+  max-width: 900rpx;
+  justify-content: center;        
+  align-items:center;
+}
 .ticket_wrapper {
   position: relative;
   display: flex;
