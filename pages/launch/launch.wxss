@@ -31,3 +31,10 @@ page {
   margin-top: 200rpx;
 }
 
+.wx-login{
+    margin-top: 10px;
+  width: 50%;
+  border-radius: 98rpx;
+  background: bg_red;
+}
+
