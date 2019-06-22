@@ -25,8 +25,10 @@ Page({
   },
 
   tap: function(e) {
+    console.log(e.currentTarget.id)
+    var dbid = e.currentTarget.id;
     wx.navigateTo({
-      url: '/pages/wallet/popup/wpopup'
+      url: '/pages/wallet/popup/wpopup?ticketId=' + dbid
     })
   },
 
