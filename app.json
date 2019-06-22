@@ -4,10 +4,10 @@
     "pages/launch/launch",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/calendar/calendar",
+    "pages/market/market",
     "pages/self/self",
     "pages/dialog/dialog",
-    "pages/popupPage/popupPage",
+    "pages/shopPage/shopPage",
     "pages/data/data",
     "pages/searchBox/searchBox",
     "pages/login/login",
@@ -37,10 +37,10 @@
         "text": "地图"
       },
       {
-        "pagePath": "pages/calendar/calendar",
+        "pagePath": "pages/market/market",
         "iconPath": "image/event.png",
         "selectedIconPath": "image/event.png",
-        "text": "活动"
+        "text": "积分"
       },
       {
         "pagePath": "pages/self/self",

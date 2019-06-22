@@ -377,7 +377,7 @@ Page({
   bindcallouttap: function (e) {
     console.log("头上文字被点击", e)
     wx.navigateTo({
-      url: '../popupPage/popupPage?dbid='+e.markerId
+      url: '../shopPage/shopPage?dbid='+e.markerId
     })
   },
 
@@ -385,7 +385,7 @@ Page({
     console.log("", e)
     
     wx.navigateTo({
-      url: '../popupPage/popupPage?dbid='+e.markerId
+      url: '../shopPage/shopPage?dbid='+e.markerId
     })
     console.log(e.currentTarget.dataset.offsetLeft)
   }

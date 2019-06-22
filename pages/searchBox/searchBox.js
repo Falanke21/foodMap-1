@@ -115,7 +115,7 @@ Page({
           setTimeout(function () {
             wx.hideLoading()
             wx.redirectTo({
-              url: '../popupPage/popupPage?dbid=' + dbid
+              url: '../shopPage/shopPage?dbid=' + dbid
             })
           }, 1000)
         }
