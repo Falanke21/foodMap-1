@@ -6,14 +6,19 @@ Page({
    */
   data: {
     alphaData:null,
-    betaData:null
+    betaData:null,
+    ticketId:null
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    var that = this
+    that.setData({
+      ticketId: options.ticketId,
+    })
+    console.log(this.data.ticketId)
   },
 
   /**
@@ -79,6 +84,13 @@ Page({
     this.deleteTicket();
     wx.navigateTo({
       url: '/pages/wallet/wallet'
+    })
+  },
+
+  getOpenId() {
+    var openid = wx.getStorageSync('userid');
+    this.setData({
+      openId: openid
     })
   },
 
