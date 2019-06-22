@@ -1,7 +1,8 @@
 <!--pages/productPage/productPage.wxml-->
-<image class = "widget_arrow" src = "../../image/bbq.png" mode="aspectFill"></image>
-<image src='{{couponObject.img_url}}'></image>
-<view class = "container" hidden="{{flag}}">
+<view class="imageWrapper">
+  <image class="couponImage" src='{{couponObject.img_url}}'></image>
+</view>
+<view class = "container">
   <view class = 'product'>
   <view class = 'left'> 商品内容</view>
   <view class = 'right'> </view>

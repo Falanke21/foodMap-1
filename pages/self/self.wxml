@@ -2,6 +2,7 @@
 <view class='headView'>
     <open-data class='icon' mode='aspectFit' type='userAvatarUrl'></open-data>
     <view class='icon'/>
+    
 </view>
 
 <view class="section">
@@ -35,9 +36,16 @@
     </view>
   </view>
 
-  <view class="nav-to-wx-MOCA">
-    <view class="scan-btn" bindtap='scan'> 
-      <image class="scan-png" src="/image/scan.png" mode='aspectFit'></image>
-    </view>
+  
+</view>
+
+
+
+<view class="nav-to-wx-ada">
+  <view class='nav-text'>
+    <view class='type-text'>Present by</view>
   </view>
+    <view class="nav-btn" bindtap='navada'> 
+      <image class="nav-png" src="/image/navada.png" mode='aspectFit'></image>
+    </view>
 </view>
