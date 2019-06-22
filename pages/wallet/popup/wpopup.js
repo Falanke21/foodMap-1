@@ -80,7 +80,7 @@ Page({
     let timer = setTimeout(() => {
       clearTimeout(timer)
       this.direct()
-    }, 3000)
+    }, 5000)
     this.deleteTicket();
     wx.navigateTo({
       url: '/pages/wallet/wallet'
