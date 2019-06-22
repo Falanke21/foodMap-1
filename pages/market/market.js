@@ -82,7 +82,7 @@ Page({
   },
 
   showProduct: function(e) {
-    var dbid = e.currentTarget.dataset.index+1;
+    var dbid = e.currentTarget.id;
     wx.navigateTo({
       url: '../couponPage/couponPage?shopId=' + dbid,
     })
