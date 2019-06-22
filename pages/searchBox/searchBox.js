@@ -17,7 +17,8 @@ Page({
       {name: 'commit -m ""'}
     ],
     rankedRes: [],
-    hiddenDropDown: true
+    hiddenSchrRes: true,
+    img_url_list: []
   },
 
   /**
@@ -27,13 +28,13 @@ Page({
     var that = this
     WxSearch.init(
       that,
-      ['奶茶', '烧烤', "炸鸡", "甜食", '日料', '小笼包'],
-      ['北方菜', '粤菜', '四川菜', "鲁菜"],
+      ['川味轩', '云尚米线', "降龙爪爪", "嘿糖", "Snow Lava"],
+      ['VRulez', 'R&K Salon', '云顶国养生堂', "COLA PET"],
       that.mySearchFunction,
       that.myGobackFunction
     );
     this.fetchLocations();
-    
+    this.fetchImgUrl();
   },
 
   wxSearchInput: WxSearch.wxSearchInput,  // 输入变化时的操作
@@ -41,6 +42,22 @@ Page({
   wxSearchDeleteAll: WxSearch.wxSearchDeleteAll, // 删除所有的历史记录
   wxSearchConfirm: WxSearch.wxSearchConfirm,  // 搜索函数
   wxSearchClear: WxSearch.wxSearchClear,  // 清空函数
+
+  // Fetch img_urls from the cloud
+  fetchImgUrl: function() {
+    var that = this;
+    wx.cloud.init()
+    const db = wx.cloud.database()
+    
+    db.collection('img_url').get({
+      success(res) {
+        that.setData({
+          // Default image of respective type
+          img_url_list: res.data[0]
+        })
+      }
+    })
+  },
 
   // Fetch location data from the cloud
   fetchLocations: function() {
@@ -62,7 +79,7 @@ Page({
     console.log("mySearchFunction Triggered")
     // do your job here
     this.setData({
-      hiddenDropDown: true
+      hiddenSchrRes: true
     })
     wx.cloud.init()
     const db = wx.cloud.database()
@@ -108,11 +125,8 @@ Page({
 
   // 5 返回回调函数
   myGobackFunction: function () {
-    console.log("myGobackFunction Triggered")
-    // do your job here
     // 示例：返回
-    wx.redirectTo({
-      url: '../index/index?searchValue=返回'
+    wx.navigateBack({
     })
   },
 

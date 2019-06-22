@@ -1,8 +1,38 @@
 /* pages/searchBox/searchBox.wxss */
 @import "../../utils/wxSearchView/wxSearchView.wxss";
 
+.searchBox-wrap {
+  border-bottom: 0.5rpx solid lightblue;
+  border-bottom-style: 20rpx;
+  border-radius: 5rpx;
+  text-align: left;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  padding-left: 20rpx;
+}
+
 .searchBox-item {
-  border: 10rpx solid pink;
-  margin: 10rpx;
-  text-align: center;
+  justify-content: row;
+  row-gap: 20rpx;
+  display: flex;
+}
+
+.searchBox-item-header {
+
+}
+
+.searchBox-item-name {
+  font-size: 36rpx
+}
+
+.searchBox-item-image {
+  width: 50rpx;
+}
+
+.searchBox-item-descrb {
+  font-size: 30rpx
+}
+
+.searchBox-item-hours {
+
 }

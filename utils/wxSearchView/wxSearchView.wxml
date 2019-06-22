@@ -13,8 +13,9 @@
     <text wx:else data-key='back'>返回</text>
   </view>
 </view>
-<!-- 
-<view class="wxSearch" style="'block';height:{{wxSearchData.view.seachHeight}}px;top:{{wxSearchData.view.barHeight}}px;">
+
+<view hidden="{{!hiddenSchrRes}}">
+  <view class="wxSearch" style="'block';height:{{wxSearchData.view.seachHeight}}px;top:{{wxSearchData.view.barHeight}}px;">
 
   <view class="wxSearchInner">
     <view class="wxSearchMindKey">
@@ -48,4 +49,5 @@
       </view>
     </view>
   </view>
-</view> -->
+</view>
+</view>

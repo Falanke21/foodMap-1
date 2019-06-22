@@ -1,9 +1,22 @@
 <!--pages/searchBox/searchBox.wxml-->
 <include src="../../utils/wxSearchView/wxSearchView.wxml" />
-<text>pages/searchBox/searchBox.wxml\n</text>
-<text>Hey你debug像蔡徐坤\n</text>
-<view hidden="{{hiddenDropDown}}">
-  <navigator class="searchBox-item" url="../popupPage/popupPage?dbid={{item.dbid}}" wx:for="{{rankedRes}}" wx:for-index="index" wx:for-item="item">
-    {{index}}: {{item.name}}
+<view hidden="{{hiddenSchrRes}}">
+  <navigator url="../popupPage/popupPage?dbid={{item.dbid}}" wx:for="{{rankedRes}}" wx:for-index="index" wx:for-item="item">
+    <view class='searchBox-wrap'>
+      <view class="searchBox-item">
+          <view class='searchBox-item-image'>
+            <image float='left' class='searchBox-item-image' mode='widthFix' src='{{img_url_list[item.type]}}'> </image>
+          </view>
+          <view class='searchBox-item-name'>
+            <text> {{item.name}}</text>
+          </view>
+
+        <view class='searchBox-item-descrb'>
+          <text>{{item.type}} {{item.address}}\n{{item.hours}}</text>
+        </view>
+      </view>
+
+    </view>
+
   </navigator>
 </view>
