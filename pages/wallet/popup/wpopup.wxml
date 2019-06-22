@@ -4,7 +4,7 @@
 </view>
 <view class="ticket">
   <view class="ticket_wrapper">
-    <image class="ticket_image" src="/image/base_quan.png" animation="{{alphaData}}"></image>
+    <image class="ticket_image" src='{{couponObject.img_url}}' animation="{{alphaData}}"></image>
     <image class="used_image" src="/image/usedbutton.png"></image>
     <image class="use_image" src="/image/redeembutton.png" animation="{{betaData}}" bindtap='alphaClick'></image>
   </view>

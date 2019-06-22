@@ -49,6 +49,7 @@ Page({
     }).get({
       success(res) {
         console.log(res.data[0].wallet.length)
+        console.log(res)
         if (res.data[0].wallet.length > 0) {
           var userTickets = [];
           for (var i = 0; i < res.data[0].wallet.length; i++) {
