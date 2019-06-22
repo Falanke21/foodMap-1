@@ -4,7 +4,7 @@
 我的钱包
 </view>
 <view  wx:if="{{!isEmpty}}">
-  <block wx:for='{{displayTicket}}'> 
+  <block wx:for='{{displayTicket}}' wx:key='id'> 
     <view class='item-container'>
       <view class='product' id="{{item.id}}" bindtap='tap'>
         <view class='product-text'>

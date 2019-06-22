@@ -7,7 +7,8 @@ Page({
   data: {
     alphaData:null,
     betaData:null,
-    ticketId:null
+    ticketId:null,
+    couponObject: null
   },
 
   /**
@@ -19,6 +20,20 @@ Page({
       ticketId: options.ticketId,
     })
     console.log(this.data.ticketId)
+    const db = wx.cloud.database();
+    var that = this;
+
+    var ticket = parseInt(this.data.ticketId);
+    db.collection('merchandise').where({
+      id: ticket
+    }).get({
+      success: function (res) {
+        console.log(res.data[0])
+        that.setData({
+          couponObject: res.data[0],
+        })
+      },
+    })
   },
 
   /**
