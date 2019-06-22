@@ -22,7 +22,6 @@ Page({
     var that = this
     that.setData({
       shopId: options.shopId,
-      shopName: options.shopName
     })
   },
 
