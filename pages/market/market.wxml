@@ -32,7 +32,7 @@
 <view class='list'>
   <block wx:for='{{foodList}}'> 
     <!-- <view class='item-container'> -->
-      <view class='product' id="{{item.id}}" bindtap='showProduct' data-index="{{index}}">
+      <view class='product' id="{{item.dbid}}" bindtap='showProduct' data-index="{{index}}">
         <view class='product-text'>
           <view class='image-view'>
       <image class='type-image' src='{{url_lis[item.type]}}'></image>
