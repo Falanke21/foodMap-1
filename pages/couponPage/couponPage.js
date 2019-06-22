@@ -43,9 +43,10 @@ Page({
   },
 
   showProduct: function (e) {
-    var dbid = e.currentTarget.dataset.index + 1;
+    console.log(e)
+    var productId = e.currentTarget.id;
     wx.navigateTo({
-      url: '../productPage/product?id=' + dbid,
+      url: '../productPage/productPage?id=' + productId,
     })
   },
 })
