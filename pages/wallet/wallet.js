@@ -19,16 +19,26 @@ Page({
     console.log('openId is === ' + this.data.openId)
     this.loadWallet();
     var userT = wx.getStorageSync('userTickets');
+    console.log(userT)
     if (userT.length > 0) {
       this.loadTicket();
     }
   },
 
+  onReady: function () {
+    setTimeout(this.onLoad, 1000);
+    setTimeout(this.onLoad, 2000);
+    setTimeout(this.onShow,2000);
+    console.log('Ready called')
+  },
+
+  onShow: function () {
+    console.log('Show called')
+  },
+
   tap: function(e) {
     console.log(e.currentTarget.id)
     var dbid = e.currentTarget.id;
-    wx.removeStorageSync('userTickets')
-    wx.removeStorageSync('allTickets')
     wx.redirectTo({
       url: '/pages/wallet/popup/wpopup?ticketId=' + dbid
     })
@@ -74,6 +84,7 @@ Page({
     var displayT = [];
     var userT = wx.getStorageSync('userTickets')
     var allT = wx.getStorageSync('allTickets')
+    // console.log()
     for (var i = 0; i < userT.length; i++) {
       for (var j = 0; j < allT.length; j++) {
         if (userT[i] == allT[j].id) {
