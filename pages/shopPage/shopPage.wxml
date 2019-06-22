@@ -21,14 +21,15 @@
 
       
     <view class='popup-btn'>
-      <view class='like-container'>
+    <view class="coupon-container">
+
+    <view class='like-container'>
         <!-- <view class="wx-popup-likes">{{likes}}</view> -->
-        <button class='like-btn' bindtap='addLike'>打卡</button>
-        
+        <image class='signin' bindtap= 'addLike' src='../../image/signin.jpg'></image>
       </view>
-      <view class="coupon-container">
-        <button bindtap= 'showCoupon'> 优惠券</button>
+
+      <image class='coupon' bindtap= 'showCoupon' src='../../image/coupon.jpg'></image>
       </view>
     </view>
-    
+      
   </view>
