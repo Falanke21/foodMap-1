@@ -1,16 +1,5 @@
 <!--pages/popupPage/popupPage.wxml-->
-  <view class='popup-container'>
-    
-    <view class='merchant-name'>{{name}}</view>
-
-    <view class='merchant-address'>{{address}}</view>
-
-      <view class='merchant-likes'>当前人气：{{likes}}
-        <image class='image-lit' src='../../image/lit_emoji.png'></image>
-      
-    </view>
-      
-    <view class='swiper-container'>
+<view class='swiper-container'>
       <swiper
       indicator-dots="true" autoplay="true" circular="true"
       interval="2000">
@@ -20,22 +9,27 @@
         </swiper-item>
       </block>
       </swiper>
+</view>
+
+  <view class='popup-container'>
+    <view class='merchant-name'>{{name}}</view>
+      <view class='merchant-likes'>当前人气：{{likes}}
+        <image class='image-lit' src='../../image/lit_emoji.png'></image>
+      
     </view>
-
-
-
-  
+    <view class='merchant-address'>{{address}}</view>
 
       
     <view class='popup-btn'>
-      <view class='like-container'>
+    <view class="coupon-container">
+
+    <view class='like-container'>
         <!-- <view class="wx-popup-likes">{{likes}}</view> -->
-        <button class='like-btn' bindtap='addLike'>打卡</button>
-        
+        <image class='signin' bindtap= 'addLike' src='../../image/signin.jpg'></image>
       </view>
-      <view class="coupon-container">
-        <button bindtap= 'showCoupon'> 优惠券</button>
+
+      <image class='coupon' bindtap= 'showCoupon' src='../../image/coupon.jpg'></image>
       </view>
     </view>
-    
+      
   </view>

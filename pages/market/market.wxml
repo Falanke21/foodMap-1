@@ -2,8 +2,35 @@
 <view class='header'>
 积分商城
 </view>
-<view class='list'>
+<!-- <view class='list'>
   <block wx:for='{{merchandiseList}}'> 
+    <view class='item-container'> -->
+      <!-- <view class='product' id="{{item.id}}" bindtap='showProduct' data-index="{{index}}">
+        <view class='product-text'>
+          <view class='image-view'>
+      <image class='type-image' src='{{url_lis[item.type]}}'></image>
+          </view>
+          <view class='text-view'>
+            <text>{{item.name}}</text>
+          </view>
+        </view>
+      </view> -->
+    <!-- </view>
+  </block>
+  <view class='product' wx:if="{{merchandiseList % 3 != 0}}">
+    <view class='product-text'>
+    </view>
+  </view>
+  <view class='product' wx:if="{{merchandiseList % 3 == 2}}">
+    <view class='product-text'></view>
+  </view>
+</view> -->
+
+<view class='Type'>
+美食
+</view>
+<view class='list'>
+  <block wx:for='{{foodList}}'> 
     <!-- <view class='item-container'> -->
       <view class='product' id="{{item.id}}" bindtap='showProduct' data-index="{{index}}">
         <view class='product-text'>
@@ -17,38 +44,39 @@
       </view>
     <!-- </view> -->
   </block>
-  <view class='product' wx:if="{{merchandiseList % 3 != 0}}">
+  <view class='product' wx:if="{{foodList % 3 != 0}}">
     <view class='product-text'>
     </view>
   </view>
-  <view class='product' wx:if="{{merchandiseList % 3 == 2}}">
+  <view class='product' wx:if="{{foodList % 3 == 2}}">
     <view class='product-text'></view>
   </view>
 </view>
 
-<!-- <view class='list'>
-  <block wx:for='{{merchandiseList}}'> 
-  
+<view class='Type'>
+生活娱乐
+</view>
+<view class='list'>
+  <block wx:for='{{lifeList}}'> 
+    <!-- <view class='item-container'> -->
       <view class='product' id="{{item.id}}" bindtap='showProduct' data-index="{{index}}">
         <view class='product-text'>
           <view class='image-view'>
-            <image class='type-image' src='{{url_lis[item.type]}}'></image>
+      <image class='type-image' src='{{url_lis[item.type]}}'></image>
           </view>
           <view class='text-view'>
             <text>{{item.name}}</text>
           </view>
         </view>
       </view>
-   
+    <!-- </view> -->
   </block>
-  <view class='product' wx:if="{{merchandiseList % 3 != 0}}">
+  <view class='product' wx:if="{{lifeList % 3 != 0}}">
     <view class='product-text'>
     </view>
   </view>
-  <view class='product' wx:if="{{merchandiseList % 3 == 2}}">
+  <view class='product' wx:if="{{lifeList % 3 == 2}}">
     <view class='product-text'></view>
   </view>
-</view> -->
-
-
+</view>
 <button bindtap='showProduct'>点我</button>

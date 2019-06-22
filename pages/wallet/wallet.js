@@ -25,8 +25,12 @@ Page({
   },
 
   tap: function(e) {
-    wx.navigateTo({
-      url: '/pages/wallet/popup/wpopup'
+    console.log(e.currentTarget.id)
+    var dbid = e.currentTarget.id;
+    wx.removeStorageSync('userTickets')
+    wx.removeStorageSync('allTickets')
+    wx.redirectTo({
+      url: '/pages/wallet/popup/wpopup?ticketId=' + dbid
     })
   },
 

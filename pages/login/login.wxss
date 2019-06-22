@@ -7,3 +7,12 @@ page {
   padding: 0 20rpx ;  
   align-items: center;  
 }
+
+.wx-login{
+  margin-top: 30px;
+  width: 70%;
+  border-radius: 98rpx;
+  background: bg_red;
+
+  
+}

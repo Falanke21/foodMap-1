@@ -4,15 +4,21 @@
 }
 
 .popup-container {
-  position: absolute;
+  position: flex;
+
   left: 10%;
   top: 10%;
- 
+  
+  margin-left: 40px;
+
   width: 80%;
   max-width: 600rpx;
   box-sizing: bordre-box;
   /* transform: translate(-50%, -50%);  */
   overflow: hidden;
+
+  justify-content: center; 
+  align-items: center;
   
 }
 
@@ -43,8 +49,15 @@
 }
 
 .swiper-container {
-  padding: 10px;
+  margin-top: 0px;
   height: 140px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.swiper-image {
+  width: 100%;
+  border-radius: 10%;
 }
 
 .popup-btn {
@@ -82,4 +95,25 @@
   color: #fff;
   display: inline-block;
   margin: 10px;
+}
+
+.coupon-container {
+  height: auto;
+  width: auto;
+}
+
+.coupon {
+  height: 80px;
+  width: 100px;
+  margin-left: 90px;
+}
+
+.signin {
+  height: 100px;
+  width: 150px;
+  margin-left: 70px; 
+}
+
+.popup-btn {
+  display: flex;
 }
