@@ -7,7 +7,7 @@
     "pages/calendar/calendar",
     "pages/self/self",
     "pages/dialog/dialog",
-    "pages/popupPage/popupPage",
+    "pages/shopPage/shopPage",
     "pages/data/data",
     "pages/searchBox/searchBox",
     "pages/login/login",
