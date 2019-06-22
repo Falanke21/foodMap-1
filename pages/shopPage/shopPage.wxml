@@ -1,16 +1,5 @@
 <!--pages/popupPage/popupPage.wxml-->
-  <view class='popup-container'>
-    
-    <view class='merchant-name'>{{name}}</view>
-
-    <view class='merchant-address'>{{address}}</view>
-
-      <view class='merchant-likes'>当前人气：{{likes}}
-        <image class='image-lit' src='../../image/lit_emoji.png'></image>
-      
-    </view>
-      
-    <view class='swiper-container'>
+<view class='swiper-container'>
       <swiper
       indicator-dots="true" autoplay="true" circular="true"
       interval="2000">
@@ -20,11 +9,15 @@
         </swiper-item>
       </block>
       </swiper>
+</view>
+
+  <view class='popup-container'>
+    <view class='merchant-name'>{{name}}</view>
+      <view class='merchant-likes'>当前人气：{{likes}}
+        <image class='image-lit' src='../../image/lit_emoji.png'></image>
+      
     </view>
-
-
-
-  
+    <view class='merchant-address'>{{address}}</view>
 
       
     <view class='popup-btn'>
