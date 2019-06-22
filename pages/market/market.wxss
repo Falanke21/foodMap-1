@@ -41,7 +41,27 @@
 .product:first-child, .product:nth-child(2), .product:nth-child(3){
   border-top: solid rgb(20, 153, 131) 0px !important;
 }
-text{
-  font-size:10px;
-  height: 15px;
+
+.product-text{
+  font-size:25rpx;
+  color:rgb(38, 173, 190)
 }
+
+.type-border{
+  width:91%;
+  height:90rpx;
+  display:block;
+  justify-content:center;
+  align-items:center;
+  border-bottom:solid rgb(20, 153, 131) 2rpx;
+  margin:0 auto;
+
+
+}
+.type-text{
+  font-size: 50rpx;
+  padding-top:30rpx;
+  color: rgb(26, 184, 157);
+  text-align: center;
+}
+
