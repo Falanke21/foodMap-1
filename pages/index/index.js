@@ -303,21 +303,20 @@ Page({
   displayCallout: function () {
     var that = this;
     var mks = that.data.markers;
-    
     if (mks && this.data.scale) {
       console.log(this.data.scale)
       var prev = mks[0].callout.display;
-      if (this.data.scale <= 17) {
-        for (var i = 0; i < mks.length; i++) {
-          mks[i].callout.display = "BYCLICK";
-        }
+      console.log("marker vis status" + prev)
+      var aft;
+      if (this.data.scale <= 16.6) {
+        aft = "BYCLICK";
       } else {
-        for (var i = 0; i < mks.length; i++) {
-          mks[i].callout.display = "ALWAYS";
-        }
+        aft = "ALWAYS";
       }
-      var aft = mks[0].callout.display;
       if (prev != aft) {
+        for (var i = 0; i < mks.length; i++) {
+          mks[i].callout.display = aft;
+        }
         console.log('prev scale ===' + prev)
         console.log('after scale ===' + aft)
         this.setData({
@@ -331,7 +330,7 @@ Page({
         })
       }
     }
-      //console.log(mks)
+    //console.log(mks)
   },
 
 /**移动到中心点 */

@@ -72,5 +72,47 @@ Page({
     var animation2 = wx.createAnimation({})
     animation2.opacity(0).step({ duration:5})
     this.setData({betaData: animation2.export()})
+    let timer = setTimeout(() => {
+      clearTimeout(timer)
+      this.direct()
+    }, 3000)
+    this.deleteTicket();
+    wx.navigateTo({
+      url: '/pages/wallet/wallet'
+    })
+  },
+
+  deleteTicket() {
+    this.getOpenId();
+    var userTickets = wx.getStorageSync('userTickets');
+    for (var i = 0; i < userTickets.length; i++) {
+      if (userTickets[i] == this.data.ticketId) {
+        userTickets.splice(i, 1);
+        break;
+      }
+    }
+    console.log(userTickets)
+    const db = wx.cloud.database();
+    db.collection('wxuser').where({
+      _openid: this.data.openId
+    }).get({
+      success(res) {
+        db.collection('wxuser').doc(res.data[0]._id).update({
+          data: {
+            wallet: userTickets
+          },
+          success: res => {
+
+          },
+          fail: err => {
+            icon: 'none',
+              console.error('[数据库] [更新记录] 失败：', err)
+          }
+        })
+      },
+      fail(res) {
+        console.log('fail')
+      }
+    })
   }
 })
