@@ -8,6 +8,7 @@ Page({
     id: 0,
     minusStatus:true,
     addedNum:1,
+    couponObject: null
   },
 
   /**
@@ -16,6 +17,22 @@ Page({
   onLoad: function (options) {
     this.setData({
       id: options.id,
+    })
+
+
+    const db = wx.cloud.database();
+    var that = this;
+
+    var couponId = parseInt(this.data.id);
+    db.collection('merchandise').where({
+      id: couponId
+    }).get({
+      success: function (res) {
+        console.log(res.data[0])
+        that.setData({
+          couponObject: res.data[0],
+        })
+      },
     })
   },
 
