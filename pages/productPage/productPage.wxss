@@ -19,8 +19,8 @@ page{
 .product-btn {
   width: 90%;
   margin-top: 30rpx;
-  background-color: #FFCC00;
-  color: #FFF;
+  /* background-color: #FFCC00; */
+  /* color: #FFF; */
 }
 .product{  
   width: 100%;  
@@ -43,18 +43,18 @@ page{
 .add-btn{
   width: 35%;
   margin-top: 30rpx;
-  background-color: #FFCC00;
+  /* background-color: #FFCC00; */
   margin-right: 10px;
-  color: #FFF;
+  /* color: #FFF; */
   float: left;
 }
 
 .minus-btn{
   width: 35%; 
  margin-top: 30px; 
- background-color: rgb(0, 174, 255);
+ /* background-color: rgb(0, 174, 255); */
  margin-right:10px;
- color: #FFF;
+ /* color: #FFF; */
  float:right;
 }
 .add-num{

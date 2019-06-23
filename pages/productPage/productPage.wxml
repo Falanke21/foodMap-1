@@ -28,5 +28,5 @@
     <button class = "minus-btn" bindtap="addNum">+</button>
     </div>
     </view>
-  <button class = 'product-btn' bindtap='exchange'> 兑换</button>
+  <button class = 'product-btn' bindtap='exchange'>购买</button>
 </view>

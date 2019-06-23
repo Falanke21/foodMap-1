@@ -1,4 +1,7 @@
 // pages/productPage/productPage.js
+const app = getApp()
+const db = wx.cloud.database();
+
 Page({
 
   /**
@@ -16,16 +19,14 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      id: options.id,
+      id: parseInt(options.id),
     })
 
 
-    const db = wx.cloud.database();
     var that = this;
 
-    var couponId = parseInt(this.data.id);
     db.collection('merchandise').where({
-      id: couponId
+      id: that.data.id
     }).get({
       success: function (res) {
         console.log(res.data[0])
@@ -64,33 +65,44 @@ Page({
 
   },
 
-  /**
-   * Page event handler function--Called when user drop down
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * Called when page reach bottom
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * Called when user click on the top right corner to share
-   */
-  onShareAppMessage: function () {
-  
-  },
   exchange:function(){
-    wx.showToast({
-      title: '成功',
-      icon:"success",
-      duration: 200
+    var that = this;
+
+    const _ = db.command
+
+    db.collection('wxuser').where({
+      _openid: app.globalData.openid
+    }).get({
+      success(res) {
+        db.collection('wxuser').doc(res.data[0]._id).update({
+          data: {
+            wallet: _.push(that.data.id)
+          },
+          success: function (res) {
+            wx.showToast({
+              title: '成功购买！',
+              icon: "success",
+            })
+          },
+          fail: err => {
+            icon: 'none',
+              console.error('[数据库] [更新记录] 失败：', err)
+            wx.showToast({
+              title: '数据库更新失败，购买失败',
+              icon: "none",
+            })
+          }
+        })
+      },
+      fail(res) {
+        wx.showToast({
+          title: '数据库获取失败，购买失败',
+          icon: "none",
+        })
+      }
     })
   },
+
   addNum: function () {
     var courseCount = this.data.addedNum;
     courseCount++;
@@ -99,6 +111,7 @@ Page({
       minusStatus: false
     })
   },
+
   minusNum: function () {
     var courseCount = this.data.addedNum;
     if (courseCount > 1) {
