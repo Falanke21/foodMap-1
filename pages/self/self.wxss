@@ -128,3 +128,28 @@
   border: solid rgb(32, 204, 175) 3rpx;
   border-radius: 25rpx;
 }
+
+.nav-to-wx-ada{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-top:100rpx;
+  flex-direction: column;
+
+}
+
+.nav-text{
+  border-bottom: solid rgb(163, 163, 163) 2rpx;
+  font-size: 30rpx;
+  padding-top:30rpx;
+  color: rgb(163, 163, 163);
+  text-align: center;
+  width:90%;
+
+}
+.nav-png{
+  margin-top:10rpx; 
+  height: 110rpx;
+  width: 400rpx;
+  position: fiexed;
+}

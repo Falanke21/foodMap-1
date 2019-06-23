@@ -297,5 +297,9 @@ Page({
       url: '../wallet/wallet'
     })
     console.log(e.currentTarget.dataset.offsetLeft)
+  },
+
+  navmoca(e){
+
   }
 })
