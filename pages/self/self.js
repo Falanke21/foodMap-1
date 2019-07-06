@@ -15,8 +15,9 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     id: 0,
-    scanRecord:[],
-    likes:0,
+    scanRecord: [],
+    likes: 0,
+    credit: 0,
     imageUrl: '/image/diamond.png',
   },
 
@@ -34,7 +35,8 @@ Page({
           exp: res.data[0].exp,
           level: res.data[0].level,
           id: res.data[0]._id,
-          scanRecord: res.data[0].scanRecord
+          scanRecord: res.data[0].scanRecord,
+          credit: res.data[0].credit
         })
         console.log(res.data[0].exp)
         console.log(res.data[0]._id)
@@ -84,7 +86,7 @@ Page({
       this.setData({
         level: ++this.data.level,
         levelUpNeed: this.data.levelUpNeed,
-        exp : 0,
+        exp: 0,
       })
     }
     this.setData({
@@ -93,7 +95,7 @@ Page({
 
   },
 
-  addLike(location_id){
+  addLike(location_id) {
     console.log(location_id)
     this.setData({
       likes: ++this.data.likes
@@ -124,29 +126,22 @@ Page({
   },
 
   gainCredit() {
-
+    var creditInc = 1
+    this.setData({
+      credit: this.data.credit + creditInc
+    })
   },
 
   scan() {
     var that = this
-    var user= []
+    var user = []
     wx.scanCode({
       onlyFromCamera: false,
       scanType: [],
       success: function (res) {
-        
-        //预留判断用户今日扫码，打卡次数或店家二维码是否合法
+        // !!!二维码格式： 【年+月+日】+location id!!!
+        // e.g. 201907065c7dbbaa0426979891e85e5d
 
-        //加经验
-        // that.gainExp()
-        // //加积分
-        // that.gainCredit()
-        // //存储积分，等级，经验至数据库
-        //userLocationArrayList.add(res.result.locationId)
-        // wx.showToast({
-        //   title: '打卡成功',
-        // })
-      
         var timestamp = Date.parse(new Date());
         var date = new Date(timestamp);
 
@@ -216,7 +211,8 @@ Page({
                 const newlvl = that.data.level
                 const newScanRecord = that.data.scanRecord
                 const newLike = that.data.likes
-                
+                const newCredit = that.data.credit
+
                 // db.collection('location').doc(location_id).update({
 
                 //   data: {
@@ -240,7 +236,8 @@ Page({
                       data: {
                         exp: newExp,
                         level: newlvl,
-                        scanRecord: newScanRecord
+                        scanRecord: newScanRecord,
+                        credit: newCredit
                       },
                       success: res => {
 
@@ -256,7 +253,7 @@ Page({
                   }
                 })
                 //upldate like
-                
+
               }
               catch (e) {
                 wx.showToast({
@@ -299,7 +296,7 @@ Page({
     console.log(e.currentTarget.dataset.offsetLeft)
   },
 
-  navmoca(e){
+  navmoca(e) {
 
   }
 })
