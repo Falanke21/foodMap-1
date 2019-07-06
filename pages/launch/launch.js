@@ -18,7 +18,7 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     userid:"",
     test: ""
-  },
+    },
 
   /**
    * Lifecycle function--Called when page load
@@ -141,10 +141,16 @@ Page({
         openid:this.getOpenid(),
         wxname: nickName,
         wallet: [],
-        scanRecord:[]
+        scanRecord:[],
+        credit: 5
       },
       success(res) {
         console.log(res)
+        wx.showToast({
+          title: '商城积分+5',
+          icon: 'success',
+          duration: 5000
+        })
       },
       fail: console.error
     })

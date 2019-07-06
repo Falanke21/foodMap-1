@@ -1,6 +1,9 @@
 /* pages/wallet/popup/wpopup.js.wxss */
+page{
+  background-color: rgb(255, 98, 99);
+}
 
-.header{
+/* .header{
   background: linear-gradient(to bottom, #00b377, #00b377);
   color: white;
   text-align: center;
@@ -8,7 +11,7 @@
   font: bolder;
   padding-top: 20px;
   padding-bottom: 20px;
-}
+} */
 
 .ticket {
   position: relative;
@@ -40,10 +43,12 @@
 
 .use_image {
   position: absolute;
-  top: 185px;
+  top: 225px;
   z-index: 2;
   width: 135px;
   height: 50px;
+  margin-top: 10px;
+  border-radius: 98rpx;
   /* border: solid 1rpx black */
 }
 
