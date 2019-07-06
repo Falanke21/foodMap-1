@@ -1,10 +1,11 @@
 /* pages/productPage/productPage.wxss */
 page{
   background-color: rgb(255, 98, 99);
+  color: white;
 }
 
 .imageWrapper{
-  margin-top: 10px;
+  margin-top: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,11 +17,17 @@ page{
   z-index: 1
 }
 
+.product-container{
+  text-align: center;
+  font-size: x-large;
+}
+
 .product-btn {
-  width: 90%;
+  width: 135px;
+  height: 50px;
   margin-top: 30rpx;
-  /* background-color: #FFCC00; */
-  /* color: #FFF; */
+  margin: 0 auto;
+  display: flex;
 }
 .product{  
   width: 100%;  
@@ -33,30 +40,22 @@ page{
   justify-content: space-between;  
   align-items: center;
 }
-.left{  
-  padding-left: 30rpx;  
-  color: rgb(169, 169, 169);  
+
+.number-selector{
+  margin: 30px auto;
+  font-size: x-large;
+  display: flex;
+  justify-content: center;
 }
-.right{
-  padding-right: 30rpx;
-}
+
 .add-btn{
-  width: 35%;
-  margin-top: 30rpx;
-  /* background-color: #FFCC00; */
-  margin-right: 10px;
-  /* color: #FFF; */
-  float: left;
+  margin: 0 10px;
 }
 
 .minus-btn{
-  width: 35%; 
- margin-top: 30px; 
- /* background-color: rgb(0, 174, 255); */
- margin-right:10px;
- /* color: #FFF; */
- float:right;
+  margin: 0 10px;
 }
+
 .add-num{
-  color: aqua;
+  color: rgb(160, 245, 245);
 }
