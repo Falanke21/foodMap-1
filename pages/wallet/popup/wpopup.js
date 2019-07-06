@@ -64,6 +64,21 @@ Page({
 
   },
 
+  modalcnt: function () {
+    var that = this
+    wx.showModal({
+      title: '提示',
+      content: '确认使用此券？',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          that.alphaClick(null);
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
   /**
    * Page event handler function--Called when user drop down
    */
