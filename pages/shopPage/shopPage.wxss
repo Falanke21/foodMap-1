@@ -103,16 +103,16 @@
 }
 
 .coupon {
-  height: 80px;
-  width: 100px;
-  margin-left: 90px;
+  margin: 10px;
 }
 
 .signin {
-  height: 100px;
-  width: 150px;
-  margin-left: 70px; 
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 10px;
+  margin-right: 10px;  
 }
+
 
 .popup-btn {
   display: flex;

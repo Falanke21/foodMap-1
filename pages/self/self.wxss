@@ -79,10 +79,17 @@
 .experience {
   color: rgb(87, 107, 149);
   margin-top: 10rpx;
-  margin-bottom: 50rpx;
+  margin-bottom: 30rpx;
   margin-left: 70rpx;
   width: 600rpx;
   height: 10rpx;
+}
+
+.credit {
+  color: gray;
+  font-size: 15px;
+  margin-left: 35px;
+  font-style:normal;
 }
 .self-btn {
   display: flex;
@@ -94,9 +101,9 @@
 }
 
 .wallet-wrap {
-  margin-top: 50rpx;
-  margin-bottom: 20rpx;
-   margin-left: 70rpx;
+  margin-top: 90rpx;
+  margin-bottom: 5rpx;
+  margin-left: 80rpx;
 }
 .wallet-btn {
   width: 200rpx;
@@ -112,10 +119,10 @@
 }
 
 .scan-wrap {
-  margin-top: 50rpx;
-  margin-bottom: 20rpx;
-  margin-left: 200rpx;
-  margin-right: 70rpx;
+  margin-top: 90rpx;
+  margin-bottom: 5rpx;
+  margin-left: 170rpx;
+  margin-right: 80rpx;
 }
 .scan-png {
   width: 200rpx;
@@ -133,9 +140,12 @@
   display:flex;
   justify-content:center;
   align-items:center;
-  margin-top:100rpx;
+  margin-top:80rpx;
   flex-direction: column;
-
+  position: fixed;
+  bottom:0;
+  /* left:85px; */
+  width:100%; 
 }
 
 .nav-text{
@@ -145,11 +155,12 @@
   color: rgb(163, 163, 163);
   text-align: center;
   width:90%;
-
 }
 .nav-png{
   margin-top:10rpx; 
+  justify-content: center;
   height: 110rpx;
   width: 400rpx;
   position: fiexed;
+  margin-bottom:0px;
 }

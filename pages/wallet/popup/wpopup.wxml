@@ -1,11 +1,11 @@
 <!--pages/wallet/popup/wpopup.js.wxml-->
-<view class='header'>
+<!-- <view class='header'>
   优惠券
-</view>
+</view> -->
 <view class="ticket">
   <view class="ticket_wrapper">
     <image class="ticket_image" src='{{couponObject.img_url}}' animation="{{alphaData}}"></image>
-    <image class="used_image" src="/image/usedbutton.png"></image>
-    <image class="use_image" src="/image/redeembutton.png" animation="{{betaData}}" bindtap='alphaClick'></image>
+    <!-- <image class="used_image" src="/image/usedbutton.png"></image> -->
+    <button class="use_image" animation="{{betaData}}" bindtap='modalcnt'> 确认使用</button>
   </view>
 </view>

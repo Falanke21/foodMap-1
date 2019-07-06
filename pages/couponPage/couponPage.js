@@ -22,6 +22,7 @@ Page({
     var that = this
     that.setData({
       shopId: options.shopId,
+      shopName: options.name,
     })
   },
 
@@ -49,4 +50,10 @@ Page({
       url: '../productPage/productPage?id=' + productId,
     })
   },
+
+  toShop: function (e) {
+    wx.navigateTo({
+      url: '../shopPage/shopPage?dbid=' + this.data.shopId,
+    })
+  }
 })
