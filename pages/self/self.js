@@ -18,6 +18,7 @@ Page({
     scanRecord:[],
     likes:0,
     imageUrl: '/image/diamond.png',
+    credit: 150
   },
 
   /**
