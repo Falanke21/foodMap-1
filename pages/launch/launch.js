@@ -24,12 +24,6 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    wx.setStorageSync('test', "testing testing")
-    var test = wx.getStorageSync('test')
-    this.setData({
-      test: test
-    })
-    console.log(test)
   },
   // 事件处理函数：跳转到登陆页
   bindUserLogin: function () {
@@ -108,7 +102,6 @@ Page({
     wx.cloud.init()
     const db = wx.cloud.database()
     var that = this
-    console.log("loadUser")
     console.log(this.data.userInfo)
     db.collection('wxuser').where({
       wxname: this.data.userInfo.nickName
