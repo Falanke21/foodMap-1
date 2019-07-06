@@ -80,8 +80,9 @@ Page({
 
   showProduct: function(e) {
     var dbid = e.currentTarget.id;
+    var shopName = e.currentTarget.dataset.shop;
     wx.navigateTo({
-      url: '../couponPage/couponPage?shopId=' + dbid,
+      url: '../couponPage/couponPage?shopId=' + dbid + '&name=' + shopName,
     })
   },
 })
