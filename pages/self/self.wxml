@@ -21,6 +21,7 @@
     <progress percent="{{exp / levelUpNeed * 100}}" stroke-width="8" activeColor="rgb(4, 187, 181)" active active-mode="forwards" />
   </view>
 </view>
+<view class="credit"> 持有积分：{{credit}}</view>
 <view class="self-btn">
 
   <view class="wallet-wrap">

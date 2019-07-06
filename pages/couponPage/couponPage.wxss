@@ -44,3 +44,9 @@ page {
   width: 30px;
   margin-right: 5px;
 }
+
+.redirect-button{
+  margin-top: 30px;
+  width: 65%;
+  border-radius: 98rpx;
+}
