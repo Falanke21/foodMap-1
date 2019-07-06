@@ -3,7 +3,7 @@
   <image class="couponImage" src='{{couponObject.img_url}}'></image>
 </view>
 <view class = "product-container">
-  所需Credit: {{couponObject.credit}}
+  credit: {{couponObject.credit}}
 </view>
 <view>
   <view class="number-selector">
