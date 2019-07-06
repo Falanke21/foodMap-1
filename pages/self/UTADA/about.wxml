@@ -1,0 +1,22 @@
+<!--pages/self/UTADA/about.wxml-->
+
+<view class='base-padding row'>
+  <view class='user'>
+    <image src=''></image>
+    <view class='username'>University of Toronto Application Development Association</view>
+    <view class='color-grey font-lv3'>UTADA是一个多伦多大学官方认证的学生社团，致力于《insert cool message here》</view>
+  </view>
+</view>
+
+<view class='base-padding row base-info'>
+  <navigator url='' class='col-12'>
+    <image src="/image/wallet.png"></image>
+    联系方式
+  </navigator>
+  <navigator url='' class='col-12'>
+    <image src="/image/wallet.png"></image>
+    赞助我们
+  </navigator>  
+</view>
+
+<button open-type='contact' type='primary'>意见反馈</button>
