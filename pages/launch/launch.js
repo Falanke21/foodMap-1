@@ -141,10 +141,17 @@ Page({
         openid:this.getOpenid(),
         wxname: nickName,
         wallet: [],
-        scanRecord:[]
+        scanRecord:[],
+        credit: 5
       },
       success(res) {
         console.log(res)
+        wx.showToast({
+          title: '5个积分已存入商城',
+          icon: 'success',
+          duration: 5000
+        })
+        注意
       },
       fail: console.error
     })
