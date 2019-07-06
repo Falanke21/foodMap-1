@@ -49,4 +49,10 @@ Page({
       url: '../productPage/productPage?id=' + productId,
     })
   },
+
+  toShop: function (e) {
+    wx.navigateTo({
+      url: '../shopPage/shopPage?dbid=' + this.data.shopId,
+    })
+  }
 })
