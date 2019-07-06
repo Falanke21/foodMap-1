@@ -23,10 +23,11 @@ page{
 }
 
 .product-btn {
-  width: 90%;
+  width: 135px;
+  height: 50px;
   margin-top: 30rpx;
-  /* background-color: #FFCC00; */
-  /* color: #FFF; */
+  margin: 0 auto;
+  display: flex;
 }
 .product{  
   width: 100%;  
