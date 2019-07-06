@@ -90,6 +90,22 @@ Page({
 
   },
 
+  promptExchange: function() {
+    var that = this;
+    wx.showModal({
+      title: '确定兑换？',
+      content: '花费：' + that.data.creditNeed,
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          that.exchange()
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
+
   exchange: function(){
     var that = this;
 

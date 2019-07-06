@@ -12,5 +12,5 @@
     <button class = "add-btn" bindtap="addNum" size="mini">+</button>
   </view>
   <!-- <button class = 'product-btn' bindtap='exchange'>购买</button> -->
-  <image class="product-btn" src="/image/redeembutton.png" bindtap="exchange"></image>
+  <image class="product-btn" src="/image/redeembutton.png" bindtap="promptExchange"></image>
 </view>
