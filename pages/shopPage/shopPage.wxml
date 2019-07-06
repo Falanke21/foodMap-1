@@ -18,18 +18,9 @@
       
     </view>
     <view class='merchant-address'>{{address}}</view>
-
-      
-    <view class='popup-btn'>
-    <view class="coupon-container">
-
-    <view class='like-container'>
-        <!-- <view class="wx-popup-likes">{{likes}}</view> -->
-        <image class='signin' bindtap= 'addLike' src='../../image/signin.jpg'></image>
-      </view>
-
-      <image class='coupon' bindtap= 'showCoupon' src='../../image/coupon.jpg'></image>
-      </view>
-    </view>
       
   </view>
+  <button class= "signin" type="primary" bindtap= 'addLike' >打卡
+      </button>
+
+      <button class="coupon" type="primary" bindtap= 'showCoupon'>优惠券</button>
