@@ -2,31 +2,14 @@
 <view class="imageWrapper">
   <image class="couponImage" src='{{couponObject.img_url}}'></image>
 </view>
-<view class = "container">
-  <view class = 'product'>
-  <view class = 'left'> 商品内容</view>
-  <view class = 'right'> </view>
-  </view>
-  <view class = 'product'>
-  <view class = 'left'> 商家</view>
-  <view class = 'right'> </view>
-  </view>
-  <view class = 'product'>
-  <view class = 'left'> 有效期</view>
-  <view class = 'right'> </view>
-  </view>
-  <view class = 'product'>
-  <view class = 'left'> Credit</view>
-  <view class = 'right'> </view>
-  </view>
-  <view>
-  <div align = "left">
-    <button class = "add-btn"bindtap="minusNum">-</button>
-    </div>
+<view class = "product-container">
+  所需Credit: {{couponObject.credit}}
+</view>
+<view>
+  <view class="number-selector">
+    <button class = "minus-btn" bindtap="minusNum" size="mini">-</button>
     <text>{{addedNum}}</text>
-    <div aligh = "right">
-    <button class = "minus-btn" bindtap="addNum">+</button>
-    </div>
-    </view>
+    <button class = "add-btn" bindtap="addNum" size="mini">+</button>
+  </view>
   <button class = 'product-btn' bindtap='exchange'>购买</button>
 </view>
