@@ -101,6 +101,7 @@ Page({
   },
 
   alphaClick: function(even) {
+    var that = this
     var animation1 = wx.createAnimation({})
     animation1.opacity(0.2).step({duration:1000})
     this.setData({alphaData: animation1.export()})
@@ -109,9 +110,13 @@ Page({
     this.setData({betaData: animation2.export()})
     let timer = setTimeout(() => {
       clearTimeout(timer)
-      this.direct()
-    }, 5000)
-    this.deleteTicket();
+      that.deleteTicket()
+      that.direct()
+    }, 1000)
+    
+  },
+
+  direct: function () {
     wx.navigateTo({
       url: '/pages/wallet/wallet'
     })
