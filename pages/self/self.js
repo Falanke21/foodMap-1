@@ -107,12 +107,14 @@ Page({
     }).get({
       success(res) {
         console.log(that.data.likes)
-        db.collection('location').doc(location_id).update({
+        console.log(res)
+        var new_like = that.data.likes
+        db.collection('location').doc(res.data[0]._id).update({
           data: {
-            likes: 20,
+            likes: new_like
           },
           success: res => {
-            console.log("========")
+            console.log(res)
           },
           fail: err => {
             icon: 'none',
@@ -174,9 +176,8 @@ Page({
                   console.log(new Date().toLocaleDateString());
                   if (that.data.scanRecord[location_index].date.toLocaleDateString() == new Date().toLocaleDateString()) {
                     if (that.data.scanRecord[location_index].entries <= 1) {
-                      that.gainExp();
-                      that.gainCredit();
-                      that.addLike(location_id);
+                      console.log(location_id);
+                      that.scan_success(location_id);
                       console.log("成功啦1");
 
                     } else {
@@ -186,16 +187,12 @@ Page({
                   } else {
                     that.data.scanRecord[location_index].date = new Date();
                     that.data.scanRecord[location_index].entries = 1;
-                    that.gainExp();
-                    that.gainCredit();
-                    that.addLike(location_id);
+                    that.scan_success(location_id);
                     console.log("成功啦2");
                   }
                 } else {
                   that.data.scanRecord.push({ dbid: location_id, date: new Date(), entries: 1 })
-                  that.gainExp();
-                  that.gainCredit();
-                  that.addLike(location_id);
+                  that.scan_success(location_id);
                   console.log(that.data.scanRecord);
                 }
 
@@ -286,6 +283,12 @@ Page({
       },
 
     })
+  },
+
+  scan_success(location_id){
+    this.gainExp();
+    this.gainCredit();
+    this.addLike(location_id);
   },
 
   wallettap(e) {
