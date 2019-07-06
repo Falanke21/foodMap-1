@@ -3,7 +3,7 @@
   <image class="couponImage" src='{{couponObject.img_url}}'></image>
 </view>
 <view class = "product-container">
-  credit: {{couponObject.credit}}
+  credit: {{creditNeed}}
 </view>
 <view>
   <view class="number-selector">
