@@ -178,7 +178,7 @@ Page({
   showCoupon: function (e) {
     console.log(e);
     wx.navigateTo({
-      url: '../couponPage/couponPage?shopName=' + this.data.name + '&shopId=' + this.data.mkid,
+      url: '../couponPage/couponPage?name=' + this.data.name + '&shopId=' + this.data.mkid,
     })
   },
   /**
