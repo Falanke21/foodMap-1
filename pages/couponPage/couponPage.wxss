@@ -4,7 +4,7 @@ page {
 }
 
 .header{
-  background: linear-gradient(to bottom, #00b377, #00b377);
+  background: linear-gradient(to bottom, #e44d26, #f16529);
   color: white;
   text-align: center;
   font-size: larger;
@@ -19,13 +19,13 @@ page {
 }
 
 .product {
-  background: linear-gradient(to bottom, #00b377, #00b377); 
+  background: linear-gradient(to bottom, #e44d26, #f16529); 
   margin-top: 10px;
   margin-left: 30px;
   margin-right: 30px;
   padding: 20px;
   border-radius: 20px;
-  border: solid rgb(20, 153, 131) 5rpx;
+  border: solid rgb(255, 98, 99) 5rpx;
 
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 20px 0 rgba(0, 0, 0, 0.19);
 }
