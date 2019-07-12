@@ -12,7 +12,8 @@
     "pages/searchBox/searchBox",
     "pages/login/login",
     "pages/wallet/wallet",
-    "pages/help/help"
+    "pages/help/help",
+    "pages/self/UTADA/sponsor/sponsor"
   ],
   "permission": {
     "scope.userLocation": {
