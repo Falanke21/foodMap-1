@@ -8,7 +8,7 @@
     <view class='item-container'>
       <view class='product' id="{{item.id}}" bindtap='tap'>
         <view class='product-text'>
-          <image class='type-image' src='/image/massage.png'></image>
+          <!-- <image class='type-image' src='/image/massage.png'></image> -->
           {{item.name}}
         </view>
           <view class='item-date-text' style='right'>{{item.expire_date}}</view>
