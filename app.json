@@ -51,8 +51,8 @@
       },
       {
         "pagePath": "pages/help/help",
-        "iconPath": "image/personal.png",
-        "selectedIconPath": "image/personal.png",
+        "iconPath": "image/help.png",
+        "selectedIconPath": "image/help.png",
         "text": "帮助"
       }
     ]
