@@ -11,7 +11,8 @@
     "pages/data/data",
     "pages/searchBox/searchBox",
     "pages/login/login",
-    "pages/wallet/wallet"
+    "pages/wallet/wallet",
+    "pages/help/help"
   ],
   "permission": {
     "scope.userLocation": {
@@ -47,6 +48,12 @@
         "iconPath": "image/personal.png",
         "selectedIconPath": "image/personal.png",
         "text": "个人"
+      },
+      {
+        "pagePath": "pages/help/help",
+        "iconPath": "image/personal.png",
+        "selectedIconPath": "image/personal.png",
+        "text": "帮助"
       }
     ]
   },
