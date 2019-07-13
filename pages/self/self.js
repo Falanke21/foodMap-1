@@ -299,10 +299,14 @@ Page({
     })
     console.log(e.currentTarget.dataset.offsetLeft)
   },
-
   navada(e) {
     wx.navigateTo({
       url: './UTADA/about',
+    })
+  } ,
+  navmoca(e) {
+    wx.navigateTo({
+      url: './MOCA/about',
     })
   } 
 })

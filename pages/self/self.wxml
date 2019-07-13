@@ -47,11 +47,11 @@
     <view class='type-text'>Present by</view>
   </view>
     <view class = "dis-logo">
-      <view class = "nav-to-ada">
+      <view class = "nav-to-ada" bindtap='navada'>
       <image class = 'col' src = src="/image/navada.png" mode='aspectFit'></image>
       </view>
-      <view class = "nav-to-moca"> 
-      <image class = 'rightcol' src = src="/image/navada.png" mode='aspectFit'></image>
+      <view class = "nav-to-ada" bintap='navada'> 
+      <image class = 'rightcol' src = src="/image/navmoca.png" mode='aspectFit'></image>
       </view>
     </view>
 </view>
