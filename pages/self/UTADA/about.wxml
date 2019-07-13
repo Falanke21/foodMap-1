@@ -2,9 +2,9 @@
 
 <view class='base-padding row'>
   <view class='user'>
-    <image src=''></image>
+    <image src='/image/ada_logo_square.png'></image>
     <view class='username'>University of Toronto Application Development Association</view>
-    <view class='color-grey font-lv3'>UTADA是一个多伦多大学官方认证的学生社团，致力于《insert cool message here》</view>
+    <view class='color-grey font-3' style="font-family:courier; padding-top:8px">UTADA是多伦多大学官方认证的学生社团，致力于《insert cool message here》</view>
   </view>
 </view>
 

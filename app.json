@@ -13,7 +13,8 @@
     "pages/login/login",
     "pages/wallet/wallet",
     "pages/help/help",
-    "pages/self/UTADA/sponsor/sponsor"
+    "pages/self/UTADA/sponsor/sponsor",
+    "pages/self/MOCA/about"
   ],
   "permission": {
     "scope.userLocation": {

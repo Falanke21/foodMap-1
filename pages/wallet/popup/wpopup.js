@@ -111,6 +111,7 @@ Page({
     let timer = setTimeout(() => {
       clearTimeout(timer)
       that.deleteTicket()
+      that.increase_count()
       that.direct()
     }, 1000)
     
@@ -147,6 +148,47 @@ Page({
         db.collection('wxuser').doc(res.data[0]._id).update({
           data: {
             wallet: userTickets
+          },
+          success: res => {
+
+          },
+          fail: err => {
+            icon: 'none',
+              console.error('[数据库] [更新记录] 失败：', err)
+          }
+        })
+      },
+      fail(res) {
+        console.log('fail')
+      }
+    })
+  },
+
+  increase_count(){
+    const db = wx.cloud.database();
+    var that = this;
+
+    var ticket = parseInt(this.data.ticketId);
+    // Get current used_num from database
+    db.collection('merchandise').where({
+      id: ticket
+    }).get({
+      success: function (res) {
+        console.log(res.data[0])
+        var use_num = res.data[0].used_num + 1
+        // console.log(use_num)
+      },
+    })
+    // Update database
+    const dtb = wx.cloud.database();
+    dtb.collection('merchandise').where({
+      id: ticket
+    }).get({
+      success(res) {
+        console.log(use_num)
+        dtb.collection('merchandise').doc(res.data[0].used_num).update({
+          data: {
+            used_num: use_num
           },
           success: res => {
 
