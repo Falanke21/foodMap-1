@@ -1,1 +1,25 @@
 /* pages/help.wxss */
+page{
+  background: rgb(255, 240, 173);
+}
+
+.header{
+  /* background: linear-gradient(to bottom, #2f9774, #00b377);   */
+  background: linear-gradient(to bottom, #e44d26, #f16529);
+  color: white;
+  text-align: center;
+  font-size: larger;
+  font: bolder;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.body{
+  padding: 5px 45px;
+}
+
+.help-image{
+  height: 470px;
+  width: 280px;
+  padding: 10px 0;
+}

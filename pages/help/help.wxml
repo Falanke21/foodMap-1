@@ -1,2 +1,13 @@
 <!--pages/help.wxml-->
-<text>pages/help.wxml</text>
+<view class='header'>
+帮助
+</view>
+
+<view class="body">
+  <image class='help-image' src="/image/HelpScreen/1.png"></image>
+  <image class='help-image' src="/image/HelpScreen/2.png"></image>
+  <image class='help-image' src="/image/HelpScreen/3.png"></image>
+  <image class='help-image' src="/image/HelpScreen/4.png"></image>
+  <image class='help-image' src="/image/HelpScreen/5.png"></image>
+  <image class='help-image' src="/image/HelpScreen/6.png"></image>
+</view>
