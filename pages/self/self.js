@@ -300,7 +300,9 @@ Page({
     console.log(e.currentTarget.dataset.offsetLeft)
   },
 
-  navmoca(e) {
-
-  }
+  navada(e) {
+    wx.navigateTo({
+      url: './UTADA/about',
+    })
+  } 
 })

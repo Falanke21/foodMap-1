@@ -122,6 +122,31 @@ Page({
         }
       })
     }
+    const db = wx.cloud.database()
+    var loc_id = parseInt(that.data.mkid)
+    const _ = db.command
+    db.collection('location').where({
+      dbid: loc_id
+    }).get({
+      success(res) {
+        var new_like = that.data.likes
+        db.collection('location').doc(res.data[0]._id).update({
+          data: {
+            likes: _.inc(1)
+          },
+          success: res => {
+            console.log(res)
+          },
+          fail: err => {
+            icon: 'none',
+              console.error('[数据库] [更新记录] 失败：', err)
+          }
+        })
+      },
+      fail(res) {
+        console.log('fail')
+      }
+    })
   },
 
   init_img_url: function (lis) {
@@ -161,6 +186,8 @@ Page({
         })
       }
     })
+
+   
     console.log(that.data.images)
     console.log(that.data.imageUrl)
   },

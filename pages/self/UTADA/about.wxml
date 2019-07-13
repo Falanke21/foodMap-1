@@ -9,13 +9,13 @@
 </view>
 
 <view class='base-padding row base-info'>
-  <navigator url='' class='col-12'>
+  <navigator url='./contact/contact' class='col-12'>
     <image src="/image/wallet.png"></image>
     联系方式
   </navigator>
   <navigator url='' class='col-12'>
     <image src="/image/wallet.png"></image>
-    赞助我们
+    赞助及广告
   </navigator>  
 </view>
 
