@@ -46,7 +46,12 @@
   <view class='nav-text'>
     <view class='type-text'>Present by</view>
   </view>
-    <view class="nav-btn" bindtap='navada'> 
-      <image class="nav-png" src="/image/navada.png" mode='aspectFit'></image>
+    <view class = "dis-logo">
+      <view class = "nav-to-ada">
+      <image class = 'col' src = src="/image/navada.png" mode='aspectFit'></image>
+      </view>
+      <view class = "nav-to-moca"> 
+      <image class = 'rightcol' src = src="/image/navada.png" mode='aspectFit'></image>
+      </view>
     </view>
 </view>

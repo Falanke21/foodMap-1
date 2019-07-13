@@ -164,3 +164,26 @@
   position: fiexed;
   margin-bottom:0px;
 }
+.dis-logo{
+  display: flex;
+  flex-direction: row;
+  align-items: horizontal;
+}
+.col {
+  float: left;
+  height: 110rpx;
+  width: 400rpx;
+  margin-left: 10px;
+}
+.rightcol {
+  float: right;
+  height: 110rpx;
+  width: 400rpx;
+  margin-right: 10px;
+}
+.nav-to-ada{
+  margin-bottom:0px;
+}
+.nav-to-moca{
+  margin-bottom:0px;
+}
