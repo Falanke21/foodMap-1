@@ -172,13 +172,13 @@
 .col {
   float: left;
   height: 110rpx;
-  width: 400rpx;
+  width: 300rpx;
   margin-left: 10px;
 }
 .rightcol {
   float: right;
   height: 110rpx;
-  width: 400rpx;
+  width: 200rpx;
   margin-right: 10px;
 }
 .nav-to-ada{

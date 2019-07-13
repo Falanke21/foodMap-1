@@ -50,7 +50,7 @@
       <view class = "nav-to-ada" bindtap='navada'>
       <image class = 'col' src = src="/image/navada.png" mode='aspectFit'></image>
       </view>
-      <view class = "nav-to-ada" bintap='navada'> 
+      <view class = "nav-to-moca" bindtap='navmoca'> 
       <image class = 'rightcol' src = src="/image/navmoca.png" mode='aspectFit'></image>
       </view>
     </view>
