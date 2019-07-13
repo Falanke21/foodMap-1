@@ -13,7 +13,7 @@
     <image src="/image/wallet.png"></image>
     联系方式
   </navigator>
-  <navigator url='' class='col-12'>
+  <navigator url='./sponsor/sponsor' class='col-12'>
     <image src="/image/wallet.png"></image>
     赞助及广告
   </navigator>  
