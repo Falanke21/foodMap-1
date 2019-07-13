@@ -1,1 +1,67 @@
 /* pages/self/UTADA/contact/contact.wxss */
+/* .display-text{
+  width: 300px;
+  margin: 50px auto;
+  border: 1px solid red;
+  text-align: center; 
+  padding: 50px 20px;
+
+} */
+page{  
+  background: none;
+  }
+.detailTopTextCon{  
+  width: 680rpx;  
+  margin: 0 auto;  
+  margin-top: 370rpx;  
+  position: relative;
+}
+.detailTopText{  
+  color: black;  
+  position: absolute;
+  }
+.detailTopText1{  
+  margin-left: 200rpx;  
+  margin-top: 200rpx;  
+  font-size: 44rpx;
+}
+.detailTopText2{  
+  margin-left: 200rpx;  
+  margin-top: 100rpx;
+  font-size: 40rpx;
+}
+.detailTopText3{  
+  margin-left: 0rpx;  
+  margin-top: 150rpx;  
+  font-size: 40rpx;
+}
+.detailTopText4{  
+  margin-left: 330rpx; 
+  margin-top: 700rpx; 
+  font-size: 57rpx;
+}
+.detailTopText5{  
+  margin-left: 126rpx;  
+  margin-top: 350rpx;  
+  font-size: 37rpx;
+}
+.detailTopText6{  
+  margin-left: 459rpx;  
+  margin-top: 350rpx;  
+  font-size: 47rpx;
+}
+.detailTopText7{  
+  margin-left: 330rpx;  
+  margin-top: 550rpx;  
+  font-size: 47rpx;
+}
+.detailTopText8{  
+  margin-left: 100rpx;  
+  margin-top: 450rpx;  
+  font-size: 43rpx;
+}
+.detailTopText9{  
+  margin-left: 0rpx;  
+  margin-top: 700rpx;  
+  font-size: 43rpx;
+}

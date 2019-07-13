@@ -1,2 +1,18 @@
 <!--pages/self/UTADA/contact/contact.wxml-->
-<text>pages/self/UTADA/contact/contact.wxml</text>
+<!-- <view class = "display-text">
+Application Development Association(UTADA)\n:
+</view>
+<text>Primary Contact (President): MingJin Lu\n</text>
+<text>Email: uoftada@gmail.com \n</text>
+<text>Website:http://uoftada.com \n</text>
+<text>Organization Type:Non-Profit student group registered under University Of Toronto St.Geogre Campus</text> -->
+<view class='detailTopTextCon'>      
+<label class='detailTopText detailTopText1 detailTopAnimate1'>{{text1}}</label>     
+<label class='detailTopText detailTopText2 detailTopAnimate2'>{{text2}}</label>            <label class='detailTopText detailTopText3 detailTopAnimate3'>{{text3}}</label>      
+<label class='detailTopText detailTopText4 detailTopAnimate4'>{{text4}}</label>      
+<label class='detailTopText detailTopText5 detailTopAnimate5'>{{text5}}</label>      
+<label class='detailTopText detailTopText6 detailTopAnimate6'>{{text6}}</label>            <label class='detailTopText detailTopText7 detailTopAnimate7'>{{text7}}</label>       
+<label class='detailTopText detailTopText8 detailTopAnimate8'>{{text8}}</label>
+<label class='detailTopText detailTopText9 detailTopAnimate9'>{{text9}}</label>         
+</view>
+
