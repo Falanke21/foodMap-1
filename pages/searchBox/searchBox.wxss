@@ -5,12 +5,10 @@
   border-bottom: 0.5rpx solid lightblue;
   border-bottom-style: 20rpx;
   border-radius: 5rpx;
-  text-align: left;
+  t;
   padding-top: 20rpx;
   padding-bottom: 20rpx;
-  padding-left: 20rpx;
-}
-
+  padding-left: 20rp
 .searchBox-item {
   justify-content: row;
   row-gap: 20rpx;

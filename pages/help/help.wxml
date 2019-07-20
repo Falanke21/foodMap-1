@@ -4,10 +4,10 @@
 </view>
 
 <view class="body">
-  <image class='help-image' src="/image/HelpScreen/1.png"></image>
-  <image class='help-image' src="/image/HelpScreen/2.png"></image>
-  <image class='help-image' src="/image/HelpScreen/3.png"></image>
-  <image class='help-image' src="/image/HelpScreen/4.png"></image>
-  <image class='help-image' src="/image/HelpScreen/5.png"></image>
-  <image class='help-image' src="/image/HelpScreen/6.png"></image>
+  <image class='help-image' src="cloud://moca-map-3c18df.6d6f-moca-map-3c18df/HelpScreen/1.png"></image>
+  <image class='help-image' src="cloud://moca-map-3c18df.6d6f-moca-map-3c18df/HelpScreen/2.png"></image>
+  <image class='help-image' src="cloud://moca-map-3c18df.6d6f-moca-map-3c18df/HelpScreen/3.png"></image>
+  <image class='help-image' src="cloud://moca-map-3c18df.6d6f-moca-map-3c18df/HelpScreen/4.png"></image>
+  <image class='help-image' src="cloud://moca-map-3c18df.6d6f-moca-map-3c18df/HelpScreen/5.png"></image>
+  <image class='help-image' src="cloud://moca-map-3c18df.6d6f-moca-map-3c18df/HelpScreen/6.png"></image>
 </view>
