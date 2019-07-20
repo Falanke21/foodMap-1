@@ -97,33 +97,24 @@ Page({
   },
 
   addLike(location_id) {
-    console.log(location_id)
-    this.setData({
-      likes: ++this.data.likes
-    })
-    var that = this
+    var loc_id;
     db.collection('location').where({
-      _id: location_id
+      dbid: 1
     }).get({
       success(res) {
-        console.log(that.data.likes)
-        console.log(res)
-        var new_like = that.data.likes
-        db.collection('location').doc(res.data[0]._id).update({
-          data: {
-            likes: new_like
-          },
-          success: res => {
-            console.log(res)
-          },
-          fail: err => {
-            icon: 'none',
-              console.error('[数据库] [更新记录] 失败：', err)
-          }
-        })
+        loc_id = res.data[0]._id;
+      }
+    })
+    wx.cloud.callFunction({
+      name: 'incLikes',
+      data: {
+        update_id: loc_id,
       },
-      fail(res) {
-        console.log('fail')
+      success: res => {
+        console.log(res)
+      },
+      fail: err => {
+        console.error('[云函数] [insertDB] 增加Subject失败', err)
       }
     })
   },
