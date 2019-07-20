@@ -1,31 +1,31 @@
 
-var topText = ["UOFTADT", "MingJin Lu", "uoftada@gmail.com", "uoftada.com", "Non-Profit", "Student Group", "University Of Toronto", "Application Development", "Association"]; 
+var topText = ["UOFTADA", "Contact: MingJin Lu", "uoftada@gmail.com", "uoftada.com", "Non-Profit", "Student Group", "University Of Toronto", "Application Development", "Association"]; 
 var allSpaceTime = 50;//线程执行间隔时间
 var animateinterval = '';
 var rangArr = [  
   {
-    endText: 'UOFTADA',    
+    endText: 'UofT ADA:',    
     texts: topText,    
     beginTime: 500,    
     spacetime: 10,    
     stime: 500  
   }, 
   {    
-    endText: 'MingJin Lu',    
+    endText: 'Contact: MingJin Lu',    
     texts: topText,    
     beginTime: 1000,    
     spacetime: 10,    
     stime: 1000  
   }, 
   {    
-    endText: 'uoftada@gmail.com',    
+    endText: 'Email: uoftada@gmail.com',    
     texts: topText,    
     beginTime: 1200,    
     spacetime: 10,    
     stime: 1000  
   }, 
   {    
-    endText: 'uoftada.com',    
+    endText: 'Find us on: uoftada.com',    
     texts: topText,    
     beginTime: 1400,    
     spacetime: 10,    
@@ -60,7 +60,7 @@ var rangArr = [
     stime: 1000  
     },
   {
-    endText: 'Assocation',
+    endText: 'Student Community',
     texts: topText,
     beginTime: 2400,
     spacetime: 10,
@@ -86,7 +86,7 @@ Page({
    * 生命周期函数--监听页面加载   
    */  
   onLoad: function (options) {
-    topText = ["UOFTADT", "MingJin Lu", "uoftada@gmail.com", "uoftada.com", "Non-Profit", "Student Group", "University Of Toronto", ""]; 
+    topText = ["UofTADA:", "Contact: MingJin Lu", "uoftada@gmail.com", "uoftada.com", "Non-Profit", "Student Group", "University Of Toronto", ""]; 
   },  
   /**   * 生命周期函数--监听页面初次渲染完成   */  
   onReady: function () {    

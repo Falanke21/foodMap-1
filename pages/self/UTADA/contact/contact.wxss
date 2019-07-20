@@ -13,7 +13,7 @@ page{
 .detailTopTextCon{  
   width: 680rpx;  
   margin: 0 auto;  
-  margin-top: 370rpx;  
+  margin-top: 30rpx;  
   position: relative;
 }
 .detailTopText{  
@@ -21,47 +21,55 @@ page{
   position: absolute;
   }
 .detailTopText1{  
-  margin-left: 200rpx;  
-  margin-top: 200rpx;  
-  font-size: 44rpx;
+  margin-left: 30rpx;  
+  margin-top: 30rpx;
+  font-weight: bold; 
+  font-size: 70rpx;
+  font-family: Consola, monospace;
 }
 .detailTopText2{  
-  margin-left: 200rpx;  
-  margin-top: 100rpx;
+  margin-left: 140rpx;  
+  margin-top: 120rpx;
   font-size: 40rpx;
 }
 .detailTopText3{  
-  margin-left: 0rpx;  
-  margin-top: 150rpx;  
+  margin-left: 140rpx;  
+  margin-top: 200rpx;  
   font-size: 40rpx;
 }
 .detailTopText4{  
-  margin-left: 330rpx; 
-  margin-top: 700rpx; 
+  margin-left: 260rpx; 
+  margin-top: 920rpx; 
   font-size: 57rpx;
+  font-family: Goudy Old Style, serif;
 }
 .detailTopText5{  
-  margin-left: 126rpx;  
-  margin-top: 350rpx;  
-  font-size: 37rpx;
+  margin-left: 50rpx;  
+  margin-top: 370rpx;  
+  font-size: 45rpx;
+  font-family: Monaco, monospace;
 }
 .detailTopText6{  
-  margin-left: 459rpx;  
-  margin-top: 350rpx;  
-  font-size: 47rpx;
+  margin-left: 150rpx;  
+  margin-top: 410rpx;
+  font-size: 45rpx;
+  font-family: Monaco, monospace;
 }
 .detailTopText7{  
   margin-left: 330rpx;  
-  margin-top: 550rpx;  
+  margin-top: 620rpx;  
   font-size: 47rpx;
+  font-family: Lucida Console, monospace;
+  color: #454898;
+
 }
 .detailTopText8{  
-  margin-left: 100rpx;  
-  margin-top: 450rpx;  
+  margin-left: 130rpx;  
+  margin-top: 500rpx;  
   font-size: 43rpx;
 }
 .detailTopText9{  
-  margin-left: 0rpx;  
-  margin-top: 700rpx;  
+  margin-left: 5rpx;  
+  margin-top: 800rpx;  
   font-size: 43rpx;
 }

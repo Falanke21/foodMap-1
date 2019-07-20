@@ -7,9 +7,9 @@
 
 <view class='base-padding row base-info'>
  <text>Tel-number：4373411838 \n</text>
- <text>email:mocafindingtoronto@gamil.com\n</text>
- <text>联系人:Molly Meng\n</text>
- <text>地址：57 St.Josepth Street Toronto, Canada M5S0C5</text>
+ <text>Email:mocafindingtoronto@gamil.com\n</text>
+ <text>联系人: Molly Meng\n</text>
+ <text>地址：57 St.Josepth Street Toronto, Canada M5S0C5\n\n\n\n</text>
  <view class='btn'>
    <button open-type='contact' type='primary'>意见反馈</button>
  </view>
