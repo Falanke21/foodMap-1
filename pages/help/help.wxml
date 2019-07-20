@@ -22,7 +22,7 @@
   </view>
   <view>
     <text class="help-text">5. 钱包页面</text>
-    <image class='help-image' src="/image/HelpScreen/5.png"></image>
+    <image class='help-image' src="cloud://moca-map-3c18df.6d6f-moca-map-3c18df/HelpScreen/5.png"></image>
   </view>
   <view>
     <text class="help-text">6. 使用优惠券</text>
