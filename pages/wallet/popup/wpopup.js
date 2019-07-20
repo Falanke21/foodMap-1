@@ -118,7 +118,7 @@ Page({
   },
 
   direct: function () {
-    wx.navigateTo({
+    wx.redirectTo({
       url: '/pages/wallet/wallet'
     })
   },
