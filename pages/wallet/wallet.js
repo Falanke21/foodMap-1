@@ -74,13 +74,18 @@ Page({
   loadTicket() {
     const db = wx.cloud.database()
     var that = this;
-    
-    db.collection('merchandise').get({
-      success(res) {
-        var allTickets = res.data;
-        wx.setStorageSync('allTickets', allTickets); // 缓存databse tickets
-      }
+
+    //通过云函数调取所有商家
+    wx.cloud.callFunction({
+      // 云函数名称
+      name: 'getAllTicket',
     })
+      .then(res => {
+        console.log(res.result.data)
+        wx.setStorageSync('allTickets', res.result.data);
+      })
+      .catch(console.error);
+
     var displayT = [];
     var userT = wx.getStorageSync('userTickets')
     var allT = wx.getStorageSync('allTickets')
