@@ -1,4 +1,3 @@
-
 var topText = ["UOFTADA", "Contact: MingJin Lu", "uoftada@gmail.com", "uoftada.com", "Non-Profit", "Student Group", "University Of Toronto", "Application Development", "Association"]; 
 var allSpaceTime = 50;//线程执行间隔时间
 var animateinterval = '';
