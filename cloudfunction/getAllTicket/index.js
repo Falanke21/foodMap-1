@@ -8,16 +8,17 @@ exports.main = async (event, context) => {
   // 先取出集合记录总数
   const countResult = await db.collection('merchandise').count()
   const total = countResult.total
+  console.log(countResult)
   // 计算需分几次取
   const batchTimes = Math.ceil(total / 100)
   // 承载所有读操作的 promise 的数组
-  const location = []
+  const tickets = []
   for (let i = 0; i < batchTimes; i++) {
     const promise = db.collection('merchandise').skip(i * MAX_LIMIT).limit(MAX_LIMIT).get()
-    location.push(promise)
+    tickets.push(promise)
   }
   // 等待所有
-  return (await Promise.all(location)).reduce((acc, cur) => {
+  return (await Promise.all(tickets)).reduce((acc, cur) => {
     return {
       data: acc.data.concat(cur.data),
       errMsg: acc.errMsg,
