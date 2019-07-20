@@ -3,8 +3,7 @@ page{
   background: rgb(255, 240, 173);
 }
 
-.header{
-  /* background: linear-gradient(to bottom, #2f9774, #00b377);   */
+.header{ 
   background: linear-gradient(to bottom, #e44d26, #f16529);
   color: white;
   text-align: center;
@@ -12,14 +11,26 @@ page{
   font: bolder;
   padding-top: 20px;
   padding-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .body{
   padding: 5px 45px;
 }
 
+.help-text{
+  text-align: center;
+  display: block;
+}
+
 .help-image{
+  display: block;
   height: 470px;
   width: 280px;
   padding: 10px 0;
+  margin: 0 auto;
+}
+
+.body{
+
 }
