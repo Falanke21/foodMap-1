@@ -1,118 +1,84 @@
-/* pages/popupPage/popupPage.wxss */
-.body {
-  background-color: #0000cc;
-}
-
-.popup-container {
-  position: flex;
-
-  left: 10%;
-  top: 10%;
-  
-  margin-left: 40px;
-
-  width: 80%;
-  max-width: 600rpx;
-  box-sizing: bordre-box;
-  /* transform: translate(-50%, -50%);  */
-  overflow: hidden;
-
-  justify-content: center; 
-  align-items: center;
-  
-}
-
-.merchant-name {
-  font-size: x-large;
-  text-align: center;
-  font-weight: bold;
-}
-
-.merchant-address {
-  margin-top: 10px;
-  font-size: medium;
-  text-align: center;
-}
-
-.merchant-likes {
-  margin-top: 10px;
-  margin-left: 90px;
-  font-size: medium;
-  text-align: center;
-  width: 45%;
-}
-
-.image-lit {
-  float: right;
-  height: 20px;
-  width: 20px;
-}
-
-.swiper-container {
-  margin-top: 0px;
-  height: 140px;
-  overflow: hidden;
+.slogan-paper {
   width: 100%;
+  margin-top:0;
+  height: 100%;
+  flex-grow: 1;
+  position: absolute;
+}
+
+.session-content {
+  position: fixed;
+  width: 100%;
+  bottom: 150rpx;
+}
+
+.session-content2 {
+  width: 100%;
+  bottom: 150rpx;
+  display: flex;
+  margin-bottom:10px;
+}
+
+.slogan-wrapper {
+  display: flex;
+  position: fixed;
+  height: 60%;
+  top: 140rpx;
+  width: 100%;
+  padding: 0rpx 30rpx 0rpx 30rpx;
+  flex-direction: row-reverse;
+  box-sizing: border-box;
+}
+
+.merchant-name{
+  color:white;
+  writing-mode: vertical-lr;
+  display: inline-block;
+  font-size: 75rpx;
+  font-weight: 500;
+  margin-left: 12rpx;
+  margin-right: 12rpx;
+}
+.merchant-likes{
+  color:orange;
+  writing-mode: horizontal-lr;
+  display: flex;
+  font-size: 56rpx;
+  font-weight: 500;
+  margin-left: 12rpx;
+  margin-right: 12rpx;
+}
+
+.merchant-address{
+  color:grey;
+  writing-mode: horizontal-lr;
+  display: flex;
+  font-size: 56rpx;
+  font-weight: 500;
+  margin-left: 12rpx;
+  margin-right: 12rpx;
+}
+
+.swiper {
+  width: 280px;
+  height: 220px;
+  margin-bottom: 60px;
+  margin-left: 10px;
 }
 
 .swiper-image {
   width: 100%;
+  height: 100%;
   border-radius: 10%;
 }
 
-.popup-btn {
-  margin-top: 20px;
-  margin-bottom: 20px;
+.image-lit {
+  float: right;
+  margin-left: 20px;
+  height: 30px;
+  width: 30px;
 }
 
-.merchant-description {
-  margin-top: 20px;
-  text-align: left;
-  font-size: medium;
-}
-
-.merchant-hours {
-  margin-top: 10px;
-  font-size: small;
-  display:block;
-}
-.merchant-hour {
-  margin-top: 10px;
-  font-size: small;
-}
-
-.wx-popup-likes {
-  width: 50px;
-  height: 50px;
-  background: #999;
-  text-align: center;
-  line-height: 50px;
-  border-radius: 50%;
-  /* position: absolute; */
-  /* left: 250px; */
-  /* top: 350px; */
-  transition: 0.5s;
-  color: #fff;
-  display: inline-block;
-  margin: 10px;
-}
-
-.coupon-container {
-  height: auto;
-  width: auto;
-}
-
-.coupon {
-  margin: 10px;
-}
-
-.signin {
-  margin-top: 50px;
-  margin-left: 10px;
-  margin-right: 10px;  
-}
-
-
-.popup-btn {
-  display: flex;
+.slogan-text:last-child {
+  margin-right: 0rpx;
 }
