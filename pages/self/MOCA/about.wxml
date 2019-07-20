@@ -1,26 +1,16 @@
-<!--pages/self/MOCA/about.wxml-->
-
-<!-- <view class='base-padding row'>
-  <view class='user'>
-    <image src='/image/navmoca.png'></image>
-    <view class='username'>University of Toronto Application Development Association</view>
-    <view class='color-grey font-3' style="font-family:courier; padding-top:8px">UTADA是多伦多大学官方认证的学生社团，致力于《insert cool message here》</view>
-  </view>
+<view class='base-padding row'>
+ <view class='user'>
+   <image src='/image/navmoca.png'></image>
+   <view class='username'>MOCA 美食地图</view>
+ </view>
 </view>
 
 <view class='base-padding row base-info'>
-  <navigator url='./contact/contact' class='col-12'>
-    <image src="/image/wallet.png"></image>
-    联系方式
-  </navigator>
-  <navigator url='' class='col-12'>
-    <image src="/image/wallet.png"></image>
-    赞助及广告
-  </navigator>  
+ <text>Tel-number：4373411838 \n</text>
+ <text>email:mocafindingtoronto@gamil.com\n</text>
+ <text>联系人:Molly Meng\n</text>
+ <text>地址：57 St.Josepth Street Toronto, Canada M5S0C5</text>
+ <view class='btn'>
+   <button open-type='contact' type='primary'>意见反馈</button>
+ </view>
 </view>
-
-<button open-type='contact' type='primary'>意见反馈</button> -->
-<text>Tel-number：4373411838 \n</text>
-<text>email:mocafindingtoronto@gamil.com\n</text>
-<text>联系人:Molly Meng\n</text>
-<text>地址：57 St.Josepth Street Toronto, Canada M5S0C5</text>
