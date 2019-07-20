@@ -20,7 +20,7 @@ Page({
     this.loadWallet();
     var userT = wx.getStorageSync('userTickets');
     console.log(userT)
-    if (userT.length > 0) {
+    if (userT.length >= 0) {
       this.loadTicket();
     }
   },
@@ -60,7 +60,7 @@ Page({
       success(res) {
         console.log(res.data[0].wallet.length)
         console.log(res)
-        if (res.data[0].wallet.length > 0) {
+        if (res.data[0].wallet.length >= 0) {
           var userTickets = [];
           for (var i = 0; i < res.data[0].wallet.length; i++) {
             userTickets.push(res.data[0].wallet[i])
