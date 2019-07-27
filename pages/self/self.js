@@ -51,7 +51,7 @@ Page({
 
     if (that.level == 1) {
       that.setData({
-        imageUrl: '/image/star.jpg'
+        imageUrl: '/image/star.png'
       })
     }
     else if (that.level == 2) {
