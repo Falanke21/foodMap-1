@@ -42,7 +42,7 @@ Page({
         // console.log(res.data[0].exp)
         // console.log(res.data[0]._id)
         // console.log(that.id)
-        console.log(that.data.scanRecord)
+        // console.log(that.data.scanRecord)
       },
       fail(res) {
         console.log('fail')
@@ -72,6 +72,13 @@ Page({
 
   },
 
+  /**   
+   * 生命周期函数--监听页面显示   
+   */
+  onShow: function () {
+    // 为了能兑换券后，刷新持有积分 
+    this.onLoad()
+  },
   getUserInfo: function (e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
