@@ -10,13 +10,13 @@
 <view class='list'>
   <block wx:for='{{foodList}}'> 
     <!-- <view class='item-container'> -->
-      <view class='product' id="{{item.dbid}}" data-shop='{{item.name}}' bindtap='showProduct' data-index="{{index}}">
+      <view class='product' id="{{item.dbid}}" data-shop='{{item.shopName}}' bindtap='showProduct' data-index="{{index}}">
         <view class='product-text'>
           <view class='image-view'>
       <image class='type-image' src='{{url_lis[item.type]}}'></image>
           </view>
           <view class='text-view'>
-            <text>{{item.name}}</text>
+            <text>{{item.shopName}}</text>
           </view>
         </view>
       </view>
@@ -37,13 +37,13 @@
 <view class='list'>
   <block wx:for='{{lifeList}}'> 
     <!-- <view class='item-container'> -->
-      <view class='product' id="{{item.dbid}}" data-name="{{item.name}}" bindtap='showProduct' data-index="{{index}}">
+      <view class='product' id="{{item.dbid}}" data-name="{{item.shopName}}" bindtap='showProduct' data-index="{{index}}">
         <view class='product-text'>
           <view class='image-view'>
       <image class='type-image' src='{{url_lis[item.type]}}'></image>
           </view>
           <view class='text-view'>
-            <text>{{item.name}}</text>
+            <text>{{item.shopName}}</text>
           </view>
         </view>
       </view>
