@@ -174,11 +174,12 @@
   height: 110rpx;
   width: 300rpx;
   margin-left: 10px;
+  border-top: 10rpx;
 }
 .rightcol {
   float: right;
   height: 110rpx;
-  width: 200rpx;
+  width: 350rpx;
   margin-right: 10px;
 }
 .nav-to-ada{
