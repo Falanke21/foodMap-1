@@ -18,7 +18,7 @@ Page({
     scanRecord: [],
     likes: 0,
     credit: 0,
-    imageUrl: '/image/diamond.png',
+    imageUrl: '/image/moon.png',
     credit: 150
   },
 
@@ -51,12 +51,12 @@ Page({
 
     if (that.level == 1) {
       that.setData({
-        imageUrl: '/image/flower.png'
+        imageUrl: '/image/star.jpg'
       })
     }
     else if (that.level == 2) {
       that.setData({
-        imageUrl: '/image/star.jpg'
+        imageUrl: '/image/moon.png'
       })
     }
     else if (that.level == 3) {
