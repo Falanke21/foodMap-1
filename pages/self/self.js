@@ -39,9 +39,9 @@ Page({
           scanRecord: res.data[0].scanRecord,
           credit: res.data[0].credit
         })
-        console.log(res.data[0].exp)
-        console.log(res.data[0]._id)
-        console.log(that.id)
+        // console.log(res.data[0].exp)
+        // console.log(res.data[0]._id)
+        // console.log(that.id)
         console.log(that.data.scanRecord)
       },
       fail(res) {
@@ -97,18 +97,10 @@ Page({
   },
 
   addLike(location_id) {
-    var loc_id;
-    db.collection('location').where({
-      dbid: 1
-    }).get({
-      success(res) {
-        loc_id = res.data[0]._id;
-      }
-    })
     wx.cloud.callFunction({
       name: 'incLikes',
       data: {
-        update_id: loc_id,
+        update_id: location_id,
       },
       success: res => {
         console.log(res)
@@ -152,9 +144,7 @@ Page({
         if (Y == year && M == month) {
           db.collection('location').where({ _id: location_id }).get({
             success(result) {
-              that.setData({
-                likes: result.data[0].likes
-              })
+
               try {
                 var location_index = -1;
                 for (var i = 0; i < that.data.scanRecord.length; i++) {
@@ -165,7 +155,7 @@ Page({
                 if (location_index != -1) {
                   console.log(that.data.scanRecord[location_index].date.toLocaleDateString())
                   console.log(new Date().toLocaleDateString());
-                  if (that.data.scanRecord[location_index].date.toLocaleDateString() == new Date().toLocaleDateString()) {
+                  if (that.data.scanRecord[location_index].date.toLocaleDateString() == new Date().toLocaleDateString()) { //看日期
                     if (that.data.scanRecord[location_index].entries <= 1) {
                       console.log(location_id);
                       that.scan_success(location_id);
@@ -190,58 +180,8 @@ Page({
                 wx.showToast({
                   title: '打卡' + result.data[0].name + '成功',
                 })
-                // //加经验
-                // that.gainExp()
-                // //加积分
-                // that.gainCredit()
-                //存储积分，等级，经验至数据库
-
-                const newExp = that.data.exp
-                const newlvl = that.data.level
-                const newScanRecord = that.data.scanRecord
-                const newLike = that.data.likes
-                const newCredit = that.data.credit
-
-                // db.collection('location').doc(location_id).update({
-
-                //   data: {
-                //     likes: newLike
-                //   },
-                //   success: res => {
-                //     console.log(newlike)
-                //   },
-                //   fail: err => {
-                //     icon: 'none',
-                //       console.error('[数据库] [更新记录] 失败：', err)
-                //   }
-                // })
-                console.log(location_id)
-                console.log(newLike)
-                db.collection('wxuser').where({
-                  _openid: app.globalData.openid
-                }).get({
-                  success(res) {
-                    db.collection('wxuser').doc(res.data[0]._id).update({
-                      data: {
-                        exp: newExp,
-                        level: newlvl,
-                        scanRecord: newScanRecord,
-                        credit: newCredit
-                      },
-                      success: res => {
-
-                      },
-                      fail: err => {
-                        icon: 'none',
-                          console.error('[数据库] [更新记录] 失败：', err)
-                      }
-                    })
-                  },
-                  fail(res) {
-                    console.log('fail')
-                  }
-                })
-                //upldate like
+                
+                update_user();
 
               }
               catch (e) {
@@ -280,6 +220,39 @@ Page({
     this.gainExp();
     this.gainCredit();
     this.addLike(location_id);
+  },
+
+  update_user(){
+    var newExp = that.data.exp
+    var newlvl = that.data.level
+    var newScanRecord = that.data.scanRecord
+    var newLike = that.data.likes
+    var newCredit = that.data.credit
+
+    db.collection('wxuser').where({
+      _openid: app.globalData.openid
+    }).get({
+      success(res) {
+        db.collection('wxuser').doc(res.data[0]._id).update({
+          data: {
+            exp: newExp,
+            level: newlvl,
+            scanRecord: newScanRecord,
+            credit: newCredit
+          },
+          success: res => {
+
+          },
+          fail: err => {
+            icon: 'none',
+              console.error('[数据库] [更新记录] 失败：', err)
+          }
+        })
+      },
+      fail(res) {
+        console.log('fail')
+      }
+    })
   },
 
   wallettap(e) {
