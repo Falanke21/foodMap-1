@@ -19,24 +19,23 @@
 
   justify-content: center; 
   align-items: center;
-  
 }
 
 .merchant-name {
-  font-size: x-large;
+  font-size: xx-large;
   text-align: center;
   font-weight: bold;
 }
 
 .merchant-address {
-  margin-top: 10px;
-  font-size: medium;
+  margin: 10px auto;
+  font-size: small;
   text-align: center;
+  color: rgb(78, 78, 78);
 }
 
 .merchant-likes {
-  margin-top: 10px;
-  margin-left: 90px;
+  margin: 10px auto;
   font-size: medium;
   text-align: center;
   width: 45%;
@@ -49,36 +48,43 @@
 }
 
 .swiper-container {
-  margin-top: 0px;
-  height: 140px;
+  margin: 15px auto;
+  height: 270px;
   overflow: hidden;
-  width: 100%;
+  width: 90%;
 }
 
 .swiper-image {
   width: 100%;
   border-radius: 10%;
+  height: 270px;
 }
 
-.popup-btn {
-  margin-top: 20px;
-  margin-bottom: 20px;
+.dividing-line{
+  border: black solid 1px;
+  margin: 0 auto;
+  width: 95%;
 }
 
 .merchant-description {
-  margin-top: 20px;
-  text-align: left;
+  margin: 10px 0;
+  text-align: center;
+  color: rgb(78, 78, 78);
   font-size: medium;
 }
 
 .merchant-hours {
-  margin-top: 10px;
-  font-size: small;
-  display:block;
+  display: block;
+  margin: 10px auto;
+  width: 50%;
+  border-left: black 1px solid;
+  border-right: black 1px solid;
+  color: rgb(78, 78, 78);
 }
 .merchant-hour {
-  margin-top: 10px;
-  font-size: small;
+  margin: 5px 0;
+  font-size: medium;
+  text-align: center;
 }
 
 .wx-popup-likes {
@@ -103,16 +109,11 @@
 }
 
 .coupon {
-  margin: 10px;
+  margin: 10px auto;
+  width: 350px;
 }
 
 .signin {
-  margin-top: 50px;
-  margin-left: 10px;
-  margin-right: 10px;  
-}
-
-
-.popup-btn {
-  display: flex;
+  margin: 10px auto;
+  width: 350px;
 }

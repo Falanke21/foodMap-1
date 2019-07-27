@@ -2,7 +2,7 @@
 <view class='swiper-container'>
       <swiper
       indicator-dots="true" autoplay="true" circular="true"
-      interval="2000">
+      interval="2000" style="height: 300px">
           <block wx:for="{{imageUrl}}" wx:key="*this">
         <swiper-item>
           <image class='swiper-image' src='{{item}}' mode='scaleToFill'></image>
@@ -12,15 +12,31 @@
 </view>
 
   <view class='popup-container'>
+
     <view class='merchant-name'>{{name}}</view>
       <view class='merchant-likes'>当前人气：{{likes}}
         <image class='image-lit' src='../../image/lit_emoji.png'></image>
-      
     </view>
+
     <view class='merchant-address'>{{address}}</view>
+
+    <view class="dividing-line"></view>
+
+    <view class='merchant-description'>{{describ}}</view>
+
+    <view class="dividing-line"></view>
+
+    <view class='merchant-hours'>
+      <block wx:for="{{hours}}">
+        <view class="merchant-hour">{{hours[index]}}</view>
+      </block>
+    </view>
       
   </view>
-  <button class= "signin" type="primary" bindtap= 'addLike' >打卡
-      </button>
+  <button class="signin" type="primary" bindtap= 'addLike' >
+    打卡
+  </button>
 
-      <button class="coupon" type="primary" bindtap= 'showCoupon'>优惠券</button>
+  <button class="coupon" type="primary" bindtap= 'showCoupon'>
+    优惠券
+  </button>

@@ -175,6 +175,9 @@ Page({
         id_l = res.data
         //console.log(id_l[0])
         var lis = that.init_img_url(id_l[0].image)
+        if (lis.length == 0){
+          lis.push("/image/maintainence.png")
+        }
         console.log(lis)
         that.setData({
           name: id_l[0].shopName,
