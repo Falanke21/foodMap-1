@@ -11,8 +11,8 @@
   <view class="lvloval"> LV{{level}}</view>
   <image class="lvlicon" wx:if="{{level>3}}" src="/image/diamond.png"> </image>
   <image class="lvlicon" wx:if="{{level>7}}" src="/image/diamond.png"> </image>
-  <image class="lvlicon" wx:if="{{level==1}}" src="/image/flower.png"> </image>
-  <image class="lvlicon" wx:if="{{level==2}}" src="/image/star.jpg"> </image>
+  <image class="lvlicon" wx:if="{{level==1}}" src="/image/star.jpg"> </image>
+  <image class="lvlicon" wx:if="{{level==2}}" src="/image/moon.png"> </image>
   <image class="lvlicon" wx:if="{{level==3}}" src="/image/sun.png"> </image>
   
   </view>
