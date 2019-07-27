@@ -177,9 +177,9 @@ Page({
         var lis = that.init_img_url(id_l[0].image)
         console.log(lis)
         that.setData({
-          name: id_l[0].name,
+          name: id_l[0].shopName,
           address: id_l[0].address,
-          describ: id_l[0].describ,
+          describ: id_l[0].description,
           hours: id_l[0].hours,
           likes: id_l[0].likes,
           imageUrl: lis
