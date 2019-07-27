@@ -175,11 +175,14 @@ Page({
         id_l = res.data
         //console.log(id_l[0])
         var lis = that.init_img_url(id_l[0].image)
+        if (lis.length == 0){
+          lis.push("/image/maintainence.png")
+        }
         console.log(lis)
         that.setData({
-          name: id_l[0].name,
+          name: id_l[0].shopName,
           address: id_l[0].address,
-          describ: id_l[0].describ,
+          describ: id_l[0].description,
           hours: id_l[0].hours,
           likes: id_l[0].likes,
           imageUrl: lis

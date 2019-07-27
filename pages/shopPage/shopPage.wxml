@@ -1,31 +1,42 @@
 <!--pages/popupPage/popupPage.wxml-->
-<image class="slogan-paper" mode="aspectFill" src="/image/slogan_paper.jpg"></image>
-  
-  <view class="session-content">
-    <swiper class="swiper"
+<view class='swiper-container'>
+      <swiper
       indicator-dots="true" autoplay="true" circular="true"
-      interval="2000">
-      
+      interval="2000" style="height: 300px">
           <block wx:for="{{imageUrl}}" wx:key="*this">
-          
         <swiper-item>
           <image class='swiper-image' src='{{item}}' mode='scaleToFill'></image>
         </swiper-item>
-
       </block>
       </swiper>
-    <view class="slogan-wrapper">
-      <text class='merchant-name'>{{name}}
-      </text>
-    </view>
-    <view class='merchant-likes'>当前人气：{{likes}}
+</view>
+
+  <view class='popup-container'>
+
+    <view class='merchant-name'>{{name}}</view>
+      <view class='merchant-likes'>当前人气：{{likes}}
         <image class='image-lit' src='../../image/lit_emoji.png'></image>
     </view>
-    <text class='merchant-address'>{{address}}        </text>
-    <view class="session-content2">
-  <button class= "sign" type="primary" bindtap= 'addLike' >打卡
-      </button>
 
-      <button class="sign" type="primary" bindtap= 'showCoupon'>优惠券</button>
+    <view class='merchant-address'>{{address}}</view>
+
+    <view class="dividing-line"></view>
+
+    <view class='merchant-description'>{{describ}}</view>
+
+    <view class="dividing-line"></view>
+
+    <view class='merchant-hours'>
+      <block wx:for="{{hours}}">
+        <view class="merchant-hour">{{hours[index]}}</view>
+      </block>
+    </view>
+      
   </view>
-  </view>
+  <button class="signin" type="primary" bindtap= 'addLike' >
+    打卡
+  </button>
+
+  <button class="coupon" type="primary" bindtap= 'showCoupon'>
+    优惠券
+  </button>
