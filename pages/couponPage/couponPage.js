@@ -12,7 +12,7 @@ Page({
     day: new Date().getDate(),
     str: MONTHS[new Date().getMonth()],  // 月份字符串
     shopName:'defa_name',
-    couponList: ["no data in cloud"],
+    couponList: [{name: "Loading"}],
   },
 
   /**
@@ -37,7 +37,7 @@ Page({
       success: function(res){
         console.log(res)
         that.setData({
-          couponList:res.data,
+          couponList: res.data,
         })
       },
     })

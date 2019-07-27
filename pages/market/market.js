@@ -79,8 +79,9 @@ Page({
   },
 
   showProduct: function(e) {
+    console.log(e)
     var dbid = e.currentTarget.id;
-    var shopName = e.currentTarget.dataset.shop;
+    var shopName = e.currentTarget.dataset.name;
     wx.navigateTo({
       url: '../couponPage/couponPage?shopId=' + dbid + '&name=' + shopName,
     })
