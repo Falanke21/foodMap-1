@@ -9,7 +9,7 @@
   <open-data class="userinfo-nickname"    type="userNickName"></open-data>
   <view class="userlvl" >
   <view class="lvloval"> LV{{level}}</view>
-  <image class="lvlicon" wx:if="{{level>=15 && level<20}}" src="/image/diamond.png"> </image>
+  <image class="lvlicon" wx:if="{{level>=15&&level<20 || level >=15}}" src="/image/diamond.png"> </image>
   <image class="lvlicon" wx:if="{{level>20}}" src="/image/diamond.png"> </image>
   <image class="lvlicon" wx:if="{{level>=1 && level<5}}" src="/image/star.png"> </image>
   <image class="lvlicon" wx:if="{{level>=5 && level<10}}" src="/image/moon.png"> </image>
