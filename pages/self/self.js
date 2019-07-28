@@ -49,17 +49,17 @@ Page({
       }
     })
 
-    if (that.level == 1) {
+    if (that.level >= 1 && that.level < 5) {
       that.setData({
         imageUrl: '/image/star.png'
       })
     }
-    else if (that.level == 2) {
+    else if (that.level >= 5 && that.level < 10) {
       that.setData({
         imageUrl: '/image/moon.png'
       })
     }
-    else if (that.level == 3) {
+    else if (that.level >= 10 && that.level < 15) {
       that.setData({
         imageUrl: '/image/sun.png'
       })
