@@ -40,15 +40,19 @@ Page({
       })
       .catch(console.error);
 
-    db.collection('img_url').where({
-      type: "location_img_url"
-    }).get({
-      success(res) {
-        that.setData({
-          url_lis: res.data[0],
+    // db.collection('img_url').where({
+    //   type: "location_img_url"
+    // }).get({
+    //   success(res) {
+    //     that.setData({
+    //       url_lis: res.data[0],
+    //   })
+    //   }
+    // })
+    var url_lis = wx.getStorageSync('loc_url')
+      this.setData({
+          url_lis: url_lis,
       })
-      }
-    })
     
     console.log(this.data.url_lis)
   },

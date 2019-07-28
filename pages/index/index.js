@@ -102,6 +102,9 @@ Page({
         url_lis[tmp_key] = tmp_url_lis[i].tempFileURL
     }
     console.log(url_lis)
+    //把不必要的tmpurl 从本地内存删掉，把新的url_lis存回本地
+    //wx.removeStorageSync('tmp_url_lis')
+    wx.setStorageSync('loc_url', url_lis)
     return url_lis
   },
 
