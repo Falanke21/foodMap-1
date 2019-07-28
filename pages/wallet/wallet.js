@@ -1,4 +1,5 @@
 // pages/wallet/wallet.js
+import regeneratorRuntime from '../../utils/runtime.js'
 Page({
 
   /**

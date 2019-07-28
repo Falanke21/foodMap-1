@@ -1,5 +1,6 @@
 //index.js
 
+
 //获取应用实例
 
 const app = getApp()
@@ -42,53 +43,97 @@ Page({
       success(res) {
         url_lis = res.data
         console.log(url_lis)
+        this.set_url(url_lis);
       }
     })
-    db.collection('location').get({
-      success(res) {
-        var lis = res.data
-        console.log(lis)
-        var mks = that.init_marker(lis, url_lis);
-        console.log(mks)
-        that.setData({
+    
+
+    wx.cloud.callFunction({
+      // 云函数名称
+      name: 'getLocation',
+    })
+      .then(res => {
+        console.log(res.result.data)
+       var mks =  this.init_marker(res.result.data)
+       that.setData({
           markers: mks
         })
-
-      }
-    })
+      })
+      .catch(console.error);
 
     var mapCtx = wx.createMapContext("myMap");
     console.log("MAPCTXXXXXX====" + mapCtx)
     that.setData({
       map: mapCtx
     })
-
+    this.set_url();
   },
 
-  init_marker: function (lis, url_lis) {
-    var mks = []
-    for (var i = 0; i < lis.length; i++) {
-      var location_type = lis[i].type
-      //console.log(url_lis[0][location_type])
-      mks.push({
-        id: lis[i].dbid,
-        iconPath: url_lis[0][location_type],
-        longitude: lis[i].longtitude,
-        latitude: lis[i].latitude,
-        width: 30,
-        height: 30,
-        callout: {
-          content: lis[i].name || '',
-          fontSize: 14,
-          bgColor: "#FFF",
-          borderWidth: 1,
-          borderColor: "#CCC",
-          padding: 4,
-          display: "BYCLICK",
-          textAlign: "center"
-        }
-      })
+  set_url: function () {
+    const db = wx.cloud.database();
+    var that = this
+
+    var url_lis
+    db.collection('img_url').get().then(res => {
+        console.log(res.data[0])
+        wx.setStorageSync("loc_url", res.data[0])
+    })
+
+    url_lis = wx.getStorageSync("loc_url");
+
+    var keys = Object.keys(url_lis)
+    var values = Object.values(url_lis)
+    var tmp_url_lis
+    //使用promise 风格先提取今天的tempFileUrl
+    console.log(values)
+      wx.cloud.getTempFileURL({
+            fileList: values
+        }).then(res => {
+            wx.setStorageSync("tmp_url_lis", res.fileList)
+            //console.log(res.fileList)
+        }).catch(error => {
+    })
+    tmp_url_lis = wx.getStorageSync('tmp_url_lis')
+    console.log(tmp_url_lis)
+
+    //把获取到的temp url 设置到url_lis 并return出来
+    for (var i in keys) {
+      var tmp_key = keys[i]
+        url_lis[tmp_key] = tmp_url_lis[i].tempFileURL
     }
+    console.log(url_lis)
+    return url_lis
+  },
+
+
+  init_marker: function (lis) {
+    var mks = []
+    //获取并设置当天云储存的location icon path
+    var db_url = this.set_url();
+    
+    for(var i = 0; i < lis.length; i++) {
+      var location_type = lis[i].type
+        mks.push({
+          id: lis[i].dbid,
+          iconPath: db_url[location_type],
+          longitude: lis[i].longtitude,
+          latitude: lis[i].latitude,
+          width: 30,
+          height: 30,
+          callout: {
+            content: lis[i].name || '',
+            fontSize: 14,
+            bgColor: "#FFF",
+            borderWidth: 1,
+            borderColor: "#CCC",
+            padding: 4,
+            display: "BYCLICK",
+            textAlign: "center"
+          }
+        })
+     
+    }
+    console.log(mks)
     return mks
   },
 
@@ -306,7 +351,7 @@ Page({
     if (mks && this.data.scale) {
       console.log(this.data.scale)
       var prev = mks[0].callout.display;
-      console.log("marker vis status" + prev)
+      //console.log("marker vis status" + prev)
       var aft;
       if (this.data.scale <= 16.6) {
         aft = "BYCLICK";
@@ -317,8 +362,8 @@ Page({
         for (var i = 0; i < mks.length; i++) {
           mks[i].callout.display = aft;
         }
-        console.log('prev scale ===' + prev)
-        console.log('after scale ===' + aft)
+       // console.log('prev scale ===' + prev)
+        //console.log('after scale ===' + aft)
         this.setData({
           longitude: this.data.longitude,
           latitude: this.data.latitude,
