@@ -58,12 +58,12 @@ function rankschrRes(keyword, resArr) {
   var arr = resArr;
   // Calculate editDist for elements
   for (let i = 0; i < arr.length; i++) {
-    let name_dist = editDist(arr[i].name, keyword);
-    let type_dist = editDist(arr[i].type, keyword);
+    let name_dist = editDist(arr[i].shopName.toLowerCase(), keyword.toLowerCase());
+    let type_dist = editDist(arr[i].type.toLowerCase(), keyword.toLowerCase());
     if (name_dist < type_dist) {
-      arr[i].editDist = name_dist;
+      arr[i].num_editDist = name_dist;
     } else {
-      arr[i].editDist = type_dist;
+      arr[i].num_editDist = type_dist;
     }
     // arr[i].editDist = editDist(arr[i].type + arr[i].name, keyword);
   }
@@ -75,13 +75,11 @@ function rankschrRes(keyword, resArr) {
 
 // Compare two locations' edit distance
 function comparator(a, b) {
-  return a.editDist - b.editDist
+  return a.num_editDist - b.num_editDist
 }
 
 // Edit distance between two string, case senseless
 function editDist(word1, word2) {
-  word1 = word1.toLowerCase()
-  word2 = word2.toLowerCase()
   let dp = new Array(2);
   dp = dp.fill().map(() => (new Array(word1.length + 1)));
   dp[0][0] = 0;

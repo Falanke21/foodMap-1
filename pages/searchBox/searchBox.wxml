@@ -8,7 +8,7 @@
             <image float='left' class='searchBox-item-image' mode='widthFix' src='{{img_url_list[item.type]}}'> </image>
           </view>
           <view class='searchBox-item-name'>
-            <text> {{item.name}}</text>
+            <text> {{item.shopName}}</text>
           </view>
 
         <view class='searchBox-item-descrb'>
