@@ -110,7 +110,30 @@ function wxSearchInput(e) {
   // 寻找提示值 
   var tipKeys = [];
   if (inputValue && inputValue.length > 0) {
-    rankschrRes(inputValue, __that.data.schrRes)
+    var chs_tags = __that.data.chs_tags
+    var eng_tags = __that.data.eng_tags
+    // If inputValue is a tag in Chinese, filter the results
+    if (chs_tags.includes(inputValue)) {
+      __that.setData({
+        rankingRes: __that.data.schrRes.filter(function(item) {
+            return item.chs_tag.includes(inputValue)
+        })
+      })
+    // If inputValue is a tag in English, filter the results
+    } else if (eng_tags.includes(inputValue)) {
+      __that.setData({
+        rankingRes: __that.data.schrRes.filter(function (item) {
+          return item.eng_tag.includes(inputValue)
+        })
+      })
+    // inputValue is not a tag
+    } else {
+      __that.setData({
+        rankingRes: __that.data.schrRes
+      })
+    }
+    // rank the results
+    rankschrRes(inputValue, __that.data.rankingRes)
     // 显示搜索备选
     __that.setData({
       hiddenSchrRes: false

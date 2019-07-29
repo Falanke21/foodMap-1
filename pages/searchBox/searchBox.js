@@ -8,17 +8,13 @@ Page({
    */
   data: {
     // Results in drop down list
-    schrRes: [
-      {name: '我喜欢'},
-      {name: 'copy'},
-      {name: 'paste'},
-      {name: 'push --force'},
-      {name: 'merge -f'},
-      {name: 'commit -m ""'}
-    ],
+    schrRes: [],
+    rankingRes: [],
     rankedRes: [],
-    hiddenSchrRes: true,
-    img_url_list: []
+    chs_tags: [],
+    eng_tags: [],
+    img_url_list: [],
+    hiddenSchrRes: true
   },
 
   /**
@@ -35,6 +31,7 @@ Page({
     );
     this.fetchLocations();
     this.fetchImgUrl();
+    this.fetchLocationTags();
   },
 
   wxSearchInput: WxSearch.wxSearchInput,  // 输入变化时的操作
@@ -60,17 +57,32 @@ Page({
   },
 
   // Fetch location data from the cloud
-  fetchLocations: function() {
+  fetchLocations: function () {
     var that = this;
     wx.cloud.init()
     const db = wx.cloud.database()
-
     db.collection('location').get({
       success(res) {
         that.setData({
           schrRes: res.data
         })
       }
+    })
+  },
+
+  // Fetch tags of locations from the cloud
+  fetchLocationTags: function () {
+    var that = this;
+    wx.cloud.init()
+    const db = wx.cloud.database()
+    db.collection('location_tag').get({
+      success(res) {
+        wx.setStorageSync("loc_tags", res.data)
+      }
+    })
+    that.setData({
+      chs_tags: wx.getStorageSync("loc_tags")[0].tags,
+      eng_tags: wx.getStorageSync("loc_tags")[1].tags
     })
   },
 
