@@ -43,15 +43,17 @@
 
 
 <view class="nav-to-wx-ada">
-  <view class='nav-text'>
-    <view class='type-text'>Present by</view>
-  </view>
-    <view class = "dis-logo">
-      <view class = "nav-to-ada" bindtap='navada'>
-      <image class = 'col' src = src="/image/navada.png" mode='aspectFit'></image>
-      </view>
-      <view class = "nav-to-moca" bindtap='navmoca'> 
-      <image class = 'rightcol' src = src="/image/navmoca2.png" mode='aspectFit'></image>
-      </view>
+    <view class='nav-text'>
+        <view class='type-text'>Present by</view>
+    </view>
+        <view class = "dis-logo">
+            <view class = "nav-to-ada" bindtap='navada'>
+            <image class = 'col' src = src="/image/navada.png" mode='aspectFit'></image>
+        </view>
+
+        <view class = "nav-to-moca" bindtap='navmoca'> 
+            <image class = 'rightcol' src = src="/image/navmoca2.png" mode='aspectFit'></image>
+        </view>
+
     </view>
 </view>

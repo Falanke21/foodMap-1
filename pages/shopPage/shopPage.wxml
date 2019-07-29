@@ -32,11 +32,15 @@
       </block>
     </view>
       
-  </view>
-  <button class="signin" type="primary" bindtap= 'addLike' >
-    打卡
-  </button>
+    </view>
 
-  <button class="coupon" type="primary" bindtap= 'showCoupon'>
-    优惠券
-  </button>
+    <view class='btn_container'>
+        <button class='isolate'></button>
+        <button class="signin" type="primary" bindtap= 'addLike' >
+            打卡
+        </button>
+        <button class='isolate'></button>
+        <button class="coupon" type="primary" bindtap= 'showCoupon'>
+            优惠券
+        </button><button class='isolate'></button>
+    </view>

@@ -108,12 +108,25 @@
   width: auto;
 }
 
+.btn_container{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-top:80rpx;
+  bottom:0;
+  /* left:85px; */
+  width:100%; 
+}
 .coupon {
   margin: 10px auto;
-  width: 300px;
+  width: 250px;
+}
+
+.isolate{
+    width: 20;
 }
 
 .signin {
   margin: 10px auto;
-  width: 300px;
+  width: 250px;
 }
