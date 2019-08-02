@@ -113,16 +113,11 @@ Page({
         if (locations.length == 0) {
           console.log("No such location")
           wx.showToast({
-            title: '没有相似的结果\n即将自动跳转',
+            title: '没有相似的结果\n',
             icon: 'none',
             duration: 2000,
             masks: true
           })
-          setTimeout(function () {
-            wx.navigateBack({
-              delta: 1
-            })
-          }, 1000)
         } else {
           wx.showLoading({
             title: '加载中',
