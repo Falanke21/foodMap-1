@@ -58,16 +58,22 @@ Page({
 
   // Fetch location data from the cloud
   fetchLocations: function () {
-    var that = this;
-    wx.cloud.init()
-    const db = wx.cloud.database()
-    db.collection('location').get({
-      success(res) {
-        that.setData({
-          schrRes: res.data
-        })
+    wx.cloud.callFunction({
+      // cloud function name
+      name: 'fetchAllDocRecs',
+      data: {
+        docName: 'location',
       }
     })
+    .then(res => {
+      wx.setStorageSync('fetchLocations', res.result.data)
+    })
+    .catch(console.error);
+
+    var that = this;
+    that.setData({
+      schrRes: wx.getStorageSync("fetchLocations")
+    });
   },
 
   // Fetch tags of locations from the cloud
