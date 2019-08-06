@@ -175,7 +175,18 @@ function wxSearchClear() {
 
 // 点击提示或者关键字、历史记录时的操作
 function wxSearchKeyTap(e) {
-  search(e.target.dataset.key);
+  var inputValue = e.target.dataset.key;
+  if (inputValue && inputValue.length > 0) {
+    // 添加历史记录
+    wxSearchAddHisKey(inputValue);
+    // 更新
+    var temData = __that.data.wxSearchData;
+    temData.value = inputValue;
+    __that.setData({
+      wxSearchData: temData
+    });
+  }
+  // search(e.target.dataset.key);
 }
 
 // 确任或者回车
