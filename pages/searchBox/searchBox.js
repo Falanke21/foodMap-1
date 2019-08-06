@@ -41,11 +41,11 @@ Page({
   wxSearchClear: WxSearch.wxSearchClear,  // 清空函数
 
   // Fetch img_urls from the cloud
-  fetchImgUrl: function() {
+  fetchImgUrl: function () {
     var that = this;
     wx.cloud.init()
     const db = wx.cloud.database()
-    
+
     db.collection('img_url').get({
       success(res) {
         that.setData({
@@ -65,10 +65,10 @@ Page({
         docName: 'location',
       }
     })
-    .then(res => {
-      wx.setStorageSync('fetchLocations', res.result.data)
-    })
-    .catch(console.error);
+      .then(res => {
+        wx.setStorageSync('fetchLocations', res.result.data)
+      })
+      .catch(console.error);
 
     var that = this;
     that.setData({
@@ -94,34 +94,42 @@ Page({
 
   // 4 搜索回调函数
   mySearchFunction: function (value) {
+    var inputValue = value.trim();
+    var that = this;
     console.log("mySearchFunction Triggered")
     // do your job here
-    this.setData({
-      hiddenSchrRes: true
-    })
     wx.cloud.init()
     const db = wx.cloud.database()
-    var markerId
+    var locations = []
     db.collection('location').where({
-      name: {
-        $regex: '.*'+ value +'.*'
+      shopName: {
+        $regex: '.*' + inputValue + '.*'
       },
     }).get({
       success(res) {
-        var locations = res.data
-        console.log(locations)
+        console.log("res", res.data)
+        locations = res.data
+
+        // When no result is found, display the alternatives list
         if (locations.length == 0) {
+          // Unhide the search alternatives list
+          that.setData({
+            hiddenSchrRes: false
+          })
           console.log("No such location")
           wx.showToast({
-            title: '没有相似的结果\n',
+            title: "没有相似的结果\n从候选中选一个吧",
             icon: 'none',
             duration: 2000,
             masks: true
           })
-        } else {
+          // Found only one result, directly jump to it
+        } else if (locations.length == 1) {
+          console.log("There are only one result")
           wx.showLoading({
             title: '加载中',
           })
+          // Load the only result directly
           console.log("Found such location")
           console.log(locations[0])
           var dbid = locations[0].dbid
@@ -131,9 +139,26 @@ Page({
               url: '../shopPage/shopPage?dbid=' + dbid
             })
           }, 1000)
+          // found more than one result, display the options
+        } else {
+          console.log("Found more than one result")
+          wx.showToast({
+            title: '找到多个结果',
+            icon: 'success',
+            duration: 500
+          })
+          // Unhide the search alternatives list
+          that.setData({
+            rankedRes: locations
+          })
+          that.setData({
+            hiddenSchrRes: false
+          })
         }
       }
     })
+    
+
   },
 
   // 5 返回回调函数
@@ -143,7 +168,7 @@ Page({
     })
   },
 
-  tapItem: function(e) {
+  tapItem: function (e) {
     console.log("tapping", e.currentTarget);
   },
 
@@ -197,5 +222,5 @@ Page({
 
   }
 
-  
+
 })

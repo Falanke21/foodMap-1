@@ -191,6 +191,9 @@ function wxSearchKeyTap(e) {
 
 // 确任或者回车
 function wxSearchConfirm(e) {
+  __that.setData({
+    hiddenSchrRes: true
+  });
   var key = e.target.dataset.key;
   if(key=='back'){
     __goBackFunction();
