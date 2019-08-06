@@ -8,7 +8,7 @@
       </view>
     </view>
   </view>
-  <view class="weui-search-bar__cancel-btn" bindtap="wxSearchConfirm">
+  <view class="weui-search-bar__cancel-btn" bindtap="myGoBackFunction">
     <!-- <text wx:if="{{wxSearchData.value.length>0}}" data-key='search'>搜索</text>
     <text wx:else data-key='back'>返回</text> -->
     <text data-key='back'>返回</text>

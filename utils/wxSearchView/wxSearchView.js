@@ -115,18 +115,18 @@ function wxSearchInput(e) {
     // If inputValue is a tag in Chinese, filter the results
     if (chs_tags.includes(inputValue)) {
       __that.setData({
-        rankingRes: __that.data.schrRes.filter(function(item) {
-            return item.chs_tag.includes(inputValue)
+        rankingRes: __that.data.schrRes.filter(function (item) {
+          return item.chs_tag.includes(inputValue)
         })
       })
-    // If inputValue is a tag in English, filter the results
+      // If inputValue is a tag in English, filter the results
     } else if (eng_tags.includes(inputValue)) {
       __that.setData({
         rankingRes: __that.data.schrRes.filter(function (item) {
           return item.eng_tag.includes(inputValue)
         })
       })
-    // inputValue is not a tag
+      // inputValue is not a tag
     } else {
       __that.setData({
         rankingRes: __that.data.schrRes
@@ -195,11 +195,7 @@ function wxSearchConfirm(e) {
     hiddenSchrRes: true
   });
   var key = e.target.dataset.key;
-  if(key=='back'){
-    __goBackFunction();
-  }else{
-    search(__that.data.wxSearchData.value);
-  }
+  search(__that.data.wxSearchData.value);
 }
 
 function search(inputValue) {

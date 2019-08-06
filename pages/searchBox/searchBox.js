@@ -27,7 +27,7 @@ Page({
       ['川味轩', '云尚米线', "降龙爪爪", "嘿糖", "Snow Lava"],
       ['VRulez', 'R&K Salon', '云顶国养生堂', "COLA PET"],
       that.mySearchFunction,
-      that.myGobackFunction
+      that.myGoBackFunction
     );
     this.fetchLocations();
     this.fetchImgUrl();
@@ -157,15 +157,30 @@ Page({
         }
       }
     })
-    
+
 
   },
 
   // 5 返回回调函数
-  myGobackFunction: function () {
-    // 示例：返回
-    wx.navigateBack({
-    })
+  myGoBackFunction: function () {
+    // If a list of search alternatives is displayed, hide the list
+    if (!this.data.hiddenSchrRes) {
+      // 页面数据
+      var temData = this.data.wxSearchData;
+      // 更新数据
+      temData.value = "";
+      temData.tipKeys = [];
+      // 更新视图
+      this.setData({
+        wxSearchData: temData,
+        hiddenSchrRes: true
+      });
+    
+    // Else when the search histories and hot-searches are being displayed, navigate back
+    } else {
+      wx.navigateBack({
+      })
+    }
   },
 
   tapItem: function (e) {

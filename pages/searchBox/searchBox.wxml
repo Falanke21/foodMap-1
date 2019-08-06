@@ -4,12 +4,12 @@
   <navigator url="../shopPage/shopPage?dbid={{item.dbid}}" wx:for="{{rankedRes}}" wx:for-index="index" wx:for-item="item">
     <view class='searchBox-wrap'>
       <view class="searchBox-item">
-          <view class='searchBox-item-image'>
-            <image float='left' class='searchBox-item-image' mode='widthFix' src='{{img_url_list[item.type]}}'> </image>
-          </view>
-          <view class='searchBox-item-name'>
-            <text> {{item.shopName}}</text>
-          </view>
+        <view class='searchBox-item-image'>
+          <image float='left' class='searchBox-item-image' mode='widthFix' src='{{img_url_list[item.type]}}'> </image>
+        </view>
+        <view class='searchBox-item-name'>
+          <text> {{item.shopName}}</text>
+        </view>
 
         <view class='searchBox-item-descrb'>
           <text>{{item.type}} {{item.address}}\n{{item.hours}}</text>
