@@ -19,15 +19,14 @@
   <view class="wxSearch" style="'block';height:{{wxSearchData.view.seachHeight}}px;top:{{wxSearchData.view.barHeight}}px;">
 
   <view class="wxSearchInner">
-    <view class="wxSearchMindKey">
+    <!-- <view class="wxSearchMindKey">
       <view class="wxSearchMindKeyList">
         <block wx:for="{{wxSearchData.tipKeys}}">
           <view class="wxSearchMindKeyItem" bindtap="wxSearchKeyTap" data-key="{{item}}">{{item}}</view>
         </block>
       </view>
-    </view>
-
-
+    </view> -->
+    
     <view wx:if="{{wxSearchData.his[0]}}" class="wxSearchHistory" style="display:{{wxSearchData.value.length>0 ? 'none':'block'}}">
       <view class="wxSearchHistoryItem">
         <text class="wxSearchHistoryItemTitle">搜索记录</text>
