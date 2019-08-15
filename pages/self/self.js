@@ -134,7 +134,7 @@ Page({
       success: function (res) {
         // !!!二维码格式： 【年+月+日】+location id!!!
         // e.g. 201907065c7dbbaa0426979891e85e5d
-
+        //res.result = '20190806XTNnPxJZb-wmU_eI'
         var timestamp = Date.parse(new Date());
         var date = new Date(timestamp);
 
@@ -145,13 +145,10 @@ Page({
         //获取年份  
         var Y = date.getFullYear();
         //获取月份  
-        var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
-
-        console.log(location_id);
+        var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1)
         if (Y == year && M == month) {
           db.collection('location').where({ _id: location_id }).get({
             success(result) {
-
               try {
                 var location_index = -1;
                 for (var i = 0; i < that.data.scanRecord.length; i++) {
@@ -160,16 +157,19 @@ Page({
                   }
                 }
                 if (location_index != -1) {
-                  console.log(that.data.scanRecord[location_index].date.toLocaleDateString())
-                  console.log(new Date().toLocaleDateString());
                   if (that.data.scanRecord[location_index].date.toLocaleDateString() == new Date().toLocaleDateString()) { //看日期
                     if (that.data.scanRecord[location_index].entries <= 1) {
-                      console.log(location_id);
                       that.scan_success(location_id);
                       console.log("成功啦1");
-
+                      wx.showToast({
+                        title: '打卡' + result.data[0].shopName + '成功',
+                      })
                     } else {
                       console.log("exceed tries");
+                      wx.showToast({
+                        icon: 'loading',
+                        title: 'exceed tries',
+                      })
                     }
                     that.data.scanRecord[location_index].entries++;
                   } else {
@@ -177,36 +177,38 @@ Page({
                     that.data.scanRecord[location_index].entries = 1;
                     that.scan_success(location_id);
                     console.log("成功啦2");
+                    wx.showToast({
+                      title: '打卡' + result.data[0].shopName + '成功',
+                    })
                   }
                 } else {
                   that.data.scanRecord.push({ dbid: location_id, date: new Date(), entries: 1 })
                   that.scan_success(location_id);
-                  console.log(that.data.scanRecord);
+                  wx.showToast({
+                    title: '打卡' + result.data[0].shopName + '成功',
+                  })
                 }
 
-                wx.showToast({
-                  title: '打卡' + result.data[0].name + '成功',
-                })
                 
-                update_user();
-
+                that.update_user();
               }
               catch (e) {
+                console.log(e);
                 wx.showToast({
-                  title: '打卡失败',
+                  title: '打卡失败1',
                 })
               }
             },
             fail(result) {
               wx.showToast({
-                title: '打卡失败',
+                title: '打卡失败2',
               })
             }
           })
         }
         else {
           wx.showToast({
-            title: '打卡失败',
+            title: '打卡失败3',
           })
         }
         console.log("Scan successful")
@@ -226,10 +228,11 @@ Page({
   scan_success(location_id){
     this.gainExp();
     this.gainCredit();
-    this.addLike(location_id);
+    //this.addLike(location_id);
   },
 
   update_user(){
+    var that=this;
     var newExp = that.data.exp
     var newlvl = that.data.level
     var newScanRecord = that.data.scanRecord
@@ -248,7 +251,7 @@ Page({
             credit: newCredit
           },
           success: res => {
-
+            console.log("yeah!");
           },
           fail: err => {
             icon: 'none',
@@ -279,5 +282,5 @@ Page({
     wx.navigateTo({
       url: './MOCA/about',
     })
-  } 
+  }
 })
