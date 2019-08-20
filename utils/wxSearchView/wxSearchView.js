@@ -57,25 +57,23 @@ function init(that, hotKeys, tipKeys, searchFunction, goBackFunction) {
 function rankschrRes(keyword, resArr) {
   var arr = resArr;
   // Calculate editDist for elements
-  for (let i = 0; i < arr.length; i++) {
-    let name_dist = editDist(arr[i].shopName, keyword);
-    let type_dist = editDist(arr[i].type, keyword);
+  for (let item of arr) {
+    let name_dist = editDist(item.shopName, keyword);
+    let type_dist = editDist(item.type, keyword);
     if (name_dist < type_dist) {
-      arr[i].num_editDist = name_dist;
+      item.num_editDist = name_dist;
     } else {
-      arr[i].num_editDist = type_dist;
+      item.num_editDist = type_dist;
     }
-    // arr[i].editDist = editDist(arr[i].type + arr[i].name, keyword);
+    // item.editDist = editDist(arr[i].type + arr[i].name, keyword);
   }
-  arr.sort(comparator)
+  arr.sort((a, b) => 
+    a.num_editDist - b.num_editDist
+  )
+  
   __that.setData({
     rankedRes: arr
   })
-}
-
-// Compare two locations' edit distance
-function comparator(a, b) {
-  return a.num_editDist - b.num_editDist
 }
 
 // Edit distance between two string, case senseless
@@ -104,7 +102,7 @@ function editDist(word1, word2) {
 
 // 搜索框输入时候操作
 function wxSearchInput(e) {
-  var inputValue = e.detail.value.toLowerCase().trim();
+  var inputValue = e.detail.value.trim().toLowerCase();
   // 页面数据
   var temData = __that.data.wxSearchData;
   // 寻找提示值 
@@ -138,7 +136,7 @@ function wxSearchInput(e) {
     __that.setData({
       hiddenSchrRes: false
     });
-    for (var i = 0; i < __tipKeys.length; i++) {
+    for (let i = 0; i < __tipKeys.length; i++) {
       var mindKey = __tipKeys[i];
       // 包含字符串
       if (mindKey.indexOf(inputValue) != -1) {
@@ -249,8 +247,7 @@ function wxSearchAddHisKey(inputValue) {
       }
     })
   } else {
-    value = [];
-    value.push(inputValue);
+    value = [].push(inputValue);
     wx.setStorage({
       key: "wxSearchHisKeys",
       data: value,
