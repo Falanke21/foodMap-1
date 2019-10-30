@@ -4,8 +4,7 @@
 <image class="launch_img"src="/image/loading.png" mode="aspectFit"></image>
 
 <image class="load_gif"src="/image/preload.gif"
-  style="width: 70px; height: 70px;
-></image>
+  style="width: 70px; height: 70px;"></image>
 
 </view>
 
@@ -16,7 +15,6 @@
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
       <image class="load_gif"src="/image/preload.gif"
-  style="width: 70px; height: 70px;
-></image>
+  style="width: 70px; height: 70px;"></image>
     </block>
   </view>
