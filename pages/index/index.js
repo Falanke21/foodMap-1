@@ -47,7 +47,6 @@ Page({
       }
     })
     
-
     wx.cloud.callFunction({
       // 云函数名称
       name: 'getLocation',
@@ -59,7 +58,7 @@ Page({
           markers: mks
         })
       })
-      .catch(console.error);
+      .catch(console.error)
 
     var mapCtx = wx.createMapContext("myMap");
     console.log("MAPCTXXXXXX====" + mapCtx)
@@ -384,8 +383,9 @@ Page({
 /**移动到中心点 */
   moveToLocation: function () {
     var that = this;
-    wx.chooseLocation({
+    wx.getLocation({
       success: function (res) {
+        console.log(res)
         that.setData({
           longitude: res.longitude,
           latitude: res.latitude,
