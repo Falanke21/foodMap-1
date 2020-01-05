@@ -399,16 +399,16 @@ Page({
   },
 
 
-  regionchange(e) {
-    // 地图发生变化的时候，获取中间点，也就是选择的位置
-    if (e.type == 'end') {
-      this.getLngLat()
-      console.log("RC")
-      this.getMapScale()
-      //console.log('scale is ===' + this.data.scale)
-    }
-    this.displayCallout()
-  },
+  // regionchange(e) {
+  //   // 地图发生变化的时候，获取中间点，也就是选择的位置
+  //   if (e.type == 'end') {
+  //     this.getLngLat()
+  //     console.log("RC")
+  //     this.getMapScale()
+  //     //console.log('scale is ===' + this.data.scale)
+  //   }
+  //   this.displayCallout()
+  // },
 
    controltap: function (e) {
     console.log('map control id: ' + e.controlId)
