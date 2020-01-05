@@ -111,8 +111,8 @@ Page({
   init_marker: function (lis) {
     var mks = []
     //获取并设置当天云储存的location icon path
-    var db_url = this.set_url();
-    
+    this.set_url();
+    var db_url = wx.getStorageSync('loc_url')
     for(var i = 0; i < lis.length; i++) {
       var location_type = lis[i].type
         mks.push({
